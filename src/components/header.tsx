@@ -73,12 +73,13 @@ const Header = () => {
             {navItems.map((item) => (
               <div key={item.id} className="relative">
                 <a 
-                  href={item.href} 
                   className={`text-black font-medium hover:text-gray-700 ${activePage === item.id ? 'font-bold' : ''}`}
                   onClick={(e) => {
                     e.preventDefault();
                     setActivePage(item.id);
                     setIsMenuOpen(false);
+                    navigate(item.href);
+                    setActivePage(item.id);
                   }}
                 >
                   {item.name}
