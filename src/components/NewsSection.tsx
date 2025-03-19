@@ -6,7 +6,7 @@ const NewsEventsSection = () => {
       {/* Heading */}
       <div className="max-w-6xl mx-auto mb-12">
         <h2 className="text-4xl font-bold text-center">
-          News & <span className="text-blue-500">Events</span>
+          News & <span className="text-blue-400">Events</span>
         </h2>
       </div>
 
@@ -56,7 +56,7 @@ const NewsEventsSection = () => {
             <div className="text-xs text-gray-700 mb-2 ">
               Lorem ipsum dolor sit amet, consectetur adipiscing elit...
             </div>
-            <div className="text-xs text-blue-500 font-medium hover:underline cursor-pointer">
+            <div className="text-xs text-blue-400 font-medium hover:underline cursor-pointer">
               read more
             </div>
             </div>
@@ -76,7 +76,7 @@ const NewsEventsSection = () => {
             <div className="text-xs text-gray-700 mb-2 ">
               Lorem ipsum dolor sit amet, consectetur adipiscing elit...
             </div>
-            <div className="text-xs text-blue-500 font-medium hover:underline cursor-pointer">
+            <div className="text-xs text-blue-400 font-medium hover:underline cursor-pointer">
               read more
             </div>
             </div>
@@ -96,7 +96,7 @@ const NewsEventsSection = () => {
             <div className="text-xs text-gray-700 mb-2 ">
               Lorem ipsum dolor sit amet, consectetur adipiscing elit...
             </div>
-            <div className="text-xs text-blue-500 font-medium hover:underline cursor-pointer">
+            <div className="text-xs text-blue-400 font-medium hover:underline cursor-pointer">
               read more
             </div>
             </div>

@@ -1,19 +1,28 @@
 import React from "react";
 import logo from "../assets/images/home/footer_logo.png";
-
+import footer1 from "../assets/images/footer1.png";
+import footer2 from "../assets/images/footer2.png";
+import footer3 from "../assets/images/footer3.png";
+import leftfooterTriangle from "../assets/images/triangles/leftfooterTriangle.png";
+import footerRightTriangle from "../assets/images/triangles/footerRightTriangle.png";
 // Triangle component that can be reused
 const Triangle = ({ className }) => {
   return (
-    <div className={`absolute ${className}`}>
-      <svg
-        width="100"
-        height="100"
-        viewBox="0 0 100 100"
-        fill="none"
-        xmlns="http://www.w3.org/2000/svg"
-      >
-        <path d="M0 0L100 0L0 100L0 0Z" fill="#2196F3" />
-      </svg>
+    <div className={`overflow-hidden z-50 ${className}`}>
+      <img
+        src={leftfooterTriangle}
+        className="h-36 w-auto drop-shadow-2xl"
+      ></img>
+    </div>
+  );
+};
+const Triangle2 = ({ className }) => {
+  return (
+    <div className={`z-50 ${className}`}>
+      <img
+        src={footerRightTriangle}
+        className="h-48 w-auto drop-shadow-2xl"
+      ></img>
     </div>
   );
 };
@@ -21,6 +30,7 @@ const Triangle = ({ className }) => {
 const Footer = () => {
   return (
     <div className="relative bg-gray-200 mt-auto">
+      <Triangle2 className="absolute top-0 right-0 -translate-y-1/2 " />
       {/* Diagonal cut at the top */}
       <div
         className="absolute top-0 left-0 w-full h-20 bg-white"
@@ -53,7 +63,7 @@ const Footer = () => {
             </p>
 
             <div className="flex space-x-3">
-              <a href="#" className="text-gray-500 hover:text-blue-500">
+              <a href="#" className="text-gray-500 hover:text-blue-400">
                 <span className="sr-only">Facebook</span>
                 <svg
                   className="h-5 w-5"
@@ -67,7 +77,7 @@ const Footer = () => {
                   />
                 </svg>
               </a>
-              <a href="#" className="text-gray-500 hover:text-blue-500">
+              <a href="#" className="text-gray-500 hover:text-blue-400">
                 <span className="sr-only">Twitter</span>
                 <svg
                   className="h-5 w-5"
@@ -77,7 +87,7 @@ const Footer = () => {
                   <path d="M8.29 20.251c7.547 0 11.675-6.253 11.675-11.675 0-.178 0-.355-.012-.53A8.348 8.348 0 0022 5.92a8.19 8.19 0 01-2.357.646 4.118 4.118 0 001.804-2.27 8.224 8.224 0 01-2.605.996 4.107 4.107 0 00-6.993 3.743 11.65 11.65 0 01-8.457-4.287 4.106 4.106 0 001.27 5.477A4.072 4.072 0 012.8 9.713v.052a4.105 4.105 0 003.292 4.022 4.095 4.095 0 01-1.853.07 4.108 4.108 0 003.834 2.85A8.233 8.233 0 012 18.407a11.616 11.616 0 006.29 1.84" />
                 </svg>
               </a>
-              <a href="#" className="text-gray-500 hover:text-blue-500">
+              <a href="#" className="text-gray-500 hover:text-blue-400">
                 <span className="sr-only">Instagram</span>
                 <svg
                   className="h-5 w-5"
@@ -91,7 +101,7 @@ const Footer = () => {
                   />
                 </svg>
               </a>
-              <a href="#" className="text-gray-500 hover:text-blue-500">
+              <a href="#" className="text-gray-500 hover:text-blue-400">
                 <span className="sr-only">LinkedIn</span>
                 <svg
                   className="h-5 w-5"
@@ -102,21 +112,11 @@ const Footer = () => {
                 </svg>
               </a>
             </div>
-            <div className="mt-10 pt-6">
-              <div className="flex justify-start items-center gap-6">
-                <div className="h-10 px-4 bg-white border border-gray-200 rounded flex items-center justify-center shadow-sm">
-                  <div className="text-xs font-semibold text-yellow-500">
-                    Golden Visa
-                  </div>
-                </div>
-                <div className="h-10 px-4 bg-white border border-gray-200 rounded flex items-center justify-center shadow-sm">
-                  <div className="text-xs font-semibold">Dubai Investment</div>
-                </div>
-                <div className="h-10 px-4 bg-white border border-gray-200 rounded flex items-center justify-center shadow-sm">
-                  <div className="text-xs font-semibold text-blue-500">
-                    Digital Dubai
-                  </div>
-                </div>
+            <div className="mt-4 pt-6">
+              <div className="flex justify-start items-center gap-8 flex-wrap md:flex-nowrap ">
+                <img src={footer1} className="h-8 md:h-10" />
+                <img src={footer2} className="h-8 md:h-10" />
+                <img src={footer3} className="h-8 md:h-10" />
               </div>
             </div>
           </div>
@@ -128,7 +128,7 @@ const Footer = () => {
               <li>
                 <a
                   href="#"
-                  className="text-gray-600 hover:text-blue-500 text-sm"
+                  className="text-gray-600 hover:text-blue-400 text-sm"
                 >
                   Mainland
                 </a>
@@ -136,7 +136,7 @@ const Footer = () => {
               <li>
                 <a
                   href="#"
-                  className="text-gray-600 hover:text-blue-500 text-sm"
+                  className="text-gray-600 hover:text-blue-400 text-sm"
                 >
                   Freezone
                 </a>
@@ -144,7 +144,7 @@ const Footer = () => {
               <li>
                 <a
                   href="#"
-                  className="text-gray-600 hover:text-blue-500 text-sm"
+                  className="text-gray-600 hover:text-blue-400 text-sm"
                 >
                   Offshore
                 </a>
@@ -152,7 +152,7 @@ const Footer = () => {
               <li>
                 <a
                   href="#"
-                  className="text-gray-600 hover:text-blue-500 text-sm"
+                  className="text-gray-600 hover:text-blue-400 text-sm"
                 >
                   Business Trade License
                 </a>
@@ -167,7 +167,7 @@ const Footer = () => {
               <li>
                 <a
                   href="#"
-                  className="text-gray-600 hover:text-blue-500 text-sm"
+                  className="text-gray-600 hover:text-blue-400 text-sm"
                 >
                   Visa Services in Dubai
                 </a>
@@ -175,7 +175,7 @@ const Footer = () => {
               <li>
                 <a
                   href="#"
-                  className="text-gray-600 hover:text-blue-500 text-sm"
+                  className="text-gray-600 hover:text-blue-400 text-sm"
                 >
                   Family Visa Assistance
                 </a>
@@ -183,7 +183,7 @@ const Footer = () => {
               <li>
                 <a
                   href="#"
-                  className="text-gray-600 hover:text-blue-500 text-sm"
+                  className="text-gray-600 hover:text-blue-400 text-sm"
                 >
                   Golden Visa
                 </a>
@@ -191,7 +191,7 @@ const Footer = () => {
               <li>
                 <a
                   href="#"
-                  className="text-gray-600 hover:text-blue-500 text-sm"
+                  className="text-gray-600 hover:text-blue-400 text-sm"
                 >
                   PRO Services in Dubai
                 </a>
@@ -199,7 +199,7 @@ const Footer = () => {
               <li>
                 <a
                   href="#"
-                  className="text-gray-600 hover:text-blue-500 text-sm"
+                  className="text-gray-600 hover:text-blue-400 text-sm"
                 >
                   Bank Account Opening in Dubai
                 </a>
@@ -214,7 +214,7 @@ const Footer = () => {
               <li>
                 <a
                   href="#"
-                  className="text-gray-600 hover:text-blue-500 text-sm"
+                  className="text-gray-600 hover:text-blue-400 text-sm"
                 >
                   About Us
                 </a>
@@ -222,7 +222,7 @@ const Footer = () => {
               <li>
                 <a
                   href="#"
-                  className="text-gray-600 hover:text-blue-500 text-sm"
+                  className="text-gray-600 hover:text-blue-400 text-sm"
                 >
                   Partners
                 </a>
@@ -230,7 +230,7 @@ const Footer = () => {
               <li>
                 <a
                   href="#"
-                  className="text-gray-600 hover:text-blue-500 text-sm"
+                  className="text-gray-600 hover:text-blue-400 text-sm"
                 >
                   Privacy policy
                 </a>
@@ -238,7 +238,7 @@ const Footer = () => {
               <li>
                 <a
                   href="#"
-                  className="text-gray-600 hover:text-blue-500 text-sm"
+                  className="text-gray-600 hover:text-blue-400 text-sm"
                 >
                   Terms and Conditions
                 </a>
@@ -246,7 +246,7 @@ const Footer = () => {
               <li>
                 <a
                   href="tel:+97148241725"
-                  className="text-gray-600 hover:text-blue-500 text-sm"
+                  className="text-gray-600 hover:text-blue-400 text-sm"
                 >
                   +971 48 241725
                 </a>
@@ -254,7 +254,7 @@ const Footer = () => {
               <li>
                 <a
                   href="tel:+97154273740"
-                  className="text-gray-600 hover:text-blue-500 text-sm"
+                  className="text-gray-600 hover:text-blue-400 text-sm"
                 >
                   +971 54 2737405
                 </a>
@@ -262,7 +262,7 @@ const Footer = () => {
               <li>
                 <a
                   href="mailto:info@hagroup.ae"
-                  className="text-gray-600 hover:text-blue-500 text-sm"
+                  className="text-gray-600 hover:text-blue-400 text-sm"
                 >
                   info@hagroup.ae
                 </a>
@@ -271,6 +271,7 @@ const Footer = () => {
           </div>
         </div>
       </div>
+      <Triangle className="-mt-16" />
     </div>
   );
 };
