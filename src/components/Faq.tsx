@@ -54,7 +54,7 @@ const FAQAccordion = () => {
     <div className="bg-white py-16 px-6">
       <div className="max-w-6xl mx-auto mb-12">
         <h2 className="text-4xl font-bold text-center">
-          Frequently Asked <span className="text-blue-500">Question</span>
+          Frequently Asked <span className="text-blue-400">Question</span>
         </h2>
       </div>
       <div className="space-y-4 max-w-3xl justify-center mx-auto">
@@ -62,7 +62,7 @@ const FAQAccordion = () => {
           <div 
             key={item.id} 
             className={`border rounded-lg overflow-hidden transition-all duration-300 ease-in-out ${
-              activeItem === item.id ? 'border-l-blue-500 border-0 border-l-8 shadow-xl' : 'border-gray-200'
+              activeItem === item.id ? 'border-l-blue-400 border-0 border-l-8 shadow-xl' : 'border-gray-200'
             }`}
           >
             <button
@@ -70,7 +70,7 @@ const FAQAccordion = () => {
               onClick={() => handleClick(item.id)}
             >
               <span className={`font-medium transition-colors duration-300 ${
-                activeItem === item.id ? 'text-blue-500' : 'text-gray-800'
+                activeItem === item.id ? 'text-blue-400' : 'text-gray-800'
               }`}>
                 {item.question}
               </span>

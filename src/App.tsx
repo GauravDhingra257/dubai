@@ -4,6 +4,7 @@ import './App.css'
 import Header from './components/header'
 import Footer from './components/footer'
 import HeroSection from './pages/Home'
+import AboutPage from './pages/About'
 // Import other pages as needed
 
 function App() {
@@ -14,6 +15,7 @@ function App() {
         <main className="flex-grow">
           <Routes>
             <Route path="/" element={<HeroSection />} />
+            <Route path="/aboutUs" element={<AboutPage />} />
             {/* Add more routes as needed */}
             {/* Example:
             <Route path="/about" element={<About />} />

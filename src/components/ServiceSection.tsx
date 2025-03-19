@@ -21,7 +21,7 @@ const ServicesSection = () => {
     <div className="py-10 px-6">
       {/* Services Section */}
       <h2 className="text-3xl font-semibold text-center">
-        Main <span className="text-blue-500">Services</span>
+        Main <span className="text-blue-400">Services</span>
       </h2>
 
       <div className="mt-8  max-w-6xl grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6 justify-items-center mx-auto ">
@@ -46,7 +46,7 @@ const ServicesSection = () => {
             </div>
 
             {/* Hover effect */}
-            <div className="absolute inset-0 bg-blue-500/20 opacity-0 group-hover:opacity-100 transition-opacity duration-300 rounded-lg" />
+            <div className="absolute inset-0 bg-blue-400/20 opacity-0 group-hover:opacity-100 transition-opacity duration-300 rounded-lg" />
           </div>
         ))}
       </div>
@@ -199,7 +199,7 @@ export function Testimonials() {
       {/* Header in Grid */}
       <div className="grid grid-cols-1 lg:grid-cols-3 gap-8 items-center max-w-6xl mx-auto text-center lg:text-left">
         <h2 className="text-3xl font-semibold">
-          What our <span className="text-blue-500">Clients Say</span>
+          What our <span className="text-blue-400">Clients Say</span>
         </h2>
         <p className="text-gray-600 col-span-2">
           Golden Visa Dubai allows people to broaden their horizons and become
@@ -247,7 +247,7 @@ export function Testimonials() {
               <p className="mt-4 text-gray-700">{testimonial.feedback}</p>
 
               {/* Read More */}
-              <a href="#" className="text-blue-500 mt-4 block font-semibold">
+              <a href="#" className="text-blue-400 mt-4 block font-semibold">
                 Read More
               </a>
             </div>
@@ -290,7 +290,7 @@ export function ValueAddedServices() {
     <div className="py-16 px-6">
       {/* Title */}
       <h2 className="text-3xl font-semibold text-center">
-        Value Added <span className="text-blue-500">Services</span>
+        Value Added <span className="text-blue-400">Services</span>
       </h2>
 
       {/* Services Grid */}
@@ -348,7 +348,7 @@ export function PartnersSection(){
                 {/* Partners Section */}
                 <div className="py-10 text-center">
                 <h2 className="text-3xl font-semibold">
-                  Our <span className="text-blue-500">Partner</span>
+                  Our <span className="text-blue-400">Partner</span>
                 </h2>
       
                 {/* Scrolling Logos */}
@@ -401,17 +401,17 @@ export const VideoSection=()=>{
       {/* Text Content */}
       <div className="md:absolute z-10 p-8 md:p-12 bottom-10 left-10 rounded-lg max-w-lg">
         <h1 className="text-3xl md:text-4xl font-bold text-black">
-          HA<span className="text-blue-500">Group</span> Transforming
+          HA<span className="text-blue-400">Group</span> Transforming
           <br />
-          <span className="text-blue-500">Visions</span> into{" "}
-          <span className="text-blue-500">Ventures</span>
+          <span className="text-blue-400">Visions</span> into{" "}
+          <span className="text-blue-400">Ventures</span>
         </h1>
 
         <div className="mt-4 flex gap-4">
           <button className="px-6 py-2 text-white rounded-lg bg-gradient-to-r from-[#2CAFF3] to-[#1975BB] hover:cursor-pointer">
             Get Started
           </button>
-          <button className="px-6 py-2 bg-white text-blue-500 border border-blue-500 rounded-lg hover:cursor-pointer">
+          <button className="px-6 py-2 bg-white text-blue-400 border border-blue-400 rounded-lg hover:cursor-pointer">
             Connect over a Call
           </button>
         </div>
