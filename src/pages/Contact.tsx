@@ -2,6 +2,7 @@ import React from "react";
 import person1 from "../assets/images/person1.jpg";
 import person2 from "../assets/images/person2.jpg";
 import BusinessGoalsSection from "../components/BusinessGoalsSection";
+import ContactSection from '../components/ContactUsComponents'
 
 const ContactPage: React.FC = () => {
   return (
@@ -124,3 +125,13 @@ const ContactPage: React.FC = () => {
 };
 
 export default ContactPage;
+
+
+
+
+export const ContactUs = () => {
+  return (
+    <div><ContactSection/></div>
+  )
+}
+

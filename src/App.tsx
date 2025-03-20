@@ -11,6 +11,10 @@ import BuisnessService from "./pages/MainServices/BusinessSetup";
 import CompanyLiquidation from "./pages/MainServices/CompanyLiquidation";
 import ContactPage from "./pages/Contact";
 import CalculateSetup from "./pages/MainServices/CalculateSetup";
+import BlogPage from "./pages/Blog";
+import { ContactUs } from "./pages/Contact";
+import BusinessBanner from "./components/BookApointmentComp";
+
 // Import other pages as needed
 
 function App() {
@@ -29,6 +33,10 @@ function App() {
             <Route path="/liquidation" element={<CompanyLiquidation />} />
             <Route path="/contact" element={<ContactPage />} />
             <Route path="/calculate" element={<CalculateSetup />} />
+            <Route path="/BuisnessService" element={<BuisnessService />} />
+            <Route path="/Blog" element={<BlogPage />} />
+            <Route path="/contactus" element={<ContactUs />} />
+            <Route path="/book-appointment" element={<BusinessBanner />} />
             {/* Add more routes as needed */}
             {/* Example:
             

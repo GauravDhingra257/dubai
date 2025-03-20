@@ -13,7 +13,7 @@ const Header = () => {
   const navItems = [
     { name: "Business", href: "#business", id: "business" },
     { name: "Services", href: "#services", id: "services" },
-    { name: "Blog", href: "#blog", id: "blog" },
+    { name: "Blog", href: "blog", id: "blog" },
     { name: "About us", href: "aboutUs", id: "about" },
     { name: "Contact us", href: "#contact", id: "contact" },
   ];
@@ -53,7 +53,7 @@ const Header = () => {
               )}
             </div>
           ))}
-          <button className="bg-red-600 text-white px-4 py-2 rounded font-medium hover:bg-red-700 transition">
+          <button className="bg-red-600 text-white px-4 py-2 rounded font-medium hover:bg-red-700 transition hover:cursor-pointer" onClick={() => navigate('/book-appointment')}>
             Book Appointment
           </button>
         </nav>
@@ -73,19 +73,20 @@ const Header = () => {
             {navItems.map((item) => (
               <div key={item.id} className="relative">
                 <a 
-                  href={item.href} 
                   className={`text-black font-medium hover:text-gray-700 ${activePage === item.id ? 'font-bold' : ''}`}
                   onClick={(e) => {
                     e.preventDefault();
                     setActivePage(item.id);
                     setIsMenuOpen(false);
+                    navigate(item.href);
+                    setActivePage(item.id);
                   }}
                 >
                   {item.name}
                 </a>
               </div>
             ))}
-            <button className="bg-red-600 text-white px-4 py-2 rounded font-medium hover:bg-red-700 transition w-full">
+            <button className="bg-red-600 text-white px-4 py-2 rounded font-medium hover:bg-red-700 transition w-full hover:cursor-pointer" onClick={() => navigate('/book-appointment')}>
               Book Appointment
             </button>
           </nav>

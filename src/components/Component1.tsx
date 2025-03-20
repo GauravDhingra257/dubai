@@ -81,10 +81,16 @@ export const HeroSection: React.FC<HeroSectionProps> = ({
           imageFirst ? "md:flex-row" : "md:flex-row-reverse"
         } items-center justify-between gap-8 w-full`}
       >
-        <div className="flex-1 space-y-6">
-          <h1 className="text-3xl md:text-4xl lg:text-5xl font-bold">
-            <span className="text-gray-900">{title}</span>{" "}
-            <span className="text-blue-500">{highlightText}</span>
+        <div className="flex-1 space-y-6 transform transition-all duration-500 hover:translate-y-1">
+          <h1 className="text-3xl md:text-4xl lg:text-5xl font-bold group">
+            <span className="inline-block transition-all duration-300 hover:text-gray-800 hover:scale-105">
+              {title}
+            </span>{" "}
+            <span className="inline-block text-blue-600 transition-all duration-300 hover:text-blue-400 hover:scale-105 relative">
+              {highlightText}
+              <span className="absolute -bottom-1 left-0 w-0 h-0.5 bg-blue-400 group-hover:w-full transition-all duration-500"></span>
+            </span>
+
           </h1>
           <p className="text-lg text-gray-700 max-w-2xl animate-fade-in">
             {description}
@@ -149,8 +155,14 @@ export const ContentSection: React.FC<ContentSectionProps> = ({
           </div>
         </div>
 
-        <div className="flex-1 space-y-4 animate-fade-in-up">
-          <h2 className="text-2xl md:text-3xl font-bold text-gray-800">
+
+        <div className="flex-1 space-y-4 transform transition-all duration-500 hover:translate-y-1 animate-fade-in-up">
+          <h2
+            className="text-2xl md:text-3xl font-bold text-gray-800 relative inline-block 
+            after:content-[''] after:absolute after:-bottom-1 after:left-0 after:w-0 after:h-0.5 
+            after:bg-blue-400 hover:after:w-full after:transition-all after:duration-500 
+            transition-all duration-300 hover:text-blue-700"
+          >
             {title}
           </h2>
           <p className="text-sm md:text-base text-gray-600">{description}</p>
