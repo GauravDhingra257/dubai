@@ -1,10 +1,10 @@
-import { useState } from 'react'
-import { BrowserRouter as Router, Routes, Route } from 'react-router-dom'
-import './App.css'
-import Header from './components/header'
-import Footer from './components/footer'
-import HeroSection from './pages/Home'
-import AboutPage from './pages/About'
+import { useState } from "react";
+import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
+import "./App.css";
+import Header from "./components/header";
+import Footer from "./components/footer";
+import HeroSection from "./pages/Home";
+import AboutPage from "./pages/About";
 // Import other pages as needed
 
 function App() {
@@ -18,6 +18,7 @@ function App() {
             <Route path="/aboutUs" element={<AboutPage />} />
             {/* Add more routes as needed */}
             {/* Example:
+            
             <Route path="/about" element={<About />} />
             <Route path="/services" element={<Services />} />
             <Route path="/contact" element={<Contact />} /> 
@@ -27,7 +28,7 @@ function App() {
         <Footer />
       </div>
     </Router>
-  )
+  );
 }
 
-export default App
+export default App;
