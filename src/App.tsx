@@ -6,6 +6,7 @@ import Footer from "./components/footer";
 import HeroSection from "./pages/Home";
 import AboutPage from "./pages/About";
 import BuisnessService from "./pages/Buisness";
+import BlogPage from "./pages/Blog";
 // Import other pages as needed
 
 function App() {
@@ -18,6 +19,7 @@ function App() {
             <Route path="/" element={<HeroSection />} />
             <Route path="/aboutUs" element={<AboutPage />} />
             <Route path="/BuisnessService" element={<BuisnessService />} />
+            <Route path="/Blog" element={<BlogPage />} />
             {/* Add more routes as needed */}
             {/* Example:
             
