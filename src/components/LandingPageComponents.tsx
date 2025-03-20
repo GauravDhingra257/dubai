@@ -21,8 +21,10 @@ import AboutSectionTriangle from "../assets/images/triangles/AboutSectionTriangl
 import AboutSectionRightTriangle from "../assets/images/triangles/AboutSectionRightTriangle.png";
 import LeadershipTriangle from "../assets/images/triangles/LeadershipTriangle.png";
 import ClientTriangle from "../assets/images/triangles/ClientTriangle.png";
+import { useNavigate } from "react-router-dom";
 
 const MainServices = () => {
+  const navigate = useNavigate()
   return (
     <div className="py-10 px-6">
       {/* Services Section */}
@@ -32,13 +34,14 @@ const MainServices = () => {
 
       <div className="mt-8  max-w-6xl grid grid-cols-2 md:grid-cols-4 gap-6 justify-items-center mx-auto ">
         {services.map((service, index) => (
-          <div key={index} className="relative group overflow-hidden">
+          <div key={index} className="relative group overflow-hidden hover:cursor-pointer" onClick={() => navigate(service.path)}>
             {/* Image container with gradient overlay */}
             <div className="relative w-full h-72 md:h-80">
               <img
                 src={service.image}
                 alt={service.title}
                 className="object-cover w-full h-full rounded-lg"
+                
               />
               {/* Gradient overlay */}
               <div className="absolute inset-0 bg-gradient-to-t from-black via-black/60 to-transparent rounded-lg" />

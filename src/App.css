@@ -1,4 +1,14 @@
+@import url('https://fonts.googleapis.com/css2?family=Lora:wght@400;500;600;700&display=swap');
 @import "tailwindcss";
+/* Add global font family */
+:root {
+  font-family: 'Lora';
+}
+
+/* Make sure all text elements inherit the font */
+body, h1, h2, h3, h4, h5, h6, p, span, div, button, input, textarea {
+  font-family: 'Lora';
+}
 @keyframes marquee {
     0% { transform: translateX(100%); }
     100% { transform: translateX(-100%); }

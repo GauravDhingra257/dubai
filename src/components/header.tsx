@@ -11,11 +11,11 @@ const Header = () => {
   };
 
   const navItems = [
-    { name: "Business", href: "#business", id: "business" },
-    { name: "Services", href: "#services", id: "services" },
+    { name: "Business", href: "buisness", id: "business" },
+    { name: "Services", href: "mainservices", id: "services" },
     { name: "Blog", href: "blog", id: "blog" },
     { name: "About us", href: "aboutUs", id: "about" },
-    { name: "Contact us", href: "#contact", id: "contact" },
+    { name: "Contact us", href: "contact", id: "contact" },
   ];
 
   return (

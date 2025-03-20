@@ -198,11 +198,56 @@ export const sampleCaseStudies = [
 
   export const patners = [partner1, partner2, partner3, partner4, partner5];
 export const services = [
-  { title: "Business Setup", image: BusinessSetup },
-  { title: "Visa Services", image: VisaServices },
-  { title: "Bank Account", image: BankAccount },
+  { title: "Business Setup", image: BusinessSetup ,path:'buisness'},
+  { title: "Visa Services", image: VisaServices,path:'visaservices' },
+  { title: "Bank Account", image: BankAccount ,path:'bankservices'},
   {
     title: "Company Liquidation",
     image: CompanyLiquidation,
+    path:'liquidation'
   },
+];
+
+interface BlogPost {
+  id: number;
+  image: string;
+  title: string;
+  date: string;
+  description: string;
+  alt: string;
+}
+
+export const blogPosts: BlogPost[] = [
+  {
+    id: 1,
+    image: "https://images.unsplash.com/photo-1552664730-d307ca884978",
+    title: "IEEE ComSec Technology Blog",
+    date: "Mar 03, 2024",
+    description: "HA Group, an innovative 4G/5G System on a Chip (SoC) semiconductor startup, had several defining showcases at MWC 2024 as well partnership announcements which included:",
+    alt: "Meeting"
+  },
+  {
+    id: 2,
+    image: "https://images.unsplash.com/photo-1486406146926-c627a92ad1ab",
+    title: "IEEE ComSec Technology Blog",
+    date: "Mar 03, 2024",
+    description: "HA Group, an innovative 4G/5G System on a Chip (SoC) semiconductor startup, had several defining showcases at MWC 2024 as well partnership announcements which included:",
+    alt: "Buildings"
+  },
+  {
+    id: 3,
+    image: "https://images.unsplash.com/photo-1522071820081-009f0129c71c",
+    title: "IEEE ComSec Technology Blog",
+    date: "Mar 03, 2024",
+    description: "HA Group, an innovative 4G/5G System on a Chip (SoC) semiconductor startup, had several defining showcases at MWC 2024 as well partnership announcements which included:",
+    alt: "Team meeting"
+  },
+  {
+    id: 4,
+    image: "https://images.unsplash.com/photo-1497215842964-222b430dc094",
+    title: "IEEE ComSec Technology Blog",
+    date: "Mar 03, 2024",
+    description: "HA Group, an innovative 4G/5G System on a Chip (SoC) semiconductor startup, had several defining showcases at MWC 2024 as well partnership announcements which included:",
+    alt: "Office"
+  }
 ];
