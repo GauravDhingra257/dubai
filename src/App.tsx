@@ -5,6 +5,7 @@ import Header from "./components/header";
 import Footer from "./components/footer";
 import HeroSection from "./pages/Home";
 import AboutPage from "./pages/About";
+import BuisnessService from "./pages/Buisness";
 // Import other pages as needed
 
 function App() {
@@ -16,6 +17,7 @@ function App() {
           <Routes>
             <Route path="/" element={<HeroSection />} />
             <Route path="/aboutUs" element={<AboutPage />} />
+            <Route path="/BuisnessService" element={<BuisnessService />} />
             {/* Add more routes as needed */}
             {/* Example:
             

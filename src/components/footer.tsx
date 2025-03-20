@@ -11,7 +11,7 @@ const Triangle = ({ className }) => {
     <div className={`overflow-hidden z-50 ${className}`}>
       <img
         src={leftfooterTriangle}
-        className="h-36 w-auto drop-shadow-2xl"
+        className="h-48 w-auto drop-shadow-2xl"
       ></img>
     </div>
   );
@@ -21,7 +21,7 @@ const Triangle2 = ({ className }) => {
     <div className={`z-50 ${className}`}>
       <img
         src={footerRightTriangle}
-        className="h-48 w-auto drop-shadow-2xl"
+        className="h-56 w-auto drop-shadow-2xl"
       ></img>
     </div>
   );
@@ -33,21 +33,12 @@ const Footer = () => {
       <Triangle2 className="absolute top-0 right-0 -translate-y-1/2 " />
       {/* Diagonal cut at the top */}
       <div
-        className="absolute top-0 left-0 w-full h-20 bg-white"
+        className="absolute top-0 left-0 w-full h-24 bg-white"
         style={{ clipPath: "polygon(0 0, 0 100%, 100% 0)" }}
       ></div>
 
-      {/* Top right triangle */}
-      {/* <Triangle className="top-0 right-0 w-24 h-24 -mt-2 -mr-8 transform rotate-90" /> */}
 
-      {/* Bottom left triangle */}
-      {/* <Triangle className="bottom-0 left-0 w-32 h-32 -mb-12 -ml-10" /> */}
-
-      {/* Diagonal cut at the bottom */}
-
-      <div className="absolute bottom-0 left-0 w-full h-24 bg-white opacity-0"></div>
-
-      <div className="container mx-auto px-6 py-16 pt-24">
+      <div className="container mx-auto px-6 py-16 pt-28">
         <div className="flex flex-col md:flex-row justify-between items-start">
           {/* Logo and Company Info */}
           <div className="mb-8 md:mb-0 md:w-1/4 mx-4">

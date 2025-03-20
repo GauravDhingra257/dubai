@@ -85,9 +85,9 @@ export const HeroSection: React.FC<HeroSectionProps> = ({
             <span className="inline-block transition-all duration-300 hover:text-gray-800 hover:scale-105">
               {title}
             </span>{" "}
-            <span className="inline-block text-blue-600 transition-all duration-300 hover:text-blue-500 hover:scale-105 relative">
+            <span className="inline-block text-blue-600 transition-all duration-300 hover:text-blue-400 hover:scale-105 relative">
               {highlightText}
-              <span className="absolute -bottom-1 left-0 w-0 h-0.5 bg-blue-500 group-hover:w-full transition-all duration-500"></span>
+              <span className="absolute -bottom-1 left-0 w-0 h-0.5 bg-blue-400 group-hover:w-full transition-all duration-500"></span>
             </span>
           </h1>
           <p className="text-lg text-gray-700 max-w-2xl transition-all duration-300 hover:text-gray-900 animate-fade-in">
@@ -160,7 +160,7 @@ export const ContentSection: React.FC<ContentSectionProps> = ({
           <h2
             className="text-2xl md:text-3xl font-bold text-gray-800 relative inline-block 
             after:content-[''] after:absolute after:-bottom-1 after:left-0 after:w-0 after:h-0.5 
-            after:bg-blue-500 hover:after:w-full after:transition-all after:duration-500 
+            after:bg-blue-400 hover:after:w-full after:transition-all after:duration-500 
             transition-all duration-300 hover:text-blue-700"
           >
             {title}

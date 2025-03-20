@@ -36,13 +36,13 @@ export const WhyHAGroupSection = () => {
           We prioritise our people, ensuring they are nurtured at their fullest potential to contribute seamlessly to our vision!
         </p>
         
-        <div className="grid grid-cols-1 md:grid-cols-3 gap-8 relative">
+        <div className="grid grid-cols-1 md:grid-cols-3 gap-4 relative">
           {/* Vertical Dividers */}
           <div className="hidden md:block absolute left-1/3 top-0 bottom-0 w-px bg-gradient-to-b from-transparent via-gray-300 to-transparent" />
           <div className="hidden md:block absolute left-2/3 top-0 bottom-0 w-px bg-gradient-to-b from-transparent via-gray-300 to-transparent" />
           
           {/* Card 1 */}
-          <div className="flex flex-col">
+          <div className="flex flex-col p-3 justify-center items-center">
             <div className="flex items-start mb-2">
               <div className="mr-2">
                 <svg xmlns="http://www.w3.org/2000/svg" className="h-6 w-6 text-blue-400" fill="none" viewBox="0 0 24 24" stroke="currentColor">
@@ -57,7 +57,7 @@ export const WhyHAGroupSection = () => {
           </div>
   
           {/* Card 2 */}
-          <div className="flex flex-col">
+          <div className="flex flex-col p-3 justify-center items-center">
             <div className="flex items-start mb-2">
               <div className="mr-2">
                 <svg xmlns="http://www.w3.org/2000/svg" className="h-6 w-6 text-blue-400" fill="none" viewBox="0 0 24 24" stroke="currentColor">
@@ -72,7 +72,7 @@ export const WhyHAGroupSection = () => {
           </div>
   
           {/* Card 3 */}
-          <div className="flex flex-col">
+          <div className="flex flex-col p-3 justify-center items-center">
             <div className="flex items-start mb-2">
               <div className="mr-2">
                 <svg xmlns="http://www.w3.org/2000/svg" className="h-6 w-6 text-blue-400" fill="none" viewBox="0 0 24 24" stroke="currentColor">
@@ -90,7 +90,7 @@ export const WhyHAGroupSection = () => {
           <div className="col-span-full h-px bg-gradient-to-r from-transparent via-gray-300 to-transparent my-6" />
   
           {/* Card 4 */}
-          <div className="flex flex-col">
+          <div className="flex flex-col p-3 justify-center items-center">
             <div className="flex items-start mb-2">
               <div className="mr-2">
                 <svg xmlns="http://www.w3.org/2000/svg" className="h-6 w-6 text-blue-400" fill="none" viewBox="0 0 24 24" stroke="currentColor">
@@ -105,7 +105,7 @@ export const WhyHAGroupSection = () => {
           </div>
   
           {/* Card 5 */}
-          <div className="flex flex-col">
+          <div className="flex flex-col p-3 justify-center items-center">
             <div className="flex items-start mb-2">
               <div className="mr-2">
                 <svg xmlns="http://www.w3.org/2000/svg" className="h-6 w-6 text-blue-400" fill="none" viewBox="0 0 24 24" stroke="currentColor">
@@ -120,7 +120,7 @@ export const WhyHAGroupSection = () => {
           </div>
   
           {/* Card 6 */}
-          <div className="flex flex-col">
+          <div className="flex flex-col p-3 justify-center items-center">
             <div className="flex items-start mb-2">
               <div className="mr-2">
                 <svg xmlns="http://www.w3.org/2000/svg" className="h-6 w-6 text-blue-400" fill="none" viewBox="0 0 24 24" stroke="currentColor">
