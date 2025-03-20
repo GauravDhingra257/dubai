@@ -1,17 +1,16 @@
-import React from "react";
 import { HeroSection } from "../../components/Component1";
-import LoadImage from "../../assets/images/buisness/load.jpg";
+import LoadImage from "../../assets/images/buisness/load.png";
+import BusinessSetupHero from "../../components/Component2";
 
 const VisaServices = () => {
   return (
     <>
-      <HeroSection
+      <BusinessSetupHero
         title="Employment"
         highlightText="Visa"
         description="The Free Zone is a new idea located in the heart of the United Arab Emirates. It represents not only a geographical place but it is a land where you can prosper and enjoy at the same time. This dynamic platform has become a lighthouse for global visionaries, offering them a canvas on which to paint their ambitions free from all the potential hurdles. By starting a business setup in a Free Zone you can have an experience that is the fusion of creativity and entrepreneurial spirit."
         imagePath={LoadImage}
         imageAlt="Employment Visa Illustration"
-        imageMaxHeight={700}
       />
 
       <HeroSection

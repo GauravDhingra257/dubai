@@ -1,11 +1,11 @@
 import React from "react";
 import { HeroSection, ContentSection } from "../../components/Component1";
 
-import LoadImage from "../../assets/images/buisness/load.jpg";
+import LoadImage from "../../assets/images/buisness/load.png";
 import AccountImage from "../../assets/images/buisness/calculator.jpg";
 import TaxImage from "../../assets/images/buisness/tax.png";
 import TaxReturnImage from "../../assets/images/buisness/tax2.jpg";
-import MarketingImage from "../../assets/images/buisness/load.jpg";
+import MarketingImage from "../../assets/images/buisness/load.png";
 import DevelopmentImage from "../../assets/images/buisness/code.jpg";
 
 const MainServices = () => {
