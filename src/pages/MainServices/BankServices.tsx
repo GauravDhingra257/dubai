@@ -1,17 +1,16 @@
-import React from "react";
 import { HeroSection } from "../../components/Component1";
-import LoadImage from "../../assets/images/buisness/load.jpg";
+import LoadImage from "../../assets/images/buisness/load.png";
+import BusinessSetupHero from "../../components/Component2";
 
 const BankServices = () => {
   return (
     <>
-      <HeroSection
+      <BusinessSetupHero
         title="Bank"
         highlightText="Account"
         description="Whether you're looking to establish your venture on the mainland, leverage the advantages of Freezones, or explore the benefits of an offshore jurisdiction, we have you covered."
         imagePath={LoadImage}
         imageAlt="Bank Account Illustration"
-        imageMaxHeight={700}
       />
 
       <HeroSection
