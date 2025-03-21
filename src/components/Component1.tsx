@@ -8,7 +8,7 @@ interface HeroSectionProps {
   imageAlt: string;
   imageFirst?: boolean;
   imageMaxHeight?: number;
-  triangleImage?:any
+  triangleImage?: any;
 }
 
 /**
@@ -24,14 +24,19 @@ export const HeroSection: React.FC<HeroSectionProps> = ({
   imageAlt,
   imageFirst = true,
   imageMaxHeight = 500,
-  triangleImage
+  triangleImage,
 }) => {
   return (
     <section className="relative flex flex-col md:flex-row items-center justify-center gap-8 py-16 px-4 md:px-8  mx-auto ">
       {/* <AnimationStyles /> */}
-      {triangleImage && (<img
-        src={triangleImage}
-        className={`hidden md:block absolute top-0 ${!imageFirst?'left-0':'right-0'}  h-72`}></img>)}
+      {triangleImage && (
+        <img
+          src={triangleImage}
+          className={`hidden md:block absolute top-0 ${
+            !imageFirst ? "left-0" : "right-0"
+          }  h-72`}
+        ></img>
+      )}
       <div
         className={`flex flex-col-reverse max-w-6xl ${
           imageFirst ? "md:flex-row" : "md:flex-row-reverse"
@@ -39,14 +44,15 @@ export const HeroSection: React.FC<HeroSectionProps> = ({
       >
         <div className="flex-1 space-y-6 transform transition-all duration-500">
           <h1 className="text-3xl md:text-4xl lg:text-5xl font-bold group">
-            <span className="inline-block transition-all duration-300 font-lora">
+
+            <span className="inline-block transition-all duration-300 font-medium font-lora">
               {title}
             </span>{" "}
-            <span className="inline-block text-blue-400 transition-all duration-300 font-lora  relative">
+            <span className="inline-block text-blue-400 transition-all duration-300 relative font-medium font-lora">
+
               {highlightText}
               <span className="absolute -bottom-1 left-0 w-0 h-0.5 bg-blue-400 transition-all duration-500"></span>
             </span>
-
           </h1>
           <p className="text-lg text-gray-700 max-w-2xl animate-fade-in">
             {description}
@@ -78,7 +84,7 @@ interface ContentSectionProps {
   imageAlt: string;
   imageFirst?: boolean;
   hasBgColor?: boolean;
-  triangleImage?:any
+  triangleImage?: any;
 }
 
 /**
@@ -93,13 +99,22 @@ export const ContentSection: React.FC<ContentSectionProps> = ({
   imageAlt,
   imageFirst = false,
   hasBgColor = false,
-  triangleImage
+  triangleImage,
 }) => {
   return (
-    <section className={`py-12 relative px-4 md:px-8 ${hasBgColor ? "bg-gray-50" : ""}`}>
-      {triangleImage && (<img
-        src={triangleImage}
-        className={`hidden md:block absolute top-0 ${imageFirst?'left-0':'right-0'}  h-72`}></img>)}
+    <section
+      className={`py-12 relative px-4 md:px-8 ${
+        hasBgColor ? "bg-gray-50" : ""
+      }`}
+    >
+      {triangleImage && (
+        <img
+          src={triangleImage}
+          className={`hidden md:block absolute top-0 ${
+            imageFirst ? "left-0" : "right-0"
+          }  h-72`}
+        ></img>
+      )}
       {/* <AnimationStyles /> */}
       <div
         className={`flex flex-col ${
@@ -115,7 +130,6 @@ export const ContentSection: React.FC<ContentSectionProps> = ({
             />
           </div>
         </div>
-
 
         <div className="flex-1 space-y-4 transform transition-all duration-500  animate-fade-in-up">
           <h2
