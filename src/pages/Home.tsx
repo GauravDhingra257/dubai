@@ -1,7 +1,7 @@
 import { BlogsSection } from "../components/BlogsSection";
 import FAQAccordion from "../components/Faq";
 import NewsEventsSection from "../components/NewsSection";
-import ServicesSection, { PartnersSection, Testimonials, ValueAddedServices, VideoSection } from "../components/ServiceSection";
+import MainServices, { AboutCompanySection, CaseStudies, ClientsSpeak, LeadershipTeamSection, PartnersSection, TeamSection, Testimonials, ValueAddedServices, VideoSection } from "../components/LandingPageComponents";
 
 
     
@@ -10,12 +10,18 @@ const HeroSection = () => {
     <>
       <VideoSection />
       <PartnersSection />
-      <ServicesSection />
+      <MainServices />
       <Testimonials />
       <ValueAddedServices />
+      <CaseStudies/>
+      <TeamSection/>
+      <AboutCompanySection/>
+      <LeadershipTeamSection/>
+      <ClientsSpeak/>
       <BlogsSection/>
       <NewsEventsSection/>
       <FAQAccordion/>
+
     </>
   );
 };

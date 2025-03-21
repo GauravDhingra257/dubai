@@ -1,4 +1,10 @@
+@import url('https://fonts.googleapis.com/css2?family=Lora:wght@400;500;600;700&display=swap');
 @import "tailwindcss";
+/* Add global font family */
+/* Define a class for the global font family */
+.font-lora {
+  font-family: 'Lora';
+}
 @keyframes marquee {
     0% { transform: translateX(100%); }
     100% { transform: translateX(-100%); }

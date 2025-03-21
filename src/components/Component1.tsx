@@ -1,0 +1,134 @@
+import React from "react";
+
+interface HeroSectionProps {
+  title: string;
+  highlightText: string;
+  description: string;
+  imagePath: string;
+  imageAlt: string;
+  imageFirst?: boolean;
+  imageMaxHeight?: number;
+  triangleImage?:any
+}
+
+/**
+ * HeroSection Component
+ * Used for large headline sections with colored text highlight
+ * Modified to match the example image with improved image presentation
+ */
+export const HeroSection: React.FC<HeroSectionProps> = ({
+  title,
+  highlightText,
+  description,
+  imagePath,
+  imageAlt,
+  imageFirst = true,
+  imageMaxHeight = 500,
+  triangleImage
+}) => {
+  return (
+    <section className="relative flex flex-col md:flex-row items-center justify-center gap-8 py-16 px-4 md:px-8  mx-auto ">
+      {/* <AnimationStyles /> */}
+      {triangleImage && (<img
+        src={triangleImage}
+        className={`hidden md:block absolute top-0 ${!imageFirst?'left-0':'right-0'}  h-72`}></img>)}
+      <div
+        className={`flex flex-col-reverse max-w-6xl ${
+          imageFirst ? "md:flex-row" : "md:flex-row-reverse"
+        } items-center justify-between gap-8`}
+      >
+        <div className="flex-1 space-y-6 transform transition-all duration-500">
+          <h1 className="text-3xl md:text-4xl lg:text-5xl font-bold group">
+            <span className="inline-block transition-all duration-300">
+              {title}
+            </span>{" "}
+            <span className="inline-block text-blue-400 transition-all duration-300   relative">
+              {highlightText}
+              <span className="absolute -bottom-1 left-0 w-0 h-0.5 bg-blue-400 transition-all duration-500"></span>
+            </span>
+
+          </h1>
+          <p className="text-lg text-gray-700 max-w-2xl animate-fade-in">
+            {description}
+          </p>
+        </div>
+
+        <div className="flex-1 flex justify-center">
+          <div className="rounded-lg overflow-hidden ">
+            <img
+              src={imagePath}
+              alt={imageAlt}
+              className="w-full md:h-auto object-cover h-108"
+              style={{ maxHeight: `${imageMaxHeight}px` }}
+            />
+          </div>
+        </div>
+      </div>
+    </section>
+  );
+};
+
+/**
+ * Props for the ContentSection component
+ */
+interface ContentSectionProps {
+  title: string;
+  description: string;
+  imagePath: string;
+  imageAlt: string;
+  imageFirst?: boolean;
+  hasBgColor?: boolean;
+  triangleImage?:any
+}
+
+/**
+ * ContentSection Component
+ * Used for content sections with the ability to change image position
+ * Modified to remove excessive shadows and effects
+ */
+export const ContentSection: React.FC<ContentSectionProps> = ({
+  title,
+  description,
+  imagePath,
+  imageAlt,
+  imageFirst = false,
+  hasBgColor = false,
+  triangleImage
+}) => {
+  return (
+    <section className={`py-12 relative px-4 md:px-8 ${hasBgColor ? "bg-gray-50" : ""}`}>
+      {triangleImage && (<img
+        src={triangleImage}
+        className={`hidden md:block absolute top-0 ${imageFirst?'left-0':'right-0'}  h-72`}></img>)}
+      {/* <AnimationStyles /> */}
+      <div
+        className={`flex flex-col ${
+          imageFirst ? "md:flex-row" : "md:flex-row-reverse"
+        } gap-8 items-center max-w-6xl mx-auto`}
+      >
+        <div className="flex-1 animate-slide-in">
+          <div className="overflow-hidden rounded-lg shadow-md">
+            <img
+              src={imagePath}
+              alt={imageAlt}
+              className="w-full h-64 md:h-80 object-cover"
+            />
+          </div>
+        </div>
+
+
+        <div className="flex-1 space-y-4 transform transition-all duration-500  animate-fade-in-up">
+          <h2
+            className="text-2xl md:text-3xl font-bold text-gray-800 relative inline-block 
+            after:content-[''] after:absolute after:-bottom-1 after:left-0 after:w-0 after:h-0.5 
+            after:bg-blue-400 after:transition-all after:duration-500 
+            transition-all duration-300"
+          >
+            {title}
+          </h2>
+          <p className="text-sm md:text-base text-gray-600">{description}</p>
+        </div>
+      </div>
+    </section>
+  );
+};
