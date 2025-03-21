@@ -11,6 +11,14 @@ import BusinessSetupHero from "../Component2";
 import ServiceLeftTriangle from "../../assets/images/triangles/ServiceLeftTriangle.png";
 import ServiceRightTriangle from "../../assets/images/triangles/ServiceRightTriangle.png";
 import ServiceRightTriangle2 from "../../assets/images/triangles/ServiceRightTriangle2.png";
+import businessServiceImg from "../../assets/images/buisness/HA-Group-Clients/Layer_1.png"
+import accountandbook from "../../assets/images/buisness/HA-Group-Clients/Layer_1-1.png"
+import branding from "../../assets/images/buisness/HA-Group-Clients/Group 1597886757.png"
+import property from "../../assets/images/buisness/HA-Group-Clients/Layer_1-2.png"
+import powerofattorney from "../../assets/images/buisness/HA-Group-Clients/Group 1597886760.png"
+import nominee from "../../assets/images/buisness/HA-Group-Clients/Layer_1-3.png"
+import mortage from "../../assets/images/buisness/HA-Group-Clients/Group 1597886772.png"
+import insurance from "../../assets/images/buisness/HA-Group-Clients/Group 1597886775.png"
 const MainServices = () => {
   return (
     <div className="mb-16">
@@ -19,7 +27,7 @@ const MainServices = () => {
         title="Business"
         highlightText="Services"
         description="Whether you're looking to establish your venture on the mainland, leverage the advantages of Freezones, or explore the benefits of an offshore jurisdiction, we have you covered."
-        imagePath={LoadImage}
+        imagePath={businessServiceImg}
         imageAlt="Business Services Illustration"
         // imageMaxHeight={700}
       />
@@ -29,7 +37,7 @@ const MainServices = () => {
         title="Account and"
         highlightText="Bookkeeping"
         description="Whether you're looking to establish your venture on the mainland, leverage the advantages of Freezones, or explore the benefits of an offshore jurisdiction, we have you covered."
-        imagePath={AccountImage}
+        imagePath={accountandbook}
         imageAlt="Account and Bookkeeping Illustration"
         imageMaxHeight={550}
       />
@@ -128,7 +136,7 @@ const MainServices = () => {
         description=" Whether you're looking to establish your venture on the mainland,
              leverage the advantages of Freezones, or explore the benefits of an
             offshore jurisdiction, we have you covered."
-        imagePath={MarketingImage}
+        imagePath={property}
         imageAlt="Business Services Illustration"
         imageMaxHeight={700}
       />
@@ -139,7 +147,7 @@ const MainServices = () => {
         description=" Whether you're looking to establish your venture on the mainland,
              leverage the advantages of Freezones, or explore the benefits of an
             offshore jurisdiction, we have you covered."
-        imagePath={MarketingImage}
+        imagePath={powerofattorney}
         imageAlt="Business Services Illustration"
         imageMaxHeight={700}
       />
@@ -150,7 +158,7 @@ const MainServices = () => {
         description=" Whether you're looking to establish your venture on the mainland,
              leverage the advantages of Freezones, or explore the benefits of an
             offshore jurisdiction, we have you covered."
-        imagePath={MarketingImage}
+        imagePath={nominee}
         imageAlt="Business Services Illustration"
         imageMaxHeight={700}
       />
@@ -161,7 +169,7 @@ const MainServices = () => {
         description=" Whether you're looking to establish your venture on the mainland,
              leverage the advantages of Freezones, or explore the benefits of an
             offshore jurisdiction, we have you covered."
-        imagePath={MarketingImage}
+        imagePath={mortage}
         imageAlt="Business Services Illustration"
         imageMaxHeight={700}
       />
@@ -172,7 +180,7 @@ const MainServices = () => {
         description=" Whether you're looking to establish your venture on the mainland,
              leverage the advantages of Freezones, or explore the benefits of an
             offshore jurisdiction, we have you covered."
-        imagePath={MarketingImage}
+        imagePath={insurance}
         imageAlt="Business Services Illustration"
         imageMaxHeight={700}
       />
