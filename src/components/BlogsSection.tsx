@@ -6,8 +6,8 @@ export const BlogsSection = () => {
     <>
       <div className="container mx-auto px-4 py-12 max-w-6xl">
         <div className="text-center mb-12">
-          <h1 className="text-4xl font-bold inline-block">
-            Blog & <span className="text-blue-400">Articles</span>
+          <h1 className="text-5xl font-normal inline-block">
+            Blog & <span className="text-blue-400 font-semibold">Articles</span>
           </h1>
         </div>
 

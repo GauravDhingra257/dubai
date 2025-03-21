@@ -53,8 +53,8 @@ const FAQAccordion = () => {
   return (
     <div className="bg-white py-16 px-6">
       <div className="max-w-6xl mx-auto mb-12">
-        <h2 className="text-4xl font-bold text-center">
-          Frequently Asked <span className="text-blue-400">Question</span>
+        <h2 className="text-5xl font-normal text-center px-12">
+          Frequently Asked <span className="text-blue-400 font-semibold">Question</span>
         </h2>
       </div>
       <div className="space-y-4 max-w-3xl justify-center mx-auto">

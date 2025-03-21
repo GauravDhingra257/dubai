@@ -28,34 +28,41 @@ const MainServices = () => {
   return (
     <div className="py-10 px-6">
       {/* Services Section */}
-      <h2 className="text-3xl font-semibold text-center">
-        Main <span className="text-blue-400">Services</span>
+      <h2 className="text-5xl font-normal  text-center">
+        Main <span className="text-blue-400 font-semibold">Services</span>
       </h2>
+      <div className="mt-8 grid grid-cols-1  px-4  md:grid-cols-4 gap-6 max-w-6xl md:max-h-[600px] mx-auto">
+      {/* <div className="mt-8  max-w-6xl grid grid-cols-1 md:grid-cols-4 gap-6 justify-items-center mx-auto "> */}
 
-      <div className="mt-8  max-w-6xl grid grid-cols-2 md:grid-cols-4 gap-6 justify-items-center mx-auto ">
-        {services.map((service, index) => (
-          <div key={index} className="relative group overflow-hidden hover:cursor-pointer" onClick={() => navigate(service.path)}>
-            {/* Image container with gradient overlay */}
-            <div className="relative w-full h-72 md:h-80">
-              <img
-                src={service.image}
-                alt={service.title}
-                className="object-cover w-full h-full rounded-lg"
-                
-              />
-              {/* Gradient overlay */}
-              <div className="absolute inset-0 bg-gradient-to-t from-black via-black/60 to-transparent rounded-lg" />
-            </div>
+                {services.map((service, index) => (
+          <div
+            key={index}
+            className="relative group rounded-lg overflow-hidden row-span-2 
+      transform transition-all duration-300 hover:scale-105 hover:shadow-xl max-h-108 md:min-h-96"
+      onClick={() => navigate(service.path)}
+          >
+            {/* Image */}
+            <img
+              src={service.image}
+              alt={service.title}
+              className="w-full h-full object-cover rounded-lg 
+        transition-transform duration-300 group-hover:scale-110"
+            />
 
-            {/* Text content */}
-            <div className="absolute bottom-0 left-0 right-0 p-6">
-              <h3 className="text-white text-xl font-semibold">
-                {service.title}
-              </h3>
-            </div>
+            {/* Gradient Overlay */}
+            <div
+              className="absolute inset-0 bg-gradient-to-t from-black to-transparent 
+      transition-opacity duration-300 group-hover:opacity-80"
+            ></div>
 
-            {/* Hover effect */}
-            <div className="absolute inset-0 bg-blue-400/20 opacity-0 group-hover:opacity-100 transition-opacity duration-300 rounded-lg" />
+            {/* Text */}
+            <p
+              className="absolute bottom-4 left-4 text-white font-nomral text-lg md:text-3xl
+      transform transition-all duration-300 
+      group-hover:translate-y-[-10px] hover:font-medium px-2"
+            >
+              {service.title}
+            </p>
           </div>
         ))}
       </div>
@@ -135,8 +142,8 @@ export function Testimonials() {
     <div className="bg-gray-100 py-16 px-6 mt-10">
       {/* Header in Grid */}
       <div className="grid grid-cols-1 lg:grid-cols-3 gap-8 items-center max-w-6xl mx-auto text-center lg:text-left">
-        <h2 className="text-4xl font-semibold">
-          What our <span className="text-blue-400">Clients Say</span>
+        <h2 className="text-5xl font-normal">
+          What our <span className="text-blue-400 font-semibold">Clients Say</span>
         </h2>
         <p className="text-gray-600 col-span-2">
           Golden Visa Dubai allows people to broaden their horizons and become
@@ -201,16 +208,16 @@ export function ValueAddedServices() {
   return (
     <div className="pb-36 py-16 px-6 ">
       {/* Title */}
-      <h2 className="text-3xl font-semibold text-center">
-        Value Added <span className="text-blue-400">Services</span>
+      <h2 className="text-5xl font-nomral text-center">
+        Value Added <span className="text-blue-400 font-semibold">Services</span>
       </h2>
 
       {/* Services Grid */}
-      <div className="mt-8 grid grid-cols-2 grid-rows-3 sm:grid-cols-3 md:grid-cols-4 gap-6 max-w-6xl md:max-h-[600px] mx-auto">
+      <div className="mt-8 grid grid-cols-1 grid-rows-12 md:grid-rows-3 px-4  md:grid-cols-4 gap-6 max-w-6xl md:max-h-[600px] mx-auto">
         {ValueAddedService.map((service, index) => (
           <div
             key={index}
-            className="relative group rounded-lg overflow-hidden md:row-span-2 
+            className="relative group rounded-lg overflow-hidden row-span-2 
       transform transition-all duration-300 hover:scale-105 hover:shadow-xl"
           >
             {/* Image */}
@@ -229,9 +236,9 @@ export function ValueAddedServices() {
 
             {/* Text */}
             <p
-              className="absolute bottom-4 left-4 text-white font-semibold 
+              className="absolute bottom-4 left-4 text-white font-nomral text-lg md:text-3xl
       transform transition-all duration-300 
-      group-hover:translate-y-[-10px] group-hover:text-lg"
+      group-hover:translate-y-[-10px] hover:font-medium px-2"
             >
               {service.name}
             </p>
@@ -240,13 +247,13 @@ export function ValueAddedServices() {
         {ValueAddedService2.map((service, index) => (
           <div
             key={index}
-            className="relative group rounded-lg overflow-hidden md:row-span-1 transform transition-all duration-300 hover:scale-105 hover:shadow-xl" // Fixed height for all images
+            className="relative group rounded-lg overflow-hidden row-span-1 md:row-span-1 transform transition-all duration-300 hover:scale-105 hover:shadow-xl" // Fixed height for all images
           >
             {/* Image */}
             <img
               src={service.image}
               alt={service.name}
-              className="w-full h-full object-cover rounded-lg transition-transform duration-300 group-hover:scale-110"
+              className="w-full max-h-56 object-cover rounded-lg transition-transform duration-300 group-hover:scale-110"
             />
 
             {/* Gradient Overlay */}
@@ -254,8 +261,9 @@ export function ValueAddedServices() {
 
             {/* Text */}
             <p
-              className="absolute bottom-4 left-4 text-white font-semibold       transform transition-all duration-300 
-      group-hover:translate-y-[-10px] group-hover:text-lg"
+              className="absolute bottom-4 left-4 text-white font-nomral md:text-3xl text-lg px-2
+      transform transition-all duration-300 
+      group-hover:translate-y-[-10px] hover:font-medium"
             >
               {service.name}
             </p>
@@ -271,8 +279,8 @@ export function PartnersSection() {
     <>
       {/* Partners Section */}
       <div className="py-10 text-center">
-        <h2 className="text-3xl font-semibold">
-          Our <span className="text-blue-400">Partner</span>
+        <h2 className="text-5xl font-normal">
+          Our <span className="font-semibold text-blue-400">Partner</span>
         </h2>
 
         {/* Scrolling Logos */}
@@ -369,16 +377,16 @@ export const VideoSection = () => {
             <source src={haVideo} type="video/mp4" />
           </video>
           {/* Text Content */}
-          <div className="md:absolute z-10 p-8 md:p-12 bottom-10 left-10 rounded-lg max-w-lg">
-            <h1 className="text-3xl md:text-4xl font-bold text-black">
-              HA<span className="text-blue-400">Group</span> Transforming
+          <div className="md:absolute z-10 p-8 md:p-12 bottom-10 left-10 rounded-lg max-w-2xl">
+            <h1 className="text-3xl md:text-5xl font-normal text-black">
+              HAGroup <span className="font-semibold">Transforming</span> 
               <br />
-              <span className="text-blue-400">Visions</span> into{" "}
-              <span className="text-blue-400">Ventures</span>
+              <span className="font-semibold">Visions into</span> {" "}
+              <span >Ventures</span>
             </h1>
 
             <div className="mt-4 flex gap-4">
-              <button className="px-6 py-2 text-white rounded-lg bg-gradient-to-r from-[#2CAFF3] to-[#1975BB] hover:cursor-pointer">
+              <button className="px-8 py-2 text-white rounded-lg bg-gradient-to-r from-[#2CAFF3] to-[#1975BB] hover:cursor-pointer">
                 Get Started
               </button>
               <button className="px-6 py-2 bg-white text-blue-400 border border-blue-400 rounded-lg hover:cursor-pointer">
@@ -454,9 +462,9 @@ const CaseStudiesCarousel = ({ caseStudies }) => {
 
       <div className="container mx-auto px-4 py-8 pt-24">
         <div className="mb-8">
-          <h2 className="text-3xl font-bold">
+          <h2 className="text-5xl font-normal">
             Featured
-            <span className="text-blue-400 block">Case Studies</span>
+            <span className="text-blue-400 block font-semibold">Case Studies</span>
           </h2>
         </div>
 
@@ -479,10 +487,10 @@ const CaseStudiesCarousel = ({ caseStudies }) => {
           {caseStudies.map((study, index) => (
             <div
               key={index}
-              className="min-w-[220px] max-w-[300px] mr-4 flex p-2"
+              className="max-w-xl min-w-sm mr-4 flex p-2"
             >
               <div className="bg-white rounded shadow-md overflow">
-                <div className=" h-56 overflow-hidden">
+                <div className=" h-72 overflow-hidden">
                   <img
                     src={study.image}
                     alt={study.title}
@@ -496,7 +504,7 @@ const CaseStudiesCarousel = ({ caseStudies }) => {
                   </p>
                   <a
                     href={study.link}
-                    className="text-blue-400 text-xs hover:underline"
+                    className="text-blue-400 text-sm hover:underline"
                   >
                     Read Case Study →
                   </a>
@@ -527,22 +535,22 @@ export const TeamSection = () => {
       <div className="container mx-auto px-4 flex flex-col md:flex-row items-center z-10">
         {/* Text content */}
         <div className="w-full md:w-1/2 mb-8 md:mb-0 md:pr-8">
-          <h2 className="text-4xl font-bold mb-3">
+          <h2 className="text-5xl font-bold mb-3">
             Innovators, Leaders and passionate collaborators
           </h2>
-          <p className="text-gray-700 mb-6">
+          <p className="text-gray-700 mb-6 text-lg">
             A team dedicated to making significant impact.
           </p>
           <div className="flex space-x-4">
             <a
               href="#careers"
-              className="px-6 py-2 bg-red-500 text-white rounded-md hover:bg-red-600 transition duration-300"
+              className="px-4 md:px-12 py-2 text-center text-xl bg-red-500 text-white rounded-md hover:bg-red-600 transition duration-300"
             >
               Career
             </a>
             <a
               href="#postings"
-              className="px-6 py-2 border border-gray-300 text-gray-700 rounded-md hover:bg-gray-50 transition duration-300"
+              className="px-4 md:px-12 py-2 border text-xl border-gray-300 rounded-md text-red-500 hover:bg-gray-50 transition duration-300 decoration-none"
             >
               Latest posting
             </a>
@@ -556,17 +564,17 @@ export const TeamSection = () => {
               {/* Top left image */}
               <div className="row-start-2 row-span-2 overflow-hidden rounded-md">
                 <img
-                  src="https://picsum.photos/300/200?random=2"
+                  src="https://s3-alpha-sig.figma.com/img/fbba/ec12/ca9017a79b2d59252744f9d5aea04d97?Expires=1743379200&Key-Pair-Id=APKAQ4GOSFWCW27IBOMQ&Signature=jaja1EUxCBQTsv-en62sj3RZiA3R5HUiO8~iQeGpEgQDo0vSUwSOy1EWBVK8IL45rubqgkhJMPzbBeprqWzXGxnjMsN57NBucYK7hn7UU4rySOIoIH8lk1l~wmVvcPpl94dmWWnf5tfzzowUWyFqaAgebmPfmgqMJI3rIcnfNc~5VaryDSJvXJasYZb3kuqoD0T3dZdeYapejZVX-f6eVCcKo~R2wsCAp9qhdlNN6w9i3TYBl68pG-mWQpz3vY5CXpUHUxZbmcxToB6hs-r0MPEal8hgBpGq3xIZFJupM-pDIKerOVFWMLTBc8pKmulDRCU0IYBz~4~J49BkV4Ub-w__"
                   alt="Team meeting"
-                  className="w-full h-full object-cover"
+                  className="w-full h-full min-h-56 max-h-72 object-cover"
                 />
               </div>
               {/* Top right image */}
               <div className="overflow-hidden row-span-2 rounded-md">
                 <img
-                  src="https://picsum.photos/300/200?random=2"
+                  src="https://s3-alpha-sig.figma.com/img/467e/aa46/3d71ebf2cc48e8bb50282e6a759c5483?Expires=1743379200&Key-Pair-Id=APKAQ4GOSFWCW27IBOMQ&Signature=a3Pitw5mdDJS-v6yTol-kmq0SZMXXmHUnNLZUlfuTPwpVHaOfr~G38vxblRRQeBrJce6Dge9JPKsHtAFPqtOOPNaJtRmsJpIsZ4i2I5Zgp13zBJ6ykyizKqWdKEUqZG4rzy0LikV1wb24QE7-ibaNf3wmRUxqT0c745A5Ke6GfYNy23PF~30SQp4GILo9Uoc2EHKuCtTyW8WizwQIG8C1MXvf4vdnI5wRvcM92ts6Ts00G8tu-I27JFvzC5L3YvJhick0eW9HkrEsWhmIfnR-pin5CxSqMzMY2nodL3lMHJ7RKzXYFYG7ieaJ0nmRNFPc~99Fvo0bHtIoaGecqEowA__"
                   alt="Office space"
-                  className="w-full h-full object-cover"
+                  className="w-full min-h-56 max-h-72 object-cover"
                 />
               </div>
             </div>
@@ -574,18 +582,18 @@ export const TeamSection = () => {
               {/* Bottom left - taller image */}
               <div className=" overflow-hidden rounded-md row-span-2">
                 <img
-                  src="https://picsum.photos/300/200?random=2"
+                  src="https://s3-alpha-sig.figma.com/img/84c6/54e3/7f1d7ac6d301b29f050732396f3e9740?Expires=1743379200&Key-Pair-Id=APKAQ4GOSFWCW27IBOMQ&Signature=oHrzKt8o-37H3zQLPaQxmh5-OIqDiLP2JO7qTvkemhGplxoP-BW-SlcDvCp9YqyoM9i0XzRBRWvnEgGtWE-AGnJEQmS0QoewKqRKQcfwzmh5c~olkuXXbkEOl3XPUcxEGt4m2V-bwbv6D1wLEjO7dh4pU0ywFgFGtvn8P0xXhc86E40Qe9qllziqGPJdQon7mZv0hlwLsgXXBcBidZOA3uyso8UWiYHTMUCZ~7qXdGevACZBSlev8kDyqd-bWpF6TKjfUe5tyJyS6aMF3-HXDpiOsQXmPNnPA5XiOPM2-ScpDtrE4B2Ug7pvAXwdvWlcIj~hv7CFU28w8JOIWSW6Xw__"
                   alt="Team collaboration"
-                  className="w-full h-full object-cover"
+                  className="w-full min-h-56 max-h-72 object-cover"
                 />
               </div>
 
               {/* Bottom right image */}
               <div className=" overflow-hidden rounded-md row-span-2">
                 <img
-                  src="https://picsum.photos/300/200?random=2"
+                  src="https://s3-alpha-sig.figma.com/img/c4d8/da93/0e37a49e8a5bcedcc1d0c166ed415232?Expires=1743379200&Key-Pair-Id=APKAQ4GOSFWCW27IBOMQ&Signature=OvAmNcY~cTXmQB9ntFcqIGLUuONFRwql0R4OsdUKc7X~RIQk0rU5vzks9WMf7EzZ1nJMEpr7oQwJR2~zrLpgrHzkZAKHs12QEc8RIu4KOtPDJGvFcjWYwfKGy6WUHGstOrfRa6CIkp4KQzRrav7BIgZr7z9GR1j9gOMw0AI0QAjQHoslQbrz9x9I-iS0~MpQ4lTGuEEpFwwejsPxQBLoETEeQz9mAaI6hI5pjKSR1ZesOesfHePbhNw897Jdnp~nTa1cgDg5eWeFBmUFASKpixFnMUyzOn1~iNOEL7UiLBjMev9~TY0yQApwaUkQFCjisieA5CDUuO1uWRBGJLDFbg__"
                   alt="Conference room"
-                  className="w-full h-full object-cover"
+                  className="w-full min-h-56 max-h-72 object-cover"
                 />
               </div>
             </div>
@@ -628,7 +636,7 @@ export const AboutCompanySection = () => {
         />
 
         {/* Glass effect card overlay */}
-        <div className="absolute bottom-0 right-0 m-6 p-6 rounded-xl md:translate-x-1/3 bg-white/60  backdrop-filter backdrop-blur-md shadow-lg max-w-96">
+        <div className="absolute bottom-0 right-0 m-0 w-full md:m-6 p-6 rounded-xl md:translate-x-1/3 bg-white/60  backdrop-filter backdrop-blur-md shadow-lg md:max-w-96">
           <h2 className="text-xl font-medium mb-2">
             About <span className="text-blue-400 font-semibold">Company</span>
           </h2>
@@ -719,9 +727,9 @@ export const ClientsSpeak = () => {
       ></div>
       <div className="max-w-6xl mx-auto grid grid-cols-1 sm:grid-cols-3 gap-6 pt-24 z-20 relative">
         <div className="col-span-1">
-          <h2 className="text-5xl font-bold text-left leading-snug">
+          <h2 className="text-5xl font-medium text-left leading-snug">
             Our <br />{" "}
-            <span className="text-blue-400">
+            <span className="text-blue-400 font-semibold">
               Clients
               <br /> Speak
             </span>
