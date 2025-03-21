@@ -1,5 +1,6 @@
 import React, { useRef } from 'react';
 import { BlogsList } from '../components/BlogsSection';
+import { useLocation } from 'react-router-dom';
 // Add this helper function at the top of the file
 const slugify = (text) => {
     return text
@@ -73,6 +74,7 @@ const blogPost = {
 
 // Blog component
 const BlogPost = ({ post }) => {
+  console.log(post);
     const sectionRefs = useRef({});
 
     // Add scroll handler
@@ -112,7 +114,7 @@ const BlogPost = ({ post }) => {
         <div className="md:w-1/4 mb-6 md:mb-0">
           <h2 className="uppercase text-sm font-bold text-gray-500 mb-4">CONTENTS</h2>
           <ul className="space-y-2 text-sm">
-            {post.tableOfContents.map((item, index) => (
+            {post?.tableOfContents?.map((item, index) => (
               <li key={index}  onClick={() => scrollToSection(item)} className="text-black hover:cursor-pointer whitespace-pre-wrap">
                 {item}
               </li>
@@ -141,7 +143,7 @@ const BlogPost = ({ post }) => {
         </div>
 
           {/* Sections */}
-          {post.sections.map((section, sectionIndex) => (
+          {post?.sections?.map((section, sectionIndex) => (
             section.type === "cta"?<Advertisement title={section.title} text={section.content[0]} />:
             <div key={`section-${sectionIndex}`}  ref={el => sectionRefs.current[slugify(section.title)] = el}>
               <h2 className="text-xl font-bold text-gray-800 mb-4 mt-8">{section.title}</h2>
@@ -152,7 +154,7 @@ const BlogPost = ({ post }) => {
               ))}
               
               {/* Subsections */}
-              {section.subsections.map((subsection, subsectionIndex) => (
+              {section?.subsections?.map((subsection, subsectionIndex) => (
                 <div key={`subsection-${sectionIndex}-${subsectionIndex}`} ref={el => sectionRefs.current[slugify(subsection.title)] = el}>
                   <h3 className="text-lg font-bold text-gray-800 mb-3 mt-6">{subsection.title}</h3>
                   {subsection.content.map((paragraph, paragraphIndex) => (
@@ -173,8 +175,11 @@ const BlogPost = ({ post }) => {
 
 // Usage example
 const BlogPage = () => {
+  const location = useLocation();
+  console.log(location)
+  const post = location?.state?.post;
   return <>
-  <BlogPost post={blogPost} />
+  <BlogPost post={post?post:blogPost} />
   <RelatedPost/>
   </>;
 };
@@ -194,6 +199,7 @@ export const Advertisement = ({title,text}) => {
     );
   };
   export const RelatedPost = () => {
+
     return (
         <div className="max-w-5xl mx-auto bg-white rounded-md overflow-hidden my-8">
            <h1 className='text-5xl font-medium my-8'>Related <span className='text-blue-400'>Reads</span></h1> 

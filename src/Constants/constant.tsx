@@ -210,44 +210,117 @@ export const services = [
 
 interface BlogPost {
   id: number;
-  image: string;
+  featuredImage: string;
   title: string;
   date: string;
   description: string;
-  alt: string;
+  imageAlt: string;
 }
 
-export const blogPosts: BlogPost[] = [
+export const blogPosts = [
   {
     id: 1,
-    image: "https://images.unsplash.com/photo-1552664730-d307ca884978",
     title: "IEEE ComSec Technology Blog",
     date: "Mar 03, 2024",
-    description: "HA Group, an innovative 4G/5G System on a Chip (SoC) semiconductor startup, had several defining showcases at MWC 2024 as well partnership announcements which included:",
-    alt: "Meeting"
+    featuredImage: "https://images.unsplash.com/photo-1552664730-d307ca884978",
+    imageAlt: "Meeting",
+    introduction: [
+      "HA Group, an innovative 4G/5G System on a Chip (SoC) semiconductor startup, had several defining showcases at MWC 2024 as well as partnership announcements."
+    ],
+    tableOfContents: [
+      "Introduction",
+      "Key Announcements at MWC 2024",
+      "Innovations in 4G/5G SoC",
+      "Future Plans for HA Group"
+    ],
+    sections: [
+      {
+        title: "Key Announcements at MWC 2024",
+        content: [
+          "HA Group showcased its latest semiconductor advancements, highlighting breakthroughs in 4G/5G technology."
+        ]
+      }
+    ],
+    ctaText: "Learn More",
+    ctaUrl: "/contact",
+    contactText: "Connect with us to stay updated on the latest innovations!"
   },
   {
     id: 2,
-    image: "https://images.unsplash.com/photo-1486406146926-c627a92ad1ab",
     title: "IEEE ComSec Technology Blog",
     date: "Mar 03, 2024",
-    description: "HA Group, an innovative 4G/5G System on a Chip (SoC) semiconductor startup, had several defining showcases at MWC 2024 as well partnership announcements which included:",
-    alt: "Buildings"
+    featuredImage: "https://images.unsplash.com/photo-1486406146926-c627a92ad1ab",
+    imageAlt: "Buildings",
+    introduction: [
+      "HA Group, an innovative 4G/5G System on a Chip (SoC) semiconductor startup, continues to push the boundaries of wireless technology."
+    ],
+    tableOfContents: [
+      "Introduction",
+      "5G Advancements",
+      "Partnerships and Collaborations"
+    ],
+    sections: [
+      {
+        title: "5G Advancements",
+        content: [
+          "With its latest innovations, HA Group is setting new benchmarks in the semiconductor industry."
+        ]
+      }
+    ],
+    ctaText: "Get Involved",
+    ctaUrl: "/contact",
+    contactText: "Reach out to us for collaboration opportunities."
   },
   {
     id: 3,
-    image: "https://images.unsplash.com/photo-1522071820081-009f0129c71c",
     title: "IEEE ComSec Technology Blog",
     date: "Mar 03, 2024",
-    description: "HA Group, an innovative 4G/5G System on a Chip (SoC) semiconductor startup, had several defining showcases at MWC 2024 as well partnership announcements which included:",
-    alt: "Team meeting"
+    featuredImage: "https://images.unsplash.com/photo-1522071820081-009f0129c71c",
+    imageAlt: "Team meeting",
+    introduction: [
+      "HA Group, an innovative 4G/5G System on a Chip (SoC) semiconductor startup, had a remarkable presence at MWC 2024."
+    ],
+    tableOfContents: [
+      "Introduction",
+      "HA Group’s Showcase at MWC 2024",
+      "Industry Impact"
+    ],
+    sections: [
+      {
+        title: "HA Group’s Showcase at MWC 2024",
+        content: [
+          "The company highlighted its latest 5G SoC advancements, setting new industry standards."
+        ]
+      }
+    ],
+    ctaText: "Join Us",
+    ctaUrl: "/contact",
+    contactText: "Be part of our journey in advancing technology."
   },
   {
     id: 4,
-    image: "https://images.unsplash.com/photo-1497215842964-222b430dc094",
     title: "IEEE ComSec Technology Blog",
     date: "Mar 03, 2024",
-    description: "HA Group, an innovative 4G/5G System on a Chip (SoC) semiconductor startup, had several defining showcases at MWC 2024 as well partnership announcements which included:",
-    alt: "Office"
+    featuredImage: "https://images.unsplash.com/photo-1497215842964-222b430dc094",
+    imageAlt: "Office",
+    introduction: [
+      "HA Group, an innovative 4G/5G System on a Chip (SoC) semiconductor startup, continues to expand its global influence."
+    ],
+    tableOfContents: [
+      "Introduction",
+      "Global Expansion",
+      "Upcoming Projects"
+    ],
+    sections: [
+      {
+        title: "Global Expansion",
+        content: [
+          "With new partnerships, HA Group is strengthening its global presence in the semiconductor industry."
+        ]
+      }
+    ],
+    ctaText: "Stay Updated",
+    ctaUrl: "/contact",
+    contactText: "Follow us for the latest updates in tech innovation."
   }
 ];

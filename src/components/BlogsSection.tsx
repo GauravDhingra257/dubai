@@ -1,3 +1,4 @@
+import { useNavigate } from "react-router-dom";
 import { blogPosts } from "../Constants/constant";
 
 export const BlogsSection = () => {
@@ -42,7 +43,7 @@ export const BlogsSection = () => {
 
 export const BlogsList = () => {
   const recentPosts = blogPosts.slice(0, 4);
-
+  const navigate = useNavigate()
   return (
     <div className="space-y-6">
       {recentPosts.map((post, index) => (
@@ -54,13 +55,13 @@ export const BlogsList = () => {
         >
           <div className="col-span-6 md:col-span-2">
             <img
-              src={post.image}
-              alt={post.alt}
+              src={post.featuredImage}
+              alt={post.imageAlt}
               className="w-full h-24 object-cover rounded-md hover:scale-105 transition-transform duration-300"
             />
           </div>
           <div className="col-span-4 md:col-span-3">
-            <div className="text-sm font-medium hover:text-blue-400 transition-colors cursor-pointer">
+            <div className="text-sm font-medium hover:text-blue-400 transition-colors cursor-pointer" onClick={() =>{ navigate(`/Blog`, { state: { post } });console.log("clciked")}}>
               {post.title}
             </div>
           </div>
@@ -68,7 +69,7 @@ export const BlogsList = () => {
             <div className="text-sm text-gray-500">{post.date}</div>
           </div>
           <div className="col-span-6 md:col-span-5">
-            <p className="text-sm text-gray-700">{post.description}</p>
+            <p className="text-sm text-gray-700">{post.introduction[0]}</p>
           </div>
         </div>
       ))}
