@@ -5,8 +5,8 @@ const NewsEventsSection = () => {
     <div className="bg-gray-50 py-16 px-6">
       {/* Heading */}
       <div className="max-w-6xl mx-auto mb-12">
-        <h2 className="text-4xl font-bold text-center">
-          News & <span className="text-blue-400">Events</span>
+        <h2 className="text-5xl font-normal text-center ">
+          News & <span className="text-blue-400 font-semibold">Events</span>
         </h2>
       </div>
 

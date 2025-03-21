@@ -39,10 +39,10 @@ export const HeroSection: React.FC<HeroSectionProps> = ({
       >
         <div className="flex-1 space-y-6 transform transition-all duration-500">
           <h1 className="text-3xl md:text-4xl lg:text-5xl font-bold group">
-            <span className="inline-block transition-all duration-300">
+            <span className="inline-block transition-all duration-300 font-lora">
               {title}
             </span>{" "}
-            <span className="inline-block text-blue-400 transition-all duration-300   relative">
+            <span className="inline-block text-blue-400 transition-all duration-300 font-lora  relative">
               {highlightText}
               <span className="absolute -bottom-1 left-0 w-0 h-0.5 bg-blue-400 transition-all duration-500"></span>
             </span>
