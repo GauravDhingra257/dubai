@@ -39,7 +39,7 @@ export const LetsConnect = () => {
     <section className="max-w-6xl mx-auto py-12 px-6 grid grid-cols-1 md:grid-cols-2 gap-8 items-center">
       <div>
         <h2 className="text-3xl md:text-4xl font-bold text-left leading-snug">
-          Let’s <span className="text-blue-500">Connect</span>
+          Let’s <span className="text-blue-400">Connect</span>
         </h2>
         <p className="text-gray-700 mt-4 font-semibold">
           Get in touch with our team to know more!
@@ -86,7 +86,7 @@ export const MeetHAGroup = () => {
     <section className="bg-white py-12 px-6">
       <div className="max-w-6xl mx-auto">
         <h2 className="text-4xl font-bold text-left">
-          Meet <span className="text-blue-500">HA Group</span>
+          Meet <span className="text-blue-400">HA Group</span>
         </h2>
         <h3 className="font-semibold mt-4">
           Why You'll Love Working with HA Group

@@ -58,7 +58,7 @@ const CalculateSetup: React.FC = () => {
               <div className="flex items-center">
                 <div
                   className={`w-9 h-9 rounded-full flex items-center justify-center text-sm ${
-                    step >= 1 ? "bg-blue-500 text-white" : "bg-gray-200"
+                    step >= 1 ? "bg-blue-400 text-white" : "bg-gray-200"
                   }`}
                 >
                   {step > 1 ? "✓" : "1"}
@@ -69,7 +69,7 @@ const CalculateSetup: React.FC = () => {
               <div className="flex items-center">
                 <div
                   className={`w-9 h-9 rounded-full flex items-center justify-center text-sm ${
-                    step >= 2 ? "bg-blue-500 text-white" : "bg-gray-200"
+                    step >= 2 ? "bg-blue-400 text-white" : "bg-gray-200"
                   }`}
                 >
                   {step > 2 ? "✓" : "2"}
@@ -80,7 +80,7 @@ const CalculateSetup: React.FC = () => {
               <div className="flex items-center">
                 <div
                   className={`w-9 h-9 rounded-full flex items-center justify-center text-sm ${
-                    step >= 3 ? "bg-blue-500 text-white" : "bg-gray-200"
+                    step >= 3 ? "bg-blue-400 text-white" : "bg-gray-200"
                   }`}
                 >
                   {step === 3 ? "✓" : "3"}
@@ -303,7 +303,7 @@ const CalculateSetup: React.FC = () => {
               {step < 3 && (
                 <button
                   onClick={handleNext}
-                  className="px-8 py-3 bg-blue-500 text-white rounded text-sm font-medium hover:bg-blue-600"
+                  className="px-8 py-3 bg-blue-400 text-white rounded text-sm font-medium hover:bg-blue-400"
                 >
                   Next
                 </button>

@@ -36,7 +36,7 @@ const Testimonial = ({ rating, quote, personName, role, company, avatar }) => {
 const BusinessGoalOption = ({ label }) => {
   return (
     <div className="flex items-center mb-4">
-      <div className="w-5 h-5 rounded-full bg-blue-500 text-white flex items-center justify-center mr-2">
+      <div className="w-5 h-5 rounded-full bg-blue-400 text-white flex items-center justify-center mr-2">
         <svg xmlns="http://www.w3.org/2000/svg" className="h-3 w-3" viewBox="0 0 20 20" fill="currentColor">
           <path fillRule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clipRule="evenodd" />
         </svg>
@@ -95,7 +95,7 @@ const ContactForm = ({ countries = ["Pakistan", "United States", "Canada", "UK"]
             name="firstName"
             value={formState.firstName}
             onChange={handleInputChange}
-            className="w-full px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-1 focus:ring-blue-500"
+            className="w-full px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-1 focus:ring-blue-400"
             placeholder="Name"
             required
           />
@@ -108,7 +108,7 @@ const ContactForm = ({ countries = ["Pakistan", "United States", "Canada", "UK"]
             name="companyName"
             value={formState.companyName}
             onChange={handleInputChange}
-            className="w-full px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-1 focus:ring-blue-500"
+            className="w-full px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-1 focus:ring-blue-400"
             placeholder="Company name"
           />
         </div>
@@ -120,7 +120,7 @@ const ContactForm = ({ countries = ["Pakistan", "United States", "Canada", "UK"]
             name="businessEmail"
             value={formState.businessEmail}
             onChange={handleInputChange}
-            className="w-full px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-1 focus:ring-blue-500"
+            className="w-full px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-1 focus:ring-blue-400"
             placeholder="Name"
             required
           />
@@ -133,7 +133,7 @@ const ContactForm = ({ countries = ["Pakistan", "United States", "Canada", "UK"]
               name="selectedCountry"
               value={formState.selectedCountry}
               onChange={handleCountryChange}
-              className="px-3 py-2 border border-gray-300 rounded-l-md focus:outline-none focus:ring-1 focus:ring-blue-500"
+              className="px-3 py-2 border border-gray-300 rounded-l-md focus:outline-none focus:ring-1 focus:ring-blue-400"
             >
               {countries.map(country => (
                 <option key={country} value={country}>{country}</option>
@@ -150,7 +150,7 @@ const ContactForm = ({ countries = ["Pakistan", "United States", "Canada", "UK"]
               name="phoneNumber"
               value={formState.phoneNumber}
               onChange={handleInputChange}
-              className="flex-1 px-3 py-2 border border-gray-300 rounded-r-md focus:outline-none focus:ring-1 focus:ring-blue-500"
+              className="flex-1 px-3 py-2 border border-gray-300 rounded-r-md focus:outline-none focus:ring-1 focus:ring-blue-400"
               required
             />
           </div>
@@ -162,7 +162,7 @@ const ContactForm = ({ countries = ["Pakistan", "United States", "Canada", "UK"]
             name="message"
             value={formState.message}
             onChange={handleInputChange}
-            className="w-full px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-1 focus:ring-blue-500"
+            className="w-full px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-1 focus:ring-blue-400"
             rows="4"
             placeholder="Name"
             required
@@ -179,7 +179,7 @@ const ContactForm = ({ countries = ["Pakistan", "United States", "Canada", "UK"]
           
           <button 
             type="submit" 
-            className="w-full bg-blue-500 hover:bg-blue-600 text-white font-medium py-2 px-4 rounded transition-colors"
+            className="w-full bg-blue-400 hover:bg-blue-400 text-white font-medium py-2 px-4 rounded transition-colors"
           >
             Submit
           </button>
@@ -234,7 +234,7 @@ const ContactSection = () => {
             </h2>
             
             <div className="flex space-x-3 mb-12">
-              <button className="bg-blue-500 hover:bg-blue-600 text-white text-sm font-medium py-2 px-4 rounded transition-colors">
+              <button className="bg-blue-400 hover:bg-blue-400 text-white text-sm font-medium py-2 px-4 rounded transition-colors">
                 Schedule Now
               </button>
               <button className="bg-white hover:bg-gray-50 text-gray-700 text-sm font-medium py-2 px-4 border border-gray-300 rounded transition-colors">

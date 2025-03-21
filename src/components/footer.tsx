@@ -1,8 +1,8 @@
-import React from "react";
+
 import logo from "../assets/images/home/footer_logo.png";
-import footer1 from "../assets/images/footer1.png";
-import footer2 from "../assets/images/footer2.png";
-import footer3 from "../assets/images/footer3.png";
+import footer1 from "../assets/images/footer/footer1.png";
+import footer2 from "../assets/images/footer/footer2.png";
+import footer3 from "../assets/images/footer/footer3.png";
 import leftfooterTriangle from "../assets/images/triangles/leftfooterTriangle.png";
 import footerRightTriangle from "../assets/images/triangles/footerRightTriangle.png";
 // Triangle component that can be reused
@@ -30,7 +30,7 @@ const Triangle2 = ({ className }) => {
 const Footer = () => {
   return (
     <div className="relative bg-gray-200 mt-auto">
-      <Triangle2 className="absolute top-0 right-0 -translate-y-1/2 " />
+      <Triangle2 className="hidden md:absolute md:top-0 md:right-0 md:-translate-y-1/2 " />
       {/* Diagonal cut at the top */}
       <div
         className="absolute top-0 left-0 w-full h-24 bg-white"
@@ -43,17 +43,17 @@ const Footer = () => {
           {/* Logo and Company Info */}
           <div className="mb-8 md:mb-0 md:w-1/4 mx-4">
             <div className="mb-4">
-              <div className="flex items-end">
+              <div className="flex items-end justify-center md:justify-start">
                 <img src={logo} className="h-16"></img>
               </div>
             </div>
 
-            <p className="text-gray-600 text-sm mb-4">
+            <p className="text-gray-600 text-sm mb-4 text-center md:text-left">
               Licensed, Authorized and Approved By Government As 'H N A
               CORPORATE SERVICES PROVIDER'
             </p>
 
-            <div className="flex space-x-3">
+            <div className="flex space-x-3 justify-center md:justify-start">
               <a href="#" className="text-gray-500 hover:text-blue-400">
                 <span className="sr-only">Facebook</span>
                 <svg

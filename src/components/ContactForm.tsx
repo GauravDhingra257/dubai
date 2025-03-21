@@ -43,7 +43,7 @@ const ContactForm: React.FC = () => {
           name="firstName"
           value={formData.firstName}
           onChange={handleChange}
-          className="mt-1 block w-full border-b border-gray-300 py-2 focus:border-blue-500 focus:outline-none"
+          className="mt-1 block w-full border-b border-gray-300 py-2 focus:border-blue-400 focus:outline-none"
           placeholder="Name"
           required
         />
@@ -63,7 +63,7 @@ const ContactForm: React.FC = () => {
           name="companyName"
           value={formData.companyName}
           onChange={handleChange}
-          className="mt-1 block w-full border-b border-gray-300 py-2 focus:border-blue-500 focus:outline-none"
+          className="mt-1 block w-full border-b border-gray-300 py-2 focus:border-blue-400 focus:outline-none"
           placeholder="Company name"
         />
       </div>
@@ -82,7 +82,7 @@ const ContactForm: React.FC = () => {
           name="email"
           value={formData.email}
           onChange={handleChange}
-          className="mt-1 block w-full border-b border-gray-300 py-2 focus:border-blue-500 focus:outline-none"
+          className="mt-1 block w-full border-b border-gray-300 py-2 focus:border-blue-400 focus:outline-none"
           placeholder="Name"
           required
         />
@@ -101,7 +101,7 @@ const ContactForm: React.FC = () => {
             <select
               value={countryCode}
               onChange={(e) => setCountryCode(e.target.value)}
-              className="block w-full border-b border-gray-300 py-2 pr-8 pl-2 focus:border-blue-500 focus:outline-none appearance-none"
+              className="block w-full border-b border-gray-300 py-2 pr-8 pl-2 focus:border-blue-400 focus:outline-none appearance-none"
             >
               <option value="+92">Pakistan</option>
               <option value="+1">USA</option>
@@ -131,7 +131,7 @@ const ContactForm: React.FC = () => {
             name="phone"
             value={formData.phone}
             onChange={handleChange}
-            className="block w-3/4 border-b border-gray-300 py-2 focus:border-blue-500 focus:outline-none"
+            className="block w-3/4 border-b border-gray-300 py-2 focus:border-blue-400 focus:outline-none"
             placeholder="+92"
             required
           />
@@ -151,7 +151,7 @@ const ContactForm: React.FC = () => {
           name="message"
           value={formData.message}
           onChange={handleChange}
-          className="mt-1 block w-full border-b border-gray-300 py-2 focus:border-blue-500 focus:outline-none resize-none"
+          className="mt-1 block w-full border-b border-gray-300 py-2 focus:border-blue-400 focus:outline-none resize-none"
           placeholder="Name"
           rows={3}
           required
@@ -181,7 +181,7 @@ const ContactForm: React.FC = () => {
       <div>
         <button
           type="submit"
-          className="w-fit bg-blue-500 text-white py-3 px-4 rounded-md hover:bg-blue-600 transition duration-200"
+          className="w-fit bg-blue-400 text-white py-3 px-4 rounded-md hover:bg-blue-400 transition duration-200"
         >
           Submit
         </button>

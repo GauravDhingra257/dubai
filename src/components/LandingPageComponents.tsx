@@ -276,34 +276,76 @@ export function PartnersSection() {
         </h2>
 
         {/* Scrolling Logos */}
-        <div className="overflow-hidden mt-6">
+        <div className="mt-6 w-full overflow-hidden">
           {/* Row 1: Left to Right */}
-          <marquee direction="left" scrollamount="10" behavior="alternate">
-            <div className="flex gap-6 whitespace-nowrap">
+            <div className="flex gap-6  animate-scroll-bounce-left w-[1200px]">
               {patners.map((partner, index) => (
                 <img
-                  key={`row2-${index}`}
+                  key={`row1-${index}`}
                   src={`${partner}`}
                   alt={`Partner ${index + 1}`}
-                  className="h-20 mx-4 grayscale"
+                  className="h-20 mx-4 grayscale flex-shrink-0"
+                />
+              ))}
+              {/* Duplicate images for seamless loop */}
+              {patners.map((partner, index) => (
+                <img
+                  key={`row1-dup-${index}`}
+                  src={`${partner}`}
+                  alt={`Partner ${index + 1}`}
+                  className="h-20 mx-4 grayscale flex-shrink-0"
                 />
               ))}
             </div>
-          </marquee>
 
           {/* Row 2: Right to Left */}
-          <marquee direction="right" scrollamount="10" behavior="alternate">
-            <div className="flex gap-6  whitespace-nowrap mt-4">
+            <div className="flex gap-6 mt-6 animate-scroll-bounce-right w-[1200px]">
               {patners.map((partner, index) => (
                 <img
                   key={`row2-${index}`}
                   src={`${partner}`}
                   alt={`Partner ${index + 1}`}
-                  className="h-20 mx-4 grayscale"
+                  className="h-20 mx-4 grayscale flex-shrink-0"
                 />
               ))}
-            </div>
-          </marquee>
+              {/* Duplicate images for seamless loop */}
+              {patners.map((partner, index) => (
+                <img
+                  key={`row2-dup-${index}`}
+                  src={`${partner}`}
+                  alt={`Partner ${index + 1}`}
+                  className="h-20 mx-4 grayscale flex-shrink-0"
+                />
+              ))}
+          </div>
+
+          <style jsx>{`
+            @keyframes scroll-bounce-left {
+              0% {
+                transform: translateX(0);
+              }
+              100% {
+                transform: translateX(-50%);
+              }
+            }
+
+            @keyframes scroll-bounce-right {
+              0% {
+                transform: translateX(-50%);
+              }
+              100% {
+                transform: translateX(0);
+              }
+            }
+
+            .animate-scroll-bounce-left {
+              animation: scroll-bounce-left 20s linear infinite;
+            }
+
+            .animate-scroll-bounce-right {
+              animation: scroll-bounce-right 20s linear infinite;
+            }
+          `}</style>
         </div>
       </div>
     </>
@@ -631,7 +673,7 @@ export const LeadershipTeamSection = () => {
                   className="w-64 h-64 object-cover object-top"
                 />
               </div>
-              <div className="col-span-full h-px bg-gradient-to-r from-transparent via-blue-500 to-transparent my-2"></div>
+              <div className="col-span-full h-px bg-gradient-to-r from-transparent via-blue-400 to-transparent my-2"></div>
 
               {/* Leader info */}
               <h3 className="font-medium text-base">{leader.name}</h3>

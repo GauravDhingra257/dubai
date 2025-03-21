@@ -1,6 +1,8 @@
 import { HeroSection } from "../../components/Component1";
 import LoadImage from "../../assets/images/buisness/load.png";
 import BusinessSetupHero from "../../components/Component2";
+import ServiceLeftTriangle from "../../assets/images/triangles/ServiceLeftTriangle.png";
+import ServiceRightTriangle from "../../assets/images/triangles/ServiceRightTriangle.png";
 
 const BankServices = () => {
   return (
@@ -11,6 +13,7 @@ const BankServices = () => {
         description="Whether you're looking to establish your venture on the mainland, leverage the advantages of Freezones, or explore the benefits of an offshore jurisdiction, we have you covered."
         imagePath={LoadImage}
         imageAlt="Bank Account Illustration"
+
       />
 
       <HeroSection
@@ -20,6 +23,7 @@ const BankServices = () => {
         imagePath={LoadImage}
         imageAlt="Cooperate BA Illustration"
         imageMaxHeight={700}
+        triangleImage={ServiceRightTriangle}
       />
 
       <HeroSection
@@ -30,6 +34,7 @@ const BankServices = () => {
         imageAlt="Personal BA Illustration"
         imageMaxHeight={700}
         imageFirst={false}
+        triangleImage={ServiceLeftTriangle}
       />
     </>
   );

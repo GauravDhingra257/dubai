@@ -23,7 +23,7 @@ const BusinessGoalsSection: React.FC = () => {
           <div className="space-y-4">
             {businessGoals.map((goal, index) => (
               <div key={index} className="flex items-center p-2">
-                <div className="h-6 w-6 rounded-full bg-blue-500 flex items-center justify-center mr-3">
+                <div className="h-6 w-6 rounded-full bg-blue-400 flex items-center justify-center mr-3">
                   <svg
                     className="h-4 w-4 text-white"
                     fill="none"

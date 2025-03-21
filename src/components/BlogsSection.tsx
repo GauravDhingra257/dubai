@@ -60,7 +60,7 @@ export const BlogsList = () => {
             />
           </div>
           <div className="col-span-4 md:col-span-3">
-            <div className="text-sm font-medium hover:text-blue-500 transition-colors cursor-pointer">
+            <div className="text-sm font-medium hover:text-blue-400 transition-colors cursor-pointer">
               {post.title}
             </div>
           </div>

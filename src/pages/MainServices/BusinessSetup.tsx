@@ -5,6 +5,9 @@ import FreeZone from "../../assets/images/buisness/FreeZone.png";
 import VisaServicespng from "../../assets/images/buisness/VisaServices.png";
 import OffShore from "../../assets/images/buisness/OffShore.png";
 import BusinessSetupHero from "../../components/Component2";
+import ServiceLeftTriangle from "../../assets/images/triangles/ServiceLeftTriangle.png";
+import ServiceRightTriangle from "../../assets/images/triangles/ServiceRightTriangle.png";
+import ServiceRightTriangle2 from "../../assets/images/triangles/ServiceRightTriangle2.png";
 import { useNavigate } from "react-router-dom";
 const BuisnessService = () => {
   const navigate = useNavigate();
@@ -50,6 +53,7 @@ const BuisnessService = () => {
         imagePath={FreeZone}
         imageAlt="Business Services Illustration"
         imageMaxHeight={700}
+        triangleImage={ServiceRightTriangle}
       />
       <HeroSection
         title="Visa"
@@ -59,6 +63,7 @@ const BuisnessService = () => {
         imageAlt="Business Services Illustration"
         imageMaxHeight={700}
         imageFirst={false}
+        triangleImage={ServiceLeftTriangle}
       />
       <HeroSection
         title="Off"
@@ -67,6 +72,7 @@ const BuisnessService = () => {
         imagePath={OffShore}
         imageAlt="Business Services Illustration"
         imageMaxHeight={700}
+        triangleImage={ServiceRightTriangle2}
       />
     </>
   );

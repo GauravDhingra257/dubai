@@ -2,7 +2,8 @@ import React from "react";
 import BusinessSetupHero from "../../components/Component2";
 import Liquidation from "../../assets/images/liquidation.png";
 import companypeople from "../../assets/images/companypeople.png";
-
+import ServiceLeftTriangle from "../../assets/images/triangles/ServiceLeftTriangle.png";
+import ServiceRightTriangle from "../../assets/images/triangles/ServiceRightTriangle.png";
 import { HeroSection } from "../../components/Component1";
 const CompanyLiquidation = () => {
   return (
@@ -13,6 +14,7 @@ const CompanyLiquidation = () => {
         description="Whether you're looking to establish your venture on the mainland, leverage the advantages of Freezones, or explore the benefits of an offshore jurisdiction, we have you covered."
         imagePath={Liquidation}
         imageAlt="Bank Account Illustration"
+      
       />
 
       <HeroSection
@@ -22,6 +24,7 @@ const CompanyLiquidation = () => {
         imagePath={companypeople}
         imageAlt="Cooperate BA Illustration"
         imageMaxHeight={700}
+        triangleImage={ServiceRightTriangle}
       />
 
       <HeroSection
@@ -32,6 +35,7 @@ const CompanyLiquidation = () => {
         imageAlt="Cooperate BA Illustration"
         imageMaxHeight={700}
         imageFirst={false}
+        triangleImage={ServiceLeftTriangle}
       />
       <HeroSection
         title="Pellentesque  "
@@ -40,6 +44,7 @@ const CompanyLiquidation = () => {
         imagePath={companypeople}
         imageAlt="Cooperate BA Illustration"
         imageMaxHeight={700}
+        triangleImage={ServiceRightTriangle}
       />
     </>
   );

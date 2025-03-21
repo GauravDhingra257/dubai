@@ -1,53 +1,5 @@
 import React from "react";
 
-// Define the animation styles as a separate component
-const AnimationStyles = () => (
-  <style
-    dangerouslySetInnerHTML={{
-      __html: `
-      @keyframes float {
-        0%, 100% { transform: translateY(0); }
-        50% { transform: translateY(-10px); }
-      }
-      
-      @keyframes fade-in {
-        from { opacity: 0.7; }
-        to { opacity: 1; }
-      }
-      
-      @keyframes fade-in-up {
-        from { opacity: 0; transform: translateY(20px); }
-        to { opacity: 1; transform: translateY(0); }
-      }
-      
-      @keyframes slide-in {
-        from { opacity: 0; transform: translateX(-20px); }
-        to { opacity: 1; transform: translateX(0); }
-      }
-      
-      .animate-float {
-        animation: float 6s ease-in-out infinite;
-      }
-      
-      .animate-fade-in {
-        animation: fade-in 1.5s ease-out;
-      }
-      
-      .animate-fade-in-up {
-        animation: fade-in-up 1s ease-out;
-      }
-      
-      .animate-slide-in {
-        animation: slide-in 1s ease-out;
-      }
-    `,
-    }}
-  />
-);
-
-/**
- * Props for the HeroSection component
- */
 interface HeroSectionProps {
   title: string;
   highlightText: string;
@@ -56,6 +8,7 @@ interface HeroSectionProps {
   imageAlt: string;
   imageFirst?: boolean;
   imageMaxHeight?: number;
+  triangleImage?:any
 }
 
 /**
@@ -71,24 +24,27 @@ export const HeroSection: React.FC<HeroSectionProps> = ({
   imageAlt,
   imageFirst = true,
   imageMaxHeight = 500,
+  triangleImage
 }) => {
   return (
-    <section className="flex flex-col md:flex-row items-center justify-between gap-8 py-16 px-4 md:px-8 max-w-7xl mx-auto">
-      <AnimationStyles />
-
+    <section className="relative flex flex-col md:flex-row items-center justify-center gap-8 py-16 px-4 md:px-8  mx-auto ">
+      {/* <AnimationStyles /> */}
+      {triangleImage && (<img
+        src={triangleImage}
+        className={`hidden md:block absolute top-0 ${!imageFirst?'left-0':'right-0'}  h-72`}></img>)}
       <div
-        className={`flex flex-col ${
+        className={`flex flex-col-reverse max-w-6xl ${
           imageFirst ? "md:flex-row" : "md:flex-row-reverse"
-        } items-center justify-between gap-8 w-full`}
+        } items-center justify-between gap-8`}
       >
-        <div className="flex-1 space-y-6 transform transition-all duration-500 hover:translate-y-1">
+        <div className="flex-1 space-y-6 transform transition-all duration-500">
           <h1 className="text-3xl md:text-4xl lg:text-5xl font-bold group">
-            <span className="inline-block transition-all duration-300 hover:text-gray-800 hover:scale-105">
+            <span className="inline-block transition-all duration-300">
               {title}
             </span>{" "}
-            <span className="inline-block text-blue-600 transition-all duration-300 hover:text-blue-400 hover:scale-105 relative">
+            <span className="inline-block text-blue-400 transition-all duration-300   relative">
               {highlightText}
-              <span className="absolute -bottom-1 left-0 w-0 h-0.5 bg-blue-400 group-hover:w-full transition-all duration-500"></span>
+              <span className="absolute -bottom-1 left-0 w-0 h-0.5 bg-blue-400 transition-all duration-500"></span>
             </span>
 
           </h1>
@@ -102,7 +58,7 @@ export const HeroSection: React.FC<HeroSectionProps> = ({
             <img
               src={imagePath}
               alt={imageAlt}
-              className="w-full h-auto object-cover"
+              className="w-full md:h-auto object-cover h-108"
               style={{ maxHeight: `${imageMaxHeight}px` }}
             />
           </div>
@@ -122,6 +78,7 @@ interface ContentSectionProps {
   imageAlt: string;
   imageFirst?: boolean;
   hasBgColor?: boolean;
+  triangleImage?:any
 }
 
 /**
@@ -136,10 +93,14 @@ export const ContentSection: React.FC<ContentSectionProps> = ({
   imageAlt,
   imageFirst = false,
   hasBgColor = false,
+  triangleImage
 }) => {
   return (
-    <section className={`py-12 px-4 md:px-8 ${hasBgColor ? "bg-gray-50" : ""}`}>
-      <AnimationStyles />
+    <section className={`py-12 relative px-4 md:px-8 ${hasBgColor ? "bg-gray-50" : ""}`}>
+      {triangleImage && (<img
+        src={triangleImage}
+        className={`hidden md:block absolute top-0 ${imageFirst?'left-0':'right-0'}  h-72`}></img>)}
+      {/* <AnimationStyles /> */}
       <div
         className={`flex flex-col ${
           imageFirst ? "md:flex-row" : "md:flex-row-reverse"
@@ -156,12 +117,12 @@ export const ContentSection: React.FC<ContentSectionProps> = ({
         </div>
 
 
-        <div className="flex-1 space-y-4 transform transition-all duration-500 hover:translate-y-1 animate-fade-in-up">
+        <div className="flex-1 space-y-4 transform transition-all duration-500  animate-fade-in-up">
           <h2
             className="text-2xl md:text-3xl font-bold text-gray-800 relative inline-block 
             after:content-[''] after:absolute after:-bottom-1 after:left-0 after:w-0 after:h-0.5 
-            after:bg-blue-400 hover:after:w-full after:transition-all after:duration-500 
-            transition-all duration-300 hover:text-blue-700"
+            after:bg-blue-400 after:transition-all after:duration-500 
+            transition-all duration-300"
           >
             {title}
           </h2>

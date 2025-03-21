@@ -20,10 +20,10 @@ const ContactPage: React.FC = () => {
             </h1>
           </div>
           <div className="flex flex-col sm:flex-row gap-3 md:gap-5">
-            <button className="bg-blue-500 text-white px-8 py-3 rounded-md font-medium hover:bg-blue-600 transition w-full sm:w-auto">
+            <button className="bg-blue-400 text-white px-8 py-3 rounded-md font-medium hover:bg-blue-400 transition w-full sm:w-auto">
               Schedule Now
             </button>
-            <button className="bg-white text-blue-500 px-8 py-3 rounded-md font-medium border border-gray-300 hover:bg-gray-50 transition w-full sm:w-auto mt-2 sm:mt-0">
+            <button className="bg-white text-blue-400 px-8 py-3 rounded-md font-medium border border-gray-300 hover:bg-gray-50 transition w-full sm:w-auto mt-2 sm:mt-0">
               Drop A Message
             </button>
           </div>

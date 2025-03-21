@@ -37,13 +37,6 @@ function App() {
             <Route path="/Blog" element={<BlogPage />} />
             <Route path="/contactus" element={<ContactUs />} />
             <Route path="/book-appointment" element={<BusinessBanner />} />
-            {/* Add more routes as needed */}
-            {/* Example:
-            
-            <Route path="/about" element={<About />} />
-            <Route path="/services" element={<Services />} />
-            <Route path="/contact" element={<Contact />} /> 
-            */}
           </Routes>
         </main>
         <Footer />
