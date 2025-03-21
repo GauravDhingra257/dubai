@@ -239,9 +239,28 @@ export const blogPosts = [
         content: [
           "HA Group showcased its latest semiconductor advancements, highlighting breakthroughs in 4G/5G technology."
         ]
+      },
+      {
+        title: "Innovations in 4G/5G SoC",
+        content: [
+          "The company introduced a new line of energy-efficient SoCs, enhancing network reliability and performance."
+        ]
+      },
+      {
+        title: "Future Plans for HA Group",
+        content: [
+          "HA Group is focused on expanding partnerships with global telecom providers to drive 5G deployment."
+        ]
+      },
+      {
+        title: "Connect with HA Group",
+        content: [
+          "Our experts are ready to collaborate with industry leaders to shape the future of wireless technology. Reach out to explore partnership opportunities."
+        ],
+        type: "cta",
       }
     ],
-    ctaText: "Learn More",
+    ctaText: "Explore Partnership",
     ctaUrl: "/contact",
     contactText: "Connect with us to stay updated on the latest innovations!"
   },
@@ -265,15 +284,28 @@ export const blogPosts = [
         content: [
           "With its latest innovations, HA Group is setting new benchmarks in the semiconductor industry."
         ]
+      },
+      {
+        title: "Partnerships and Collaborations",
+        content: [
+          "HA Group has partnered with top telecom providers to accelerate 5G adoption worldwide."
+        ]
+      },
+      {
+        title: "Get Involved with HA Group",
+        content: [
+          "Join us in shaping the next generation of wireless connectivity. Whether you're an investor or a telecom provider, we have exciting opportunities for collaboration."
+        ],
+        type: "cta",
       }
     ],
-    ctaText: "Get Involved",
+    ctaText: "Join the 5G Revolution",
     ctaUrl: "/contact",
     contactText: "Reach out to us for collaboration opportunities."
   },
   {
     id: 3,
-    title: "IEEE ComSec Technology Blog",
+    title: "MWC 2024: HA Group Sets New Standards in 5G SoC Technology",
     date: "Mar 03, 2024",
     featuredImage: "https://images.unsplash.com/photo-1522071820081-009f0129c71c",
     imageAlt: "Team meeting",
@@ -291,15 +323,28 @@ export const blogPosts = [
         content: [
           "The company highlighted its latest 5G SoC advancements, setting new industry standards."
         ]
+      },
+      {
+        title: "Industry Impact",
+        content: [
+          "HA Group’s innovations are driving improvements in mobile network efficiency and speed."
+        ]
+      },
+      {
+        title: "Be a Part of Our Growth",
+        content: [
+          "Discover how you can contribute to the evolution of wireless technology by collaborating with HA Group."
+        ],
+        type: "cta",
       }
     ],
-    ctaText: "Join Us",
+    ctaText: "Collaborate with Us",
     ctaUrl: "/contact",
     contactText: "Be part of our journey in advancing technology."
   },
   {
     id: 4,
-    title: "IEEE ComSec Technology Blog",
+    title: "Expanding Horizons: HA Group’s Global 5G Strategy",
     date: "Mar 03, 2024",
     featuredImage: "https://images.unsplash.com/photo-1497215842964-222b430dc094",
     imageAlt: "Office",
@@ -317,9 +362,22 @@ export const blogPosts = [
         content: [
           "With new partnerships, HA Group is strengthening its global presence in the semiconductor industry."
         ]
+      },
+      {
+        title: "Upcoming Projects",
+        content: [
+          "HA Group is investing in cutting-edge 5G solutions tailored for smart cities and IoT applications."
+        ]
+      },
+      {
+        title: "Stay Ahead in 5G Technology",
+        content: [
+          "Join us as we redefine the future of connectivity. Stay informed about our latest projects and advancements."
+        ],
+        type: "cta",
       }
     ],
-    ctaText: "Stay Updated",
+    ctaText: "Stay Connected",
     ctaUrl: "/contact",
     contactText: "Follow us for the latest updates in tech innovation."
   }

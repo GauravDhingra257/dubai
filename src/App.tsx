@@ -1,4 +1,4 @@
-import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
+import { BrowserRouter as Router, Routes, Route, useLocation } from "react-router-dom";
 import "./App.css";
 import Header from "./components/header";
 import Footer from "./components/footer";
@@ -14,6 +14,7 @@ import CalculateSetup from "./pages/MainServices/CalculateSetup";
 import BlogPage from "./pages/Blog";
 import { ContactUs } from "./pages/Contact";
 import BusinessBanner from "./components/BookApointmentComp";
+import { useEffect } from "react";
 
 // Import other pages as needed
 
@@ -23,6 +24,7 @@ function App() {
       <div className="flex min-h-screen flex-col">
         <Header />
         <main className="flex-grow">
+        <Layout>
           <Routes>
             <Route path="/" element={<HeroSection />} />
             <Route path="/aboutUs" element={<AboutPage />} />
@@ -38,11 +40,24 @@ function App() {
             <Route path="/contactus" element={<ContactUs />} />
             <Route path="/book-appointment" element={<BusinessBanner />} />
           </Routes>
+          </Layout>
         </main>
         <Footer />
       </div>
     </Router>
   );
 }
+const Layout = ({ children }) => {
+  const location = useLocation();
+  
+  useEffect(() => {
+    window.scrollTo({
+      top: 0,
+      behavior: 'smooth' // Optional: adds smooth scrolling
+    });
+  }, [location.pathname]);
+
+  return <>{children}</>;
+};
 
 export default App;

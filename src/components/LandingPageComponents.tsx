@@ -360,6 +360,7 @@ export const VideoSection = () => {
         {/* Hero Section */}
         <div className="relative w-full mt-6 h-[500px] md:h-[600px] flex items-center justify-center text-center text-white">
           <video
+          playsinline
             autoPlay
             loop
             muted
