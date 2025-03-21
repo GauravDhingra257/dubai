@@ -28,11 +28,13 @@ const BusinessSetupHero: React.FC<HeroSectionProps2> = ({
         className="hidden z-20 md:block md:absolute md:bottom-0 md:right-0 md:h-72 translate-y-8 "
       />
       <div className="md:w-1/2 md:ml-16 w-full p-6 flex flex-col justify-center bg-white bg-opacity-95">
-        <h1 className="text-4xl md:text-6xl font-bold mb-5">
+        <h1 className="text-4xl md:text-6xl  mb-5 font-lora font-medium">
           <span className="text-black">{title}</span>{" "}
-          <span className="text-blue-400">{highlightText}</span>
+          <span className="text-blue-400 font-lora font-medium">
+            {highlightText}
+          </span>
         </h1>
-        <p className="text-gray-800 text-lg md:text-lg leading-relaxed">
+        <p className="text-gray-800 text-lg md:text-lg leading-relaxed font-medium">
           {description}
         </p>
       </div>
@@ -54,7 +56,7 @@ const BusinessSetupHero: React.FC<HeroSectionProps2> = ({
       </div>
 
       <style>
-  {`
+        {`
     @media (min-width: 768px) {
       .clip-polygon {
         clip-path: polygon(20% 0%, 100% 0%, 100% 100%, 0% 100%);
@@ -69,7 +71,7 @@ const BusinessSetupHero: React.FC<HeroSectionProps2> = ({
       }
     }
   `}
-</style>
+      </style>
     </div>
   );
 };
