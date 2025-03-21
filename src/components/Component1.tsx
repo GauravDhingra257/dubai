@@ -29,7 +29,7 @@ export const HeroSection: React.FC<HeroSectionProps> = ({
   return (
     <section className="relative flex flex-col md:flex-row items-center justify-center gap-8 py-16 px-4 md:px-8  mx-auto ">
       {/* <AnimationStyles /> */}
-      {triangleImage && (<img
+      {triangleImage && (<img loading="lazy" 
         src={triangleImage}
         className={`hidden md:block absolute top-0 ${!imageFirst?'left-0':'right-0'}  h-72`}></img>)}
       <div
@@ -55,7 +55,7 @@ export const HeroSection: React.FC<HeroSectionProps> = ({
 
         <div className="flex-1 flex justify-center">
           <div className="rounded-lg overflow-hidden ">
-            <img
+            <img loading="lazy" 
               src={imagePath}
               alt={imageAlt}
               className="w-full md:h-auto object-cover h-108"
@@ -97,7 +97,7 @@ export const ContentSection: React.FC<ContentSectionProps> = ({
 }) => {
   return (
     <section className={`py-12 relative px-4 md:px-8 ${hasBgColor ? "bg-gray-50" : ""}`}>
-      {triangleImage && (<img
+      {triangleImage && (<img loading="lazy" 
         src={triangleImage}
         className={`hidden md:block absolute top-0 ${imageFirst?'left-0':'right-0'}  h-72`}></img>)}
       {/* <AnimationStyles /> */}
@@ -108,7 +108,7 @@ export const ContentSection: React.FC<ContentSectionProps> = ({
       >
         <div className="flex-1 animate-slide-in">
           <div className="overflow-hidden rounded-lg shadow-md">
-            <img
+            <img loading="lazy" 
               src={imagePath}
               alt={imageAlt}
               className="w-full h-64 md:h-80 object-cover"

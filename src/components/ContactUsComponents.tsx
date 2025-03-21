@@ -22,7 +22,7 @@ const Testimonial = ({ rating, quote, personName, role, company, avatar }) => {
       </div>
       <p className="text-sm text-gray-700 mb-2 italic">"{quote}"</p>
       <div className="flex items-center">
-        <img src={avatar} alt={personName} className="w-8 h-8 rounded-full mr-2" />
+        <img loading="lazy"  src={avatar} alt={personName} className="w-8 h-8 rounded-full mr-2" />
         <div>
           <p className="text-sm font-medium">{personName}</p>
           <p className="text-xs text-gray-600">{role}, {company}</p>

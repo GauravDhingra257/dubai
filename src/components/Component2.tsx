@@ -19,11 +19,11 @@ const BusinessSetupHero: React.FC<HeroSectionProps2> = ({
   return (
     <div className="flex flex-col-reverse md:flex-row w-full overflow-hidden bg-white  shadow-lg p-4 md:p-8 relative">
       {/* Left content section */}
-      <img
+      <img loading="lazy" 
         src={ServicesHeaderTriangle}
         className="hidden md:block md:absolute md:top-1/2 -translate-y-1/2 md:left-0 md:h-72"
       />
-      <img
+      <img loading="lazy" 
         src={ServiceHeaderRightTriangle}
         className="hidden z-20 md:block md:absolute md:bottom-0 md:right-0 md:h-72 translate-y-8 "
       />
@@ -46,7 +46,7 @@ const BusinessSetupHero: React.FC<HeroSectionProps2> = ({
       zIndex: 1,
     }} "
         ></div>
-        <img
+        <img loading="lazy" 
           src={imagePath}
           alt={imageAlt}
           className="w-full h-full object-cover clip-polygon"

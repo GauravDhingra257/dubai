@@ -100,7 +100,7 @@ const BlogPost = ({ post }) => {
       {/* Hero Image */}
       <div className="px-6">
         <div className="rounded-lg overflow-hidden mb-6">
-          <img 
+          <img loading="lazy"  
             src={post.featuredImage} 
             alt={post.imageAlt} 
             className="w-full h-auto object-cover rounded-4xl"

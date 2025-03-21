@@ -61,7 +61,7 @@ const ContactPage: React.FC = () => {
             </p>
             <div className="flex items-center">
               <div className="h-12 w-12 rounded-full bg-gray-200 overflow-hidden">
-                <img
+                <img loading="lazy" 
                   src={person1}
                   alt="Adrian Barak"
                   className="h-full w-full object-cover"
@@ -105,7 +105,7 @@ const ContactPage: React.FC = () => {
             </p>
             <div className="flex items-center">
               <div className="h-12 w-12 rounded-full bg-gray-200 overflow-hidden">
-                <img
+                <img loading="lazy" 
                   src={person2}
                   alt="Adrian Barak"
                   className="h-full w-full object-cover"

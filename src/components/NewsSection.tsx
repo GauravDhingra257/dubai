@@ -15,7 +15,7 @@ const NewsEventsSection = () => {
         <div className="flex flex-col md:flex-row gap-8">
           <div className="md:w-1/3">
             <div className="bg-black rounded-xl overflow-hidden shadow-md">
-              <img 
+              <img loading="lazy"  
                 src="https://images.unsplash.com/photo-1518770660439-4636190af475?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1000&q=80" 
                 alt="Digital chip technology" 
                 className="w-full h-full object-cover"
@@ -45,7 +45,7 @@ const NewsEventsSection = () => {
           {/* News Item 1 */}
           <div className="flex flex-col rounded-xl shadow-md">
             <div className="bg-black mb-4 overflow-hidden rounded-t-xl">
-              <img 
+              <img loading="lazy"  
                 src="https://images.unsplash.com/photo-1511578314322-379afb476865?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1469&q=80" 
                 alt="Conference audience" 
                 className="w-full h-48 object-cover"
@@ -65,7 +65,7 @@ const NewsEventsSection = () => {
           {/* News Item 2 */}
           <div className="flex flex-col rounded-xl shadow-md">
             <div className="bg-black mb-4 overflow-hidden rounded-t-xl">
-              <img 
+              <img loading="lazy"  
                 src="https://images.unsplash.com/photo-1511578314322-379afb476865?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1469&q=80" 
                 alt="Conference audience" 
                 className="w-full h-48 object-cover"
@@ -85,7 +85,7 @@ const NewsEventsSection = () => {
           {/* News Item 3 */}
           <div className="flex flex-col rounded-xl shadow-md">
             <div className="bg-black mb-4 overflow-hidden rounded-t-xl">
-              <img 
+              <img loading="lazy"  
                 src="https://images.unsplash.com/photo-1511578314322-379afb476865?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1469&q=80" 
                 alt="Conference audience" 
                 className="w-full h-48 object-cover"

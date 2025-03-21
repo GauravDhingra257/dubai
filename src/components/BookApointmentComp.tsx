@@ -5,10 +5,10 @@ const BusinessBanner = () => {
     <>
       <section className="relative w-full max-w-6xl mx-auto py-12 px-6">
         <div className="relative">
-          <img
+          <img loading="lazy" 
             src="https://s3-alpha-sig.figma.com/img/8397/6fcb/d8d5f0c8c9455d85957eca0526b16177?Expires=1743379200&Key-Pair-Id=APKAQ4GOSFWCW27IBOMQ&Signature=crBNf-U-d3zbdz48MNuz-UyaEl7GOQ5PlZkdmUbl6t8VLQdqews80v2nsHcB~sQe0~l1xgKIRscyDT5pY2~NNnNTZzI~oAdN9c7B8Lxn4ZB5ts~3VbCS9YxuxvkU5wBo3ktWAllW2mSXYT6uM~aRGnBf8vLaN9tFGpe3OM2Cfm2ZYAvgYjF9bOzV2PiwOI1A-13Owkf6LKPmmw7ezSn7i7KHnYtyiurtL-gxSz3DciPU5Q~PK5NeoO1a7opbJihMCdh8JUVKBIv85GnmqWuIvQ3UuAj6uRhHSA6tf6z-v5U8fD-uzlkRLBZT6Bo2jUTLuvxxX~cz42vce2vtFD5piA__"
             alt="Empower Business"
-            className="w-full h-auto rounded-4xl"
+            className="w-full min-h-108 object-cover rounded-4xl"
           />
           <div className="absolute inset-0 flex items-end justify-start bg-black/50  rounded-4xl p-8">
             <div className="text-white max-w-md">
@@ -32,7 +32,7 @@ const BusinessBanner = () => {
 export const LetsConnect = () => {
   return (
     <div className="relative">
-            <img
+            <img loading="lazy" 
         src={BookAppointmentTri}
         className="hidden md:block md:absolute md:top-0 md:right-0 md:h-56)"
       />
@@ -58,7 +58,7 @@ export const LetsConnect = () => {
         </button>
       </div>
       <div className="flex justify-center">
-        <img
+        <img loading="lazy" 
           src="https://s3-alpha-sig.figma.com/img/65d1/de9e/b5ce074e5491dfebebbdc4246cd39961?Expires=1743379200&Key-Pair-Id=APKAQ4GOSFWCW27IBOMQ&Signature=IDKWQGvQvLPzOU5vhGwCfS8LFevwAJitB5gtAIudv62D5GraUoAKUj~du0Oi7aFNQ9uW5PYM3ixfhUidKFrCniVfTIyF88rjvDe2B0ep6onwwFim0rBHoznXnODDCWu6TZtari9kg0cNYeW2ZhlxcYQ-2KYY28SclcfGzmHiei8PgIWP1un2wIho3rPHx6j7eakyFJoMeTNySmkO-K2ZIJ-5sZC0bw6rcy~8l0n7xzixz8J~Q4L2-upbkrT1IXm2EUr6l63MKpvm~~szgMMQ0-StOcoscvuwgdA9cGUmbeCAK57-HK8TKrhdm5iBigW~LMQWjw4rKKPFcYgV3lGSrg__"
           alt="Let's Connect"
           className=" h-108 max-w-sm rounded-lg object-cover shadow-lg"

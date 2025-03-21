@@ -42,7 +42,7 @@ const MainServices = () => {
       onClick={() => navigate(service.path)}
           >
             {/* Image */}
-            <img
+            <img loading="lazy" 
               src={service.image}
               alt={service.title}
               className="w-full h-full object-cover rounded-lg 
@@ -171,7 +171,7 @@ export function Testimonials() {
             >
               {/* Profile */}
               <div className="flex items-center space-x-4">
-                <img
+                <img loading="lazy" 
                   src={testimonial.image}
                   alt={testimonial.name}
                   className="w-12 h-12 rounded-full object-cover"
@@ -221,7 +221,7 @@ export function ValueAddedServices() {
       transform transition-all duration-300 hover:scale-105 hover:shadow-xl"
           >
             {/* Image */}
-            <img
+            <img loading="lazy" 
               src={service.image}
               alt={service.name}
               className="w-full h-full object-cover rounded-lg 
@@ -250,7 +250,7 @@ export function ValueAddedServices() {
             className="relative group rounded-lg overflow-hidden row-span-1 md:row-span-1 transform transition-all duration-300 hover:scale-105 hover:shadow-xl" // Fixed height for all images
           >
             {/* Image */}
-            <img
+            <img loading="lazy" 
               src={service.image}
               alt={service.name}
               className="w-full max-h-56 object-cover rounded-lg transition-transform duration-300 group-hover:scale-110"
@@ -288,7 +288,7 @@ export function PartnersSection() {
           {/* Row 1: Left to Right */}
             <div className="flex gap-6  animate-scroll-bounce-left w-[1200px]">
               {patners.map((partner, index) => (
-                <img
+                <img loading="lazy" 
                   key={`row1-${index}`}
                   src={`${partner}`}
                   alt={`Partner ${index + 1}`}
@@ -297,7 +297,7 @@ export function PartnersSection() {
               ))}
               {/* Duplicate images for seamless loop */}
               {patners.map((partner, index) => (
-                <img
+                <img loading="lazy" 
                   key={`row1-dup-${index}`}
                   src={`${partner}`}
                   alt={`Partner ${index + 1}`}
@@ -309,7 +309,7 @@ export function PartnersSection() {
           {/* Row 2: Right to Left */}
             <div className="flex gap-6 mt-6 animate-scroll-bounce-right w-[1200px]">
               {patners.map((partner, index) => (
-                <img
+                <img loading="lazy" 
                   key={`row2-${index}`}
                   src={`${partner}`}
                   alt={`Partner ${index + 1}`}
@@ -318,7 +318,7 @@ export function PartnersSection() {
               ))}
               {/* Duplicate images for seamless loop */}
               {patners.map((partner, index) => (
-                <img
+                <img loading="lazy" 
                   key={`row2-dup-${index}`}
                   src={`${partner}`}
                   alt={`Partner ${index + 1}`}
@@ -450,11 +450,11 @@ const CaseStudiesCarousel = ({ caseStudies }) => {
         className="absolute top-0 left-0 w-full h-24 bg-white"
         style={{ clipPath: "polygon(0 0, 100% 0, 100% 100%)" }}
       ></div>
-      <img
+      <img loading="lazy" 
         src={caseStudyTriangle}
         className="hidden md:block md:absolute md:top-0 md:left-0 md:-translate-y-1/2 md:h-72"
       />
-      <img
+      <img loading="lazy" 
         src={caseStudyTriangle2}
         className="hidden md:block md:absolute md:bottom-0 md:right-0 md:h-48 -mb-6 -pb-6)"
       />
@@ -491,7 +491,7 @@ const CaseStudiesCarousel = ({ caseStudies }) => {
             >
               <div className="bg-white rounded shadow-md overflow">
                 <div className=" h-72 overflow-hidden">
-                  <img
+                  <img loading="lazy" 
                     src={study.image}
                     alt={study.title}
                     className="w-full h-full object-cover"
@@ -563,7 +563,7 @@ export const TeamSection = () => {
             <div className="grid gap-4 grid-rows-5">
               {/* Top left image */}
               <div className="row-start-2 row-span-2 overflow-hidden rounded-md">
-                <img
+                <img loading="lazy" 
                   src="https://s3-alpha-sig.figma.com/img/fbba/ec12/ca9017a79b2d59252744f9d5aea04d97?Expires=1743379200&Key-Pair-Id=APKAQ4GOSFWCW27IBOMQ&Signature=jaja1EUxCBQTsv-en62sj3RZiA3R5HUiO8~iQeGpEgQDo0vSUwSOy1EWBVK8IL45rubqgkhJMPzbBeprqWzXGxnjMsN57NBucYK7hn7UU4rySOIoIH8lk1l~wmVvcPpl94dmWWnf5tfzzowUWyFqaAgebmPfmgqMJI3rIcnfNc~5VaryDSJvXJasYZb3kuqoD0T3dZdeYapejZVX-f6eVCcKo~R2wsCAp9qhdlNN6w9i3TYBl68pG-mWQpz3vY5CXpUHUxZbmcxToB6hs-r0MPEal8hgBpGq3xIZFJupM-pDIKerOVFWMLTBc8pKmulDRCU0IYBz~4~J49BkV4Ub-w__"
                   alt="Team meeting"
                   className="w-full h-full min-h-56 max-h-72 object-cover"
@@ -571,7 +571,7 @@ export const TeamSection = () => {
               </div>
               {/* Top right image */}
               <div className="overflow-hidden row-span-2 rounded-md">
-                <img
+                <img loading="lazy" 
                   src="https://s3-alpha-sig.figma.com/img/467e/aa46/3d71ebf2cc48e8bb50282e6a759c5483?Expires=1743379200&Key-Pair-Id=APKAQ4GOSFWCW27IBOMQ&Signature=a3Pitw5mdDJS-v6yTol-kmq0SZMXXmHUnNLZUlfuTPwpVHaOfr~G38vxblRRQeBrJce6Dge9JPKsHtAFPqtOOPNaJtRmsJpIsZ4i2I5Zgp13zBJ6ykyizKqWdKEUqZG4rzy0LikV1wb24QE7-ibaNf3wmRUxqT0c745A5Ke6GfYNy23PF~30SQp4GILo9Uoc2EHKuCtTyW8WizwQIG8C1MXvf4vdnI5wRvcM92ts6Ts00G8tu-I27JFvzC5L3YvJhick0eW9HkrEsWhmIfnR-pin5CxSqMzMY2nodL3lMHJ7RKzXYFYG7ieaJ0nmRNFPc~99Fvo0bHtIoaGecqEowA__"
                   alt="Office space"
                   className="w-full min-h-56 max-h-72 object-cover"
@@ -581,7 +581,7 @@ export const TeamSection = () => {
             <div className="grid gap-4 grid-rows-5">
               {/* Bottom left - taller image */}
               <div className=" overflow-hidden rounded-md row-span-2">
-                <img
+                <img loading="lazy" 
                   src="https://s3-alpha-sig.figma.com/img/84c6/54e3/7f1d7ac6d301b29f050732396f3e9740?Expires=1743379200&Key-Pair-Id=APKAQ4GOSFWCW27IBOMQ&Signature=oHrzKt8o-37H3zQLPaQxmh5-OIqDiLP2JO7qTvkemhGplxoP-BW-SlcDvCp9YqyoM9i0XzRBRWvnEgGtWE-AGnJEQmS0QoewKqRKQcfwzmh5c~olkuXXbkEOl3XPUcxEGt4m2V-bwbv6D1wLEjO7dh4pU0ywFgFGtvn8P0xXhc86E40Qe9qllziqGPJdQon7mZv0hlwLsgXXBcBidZOA3uyso8UWiYHTMUCZ~7qXdGevACZBSlev8kDyqd-bWpF6TKjfUe5tyJyS6aMF3-HXDpiOsQXmPNnPA5XiOPM2-ScpDtrE4B2Ug7pvAXwdvWlcIj~hv7CFU28w8JOIWSW6Xw__"
                   alt="Team collaboration"
                   className="w-full min-h-56 max-h-72 object-cover"
@@ -590,7 +590,7 @@ export const TeamSection = () => {
 
               {/* Bottom right image */}
               <div className=" overflow-hidden rounded-md row-span-2">
-                <img
+                <img loading="lazy" 
                   src="https://s3-alpha-sig.figma.com/img/c4d8/da93/0e37a49e8a5bcedcc1d0c166ed415232?Expires=1743379200&Key-Pair-Id=APKAQ4GOSFWCW27IBOMQ&Signature=OvAmNcY~cTXmQB9ntFcqIGLUuONFRwql0R4OsdUKc7X~RIQk0rU5vzks9WMf7EzZ1nJMEpr7oQwJR2~zrLpgrHzkZAKHs12QEc8RIu4KOtPDJGvFcjWYwfKGy6WUHGstOrfRa6CIkp4KQzRrav7BIgZr7z9GR1j9gOMw0AI0QAjQHoslQbrz9x9I-iS0~MpQ4lTGuEEpFwwejsPxQBLoETEeQz9mAaI6hI5pjKSR1ZesOesfHePbhNw897Jdnp~nTa1cgDg5eWeFBmUFASKpixFnMUyzOn1~iNOEL7UiLBjMev9~TY0yQApwaUkQFCjisieA5CDUuO1uWRBGJLDFbg__"
                   alt="Conference room"
                   className="w-full min-h-56 max-h-72 object-cover"
@@ -600,11 +600,11 @@ export const TeamSection = () => {
           </div>
         </div>
       </div>
-      <img
+      <img loading="lazy" 
         src={InnovationTriangle2}
         className="hidden md:block md:absolute md:bottom-0 md:left-0  md:h-72"
       />
-      <img
+      <img loading="lazy" 
         src={InnovationTriangle}
         className="hidden md:block md:absolute md:top-10 md:right-0 z-20 h-48"
       />
@@ -615,11 +615,11 @@ export const TeamSection = () => {
 export const AboutCompanySection = () => {
   return (
     <div className="bg-gray-100 p-16 flex justify-center items-center relative">
-      <img
+      <img loading="lazy" 
         src={AboutSectionTriangle}
         className="hidden md:block md:absolute md:bottom-0 md:left-0  md:h-108 lg:h-156 z-20"
       />
-      <img
+      <img loading="lazy" 
         src={AboutSectionRightTriangle}
         className="hidden md:block md:absolute md:top-10 md:right-0 z-20 h-60"
       />
@@ -629,7 +629,7 @@ export const AboutCompanySection = () => {
       ></div>
       <div className="relative w-full max-w-3xl overflow-visible pt-24">
         {/* Main background image of buildings/skyline */}
-        <img
+        <img loading="lazy" 
           src={main}
           alt="City skyline"
           className="w-full h-160 object-cover rounded-4xl"
@@ -657,7 +657,7 @@ export const AboutCompanySection = () => {
 export const LeadershipTeamSection = () => {
   return (
     <div className="bg-white py-12 relative">
-      <img
+      <img loading="lazy" 
         src={LeadershipTriangle}
         className="hidden md:block md:absolute md:bottom-1/2 md:left-0 translate-y-1/6 md:h-72 z-10"
       />
@@ -676,7 +676,7 @@ export const LeadershipTeamSection = () => {
             <div key={index} className="flex flex-col">
               {/* Leader image */}
               <div className="bg-gray-200 h-64 w-64 rounded-lg overflow-hidden mb-2">
-                <img
+                <img loading="lazy" 
                   src={leader.image}
                   alt={leader.name}
                   className="w-64 h-64 object-cover object-top"
@@ -717,7 +717,7 @@ export const LeadershipTeamSection = () => {
 export const ClientsSpeak = () => {
   return (
     <section className="bg-gray-100 py-12 px-6 relative">
-            <img
+            <img loading="lazy" 
         src={ClientTriangle}
         className="hidden md:block md:absolute md:top-0 md:left-0 translate-y-1/6 md:h-72 z-10"
       />

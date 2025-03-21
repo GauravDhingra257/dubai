@@ -14,7 +14,7 @@ export const BlogsSection = () => {
         <div className="flex flex-col md:flex-row mb-16 gap-8">
           <div className="md:w-1/2">
             <div className="border border-gray-300 rounded-lg overflow-hidden">
-              <img
+              <img loading="lazy" 
                 src="https://images.unsplash.com/photo-1518770660439-4636190af475?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1000&q=80"
                 alt="Semiconductor chip"
                 className="w-full h-64 object-cover object-center"
@@ -54,7 +54,7 @@ export const BlogsList = () => {
           } pb-6`}
         >
           <div className="col-span-6 md:col-span-2">
-            <img
+            <img loading="lazy" 
               src={post.featuredImage}
               alt={post.imageAlt}
               className="w-full h-24 object-cover rounded-md hover:scale-105 transition-transform duration-300"

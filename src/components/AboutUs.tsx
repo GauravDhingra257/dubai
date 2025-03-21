@@ -13,6 +13,7 @@ export const AboutSection = () => {
           <video         autoPlay
         loop
         controls
+        playsinline 
         muted className="w-full h-full object-cover" ><source src={haVideo} type="video/mp4" /></video>
         </div>
       </div>
@@ -281,7 +282,7 @@ export const CompanySection = () => {
         <div className="flex-1 text-center px-6 pb-8 md:pb-0">
           <div className="flex justify-center mb-4">
             <div className="relative">
-              <img src={ourMission} alt="Target icon" className="mx-auto h-36" />
+              <img loading="lazy"  src={ourMission} alt="Target icon" className="mx-auto h-36" />
             </div>
           </div>
           <h3 className="text-xl font-bold mb-3">Our Mission</h3>
@@ -297,7 +298,7 @@ export const CompanySection = () => {
         <div className="flex-1 text-center px-6">
           <div className="flex justify-center mb-4">
             <div className="relative">
-              <img src={OurPhilosophy} alt="Lightbulb icon" className="mx-auto h-36" />
+              <img loading="lazy"  src={OurPhilosophy} alt="Lightbulb icon" className="mx-auto h-36" />
             </div>
           </div>
           <h3 className="text-xl font-bold mb-3">Our Philosophy</h3>

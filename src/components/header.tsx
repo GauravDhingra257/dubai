@@ -23,7 +23,7 @@ const Header = () => {
       <div className="max-w-6xl mx-auto px-4 py-4 flex items-center justify-between">
         {/* Logo */}
         <div className="flex items-center">
-          <img 
+          <img loading="lazy"  
             src={logo}
             onClick={() => {setActivePage("");navigate('/')}} 
             alt="HA Group Logo" 

@@ -54,7 +54,7 @@ const TriangleImage: React.FC<TriangleImageProps> = ({
         transformOrigin: "center",
       }}
     >
-      <img
+      <img loading="lazy" 
         src={imageSrc}
         alt={alt}
         style={{

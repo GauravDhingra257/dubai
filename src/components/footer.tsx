@@ -9,7 +9,7 @@ import footerRightTriangle from "../assets/images/triangles/footerRightTriangle.
 const Triangle = ({ className }) => {
   return (
     <div className={`overflow-hidden z-50 ${className}`}>
-      <img
+      <img loading="lazy" 
         src={leftfooterTriangle}
         className="h-48 w-auto drop-shadow-2xl"
       ></img>
@@ -19,7 +19,7 @@ const Triangle = ({ className }) => {
 const Triangle2 = ({ className }) => {
   return (
     <div className={`z-50 ${className}`}>
-      <img
+      <img loading="lazy" 
         src={footerRightTriangle}
         className="h-56 w-auto drop-shadow-2xl"
       ></img>
@@ -44,7 +44,7 @@ const Footer = () => {
           <div className="mb-8 md:mb-0 md:w-1/4 mx-4">
             <div className="mb-4">
               <div className="flex items-end justify-center md:justify-start">
-                <img src={logo} className="h-16"></img>
+                <img loading="lazy"  src={logo} className="h-16"></img>
               </div>
             </div>
 
@@ -105,9 +105,9 @@ const Footer = () => {
             </div>
             <div className="mt-4 pt-6">
               <div className="flex justify-start items-center gap-8 flex-wrap md:flex-nowrap ">
-                <img src={footer1} className="h-8 md:h-10" />
-                <img src={footer2} className="h-8 md:h-10" />
-                <img src={footer3} className="h-8 md:h-10" />
+                <img loading="lazy"  src={footer1} className="h-8 md:h-10" />
+                <img loading="lazy"  src={footer2} className="h-8 md:h-10" />
+                <img loading="lazy"  src={footer3} className="h-8 md:h-10" />
               </div>
             </div>
           </div>

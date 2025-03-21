@@ -167,7 +167,7 @@ const ContactForm: React.FC = () => {
               I'm not a robot
             </label>
             <div className="ml-auto m-1 pl-4">
-              <img
+              <img loading="lazy" 
                 src="/api/placeholder/30/30"
                 alt="reCAPTCHA logo"
                 className="h-8"
