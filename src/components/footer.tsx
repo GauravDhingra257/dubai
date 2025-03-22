@@ -1,33 +1,40 @@
-
+import React from "react";
+import { useNavigate } from "react-router-dom";
 import logo from "../assets/images/home/footer_logo.png";
 import footer1 from "../assets/images/footer/footer1.png";
 import footer2 from "../assets/images/footer/footer2.png";
 import footer3 from "../assets/images/footer/footer3.png";
 import leftfooterTriangle from "../assets/images/triangles/leftfooterTriangle.png";
 import footerRightTriangle from "../assets/images/triangles/footerRightTriangle.png";
+
 // Triangle component that can be reused
 const Triangle = ({ className }) => {
   return (
     <div className={`overflow-hidden z-50 ${className}`}>
-      <img loading="lazy" 
+      <img
         src={leftfooterTriangle}
         className="h-48 w-auto drop-shadow-2xl"
-      ></img>
+        alt="Left footer triangle"
+      />
     </div>
   );
 };
+
 const Triangle2 = ({ className }) => {
   return (
     <div className={`z-50 ${className}`}>
-      <img loading="lazy" 
+      <img
         src={footerRightTriangle}
         className="h-56 w-auto drop-shadow-2xl"
-      ></img>
+        alt="Right footer triangle"
+      />
     </div>
   );
 };
 
 const Footer = () => {
+  const navigate = useNavigate();
+
   return (
     <div className="relative bg-gray-200 mt-auto">
       <Triangle2 className="hidden md:absolute md:top-0 md:right-0 md:-translate-y-1/2 " />
@@ -37,14 +44,18 @@ const Footer = () => {
         style={{ clipPath: "polygon(0 0, 0 100%, 100% 0)" }}
       ></div>
 
-
       <div className="container mx-auto px-6 py-16 pt-28">
         <div className="flex flex-col md:flex-row justify-between items-start">
           {/* Logo and Company Info */}
           <div className="mb-8 md:mb-0 md:w-1/4 mx-4">
             <div className="mb-4">
               <div className="flex items-end justify-center md:justify-start">
-                <img loading="lazy"  src={logo} className="h-16"></img>
+                <img
+                  src={logo}
+                  className="h-16 hover:cursor-pointer"
+                  alt="Company logo"
+                  onClick={() => navigate("/")}
+                />
               </div>
             </div>
 
@@ -105,9 +116,21 @@ const Footer = () => {
             </div>
             <div className="mt-4 pt-6">
               <div className="flex justify-start items-center gap-8 flex-wrap md:flex-nowrap ">
-                <img loading="lazy"  src={footer1} className="h-8 md:h-10" />
-                <img loading="lazy"  src={footer2} className="h-8 md:h-10" />
-                <img loading="lazy"  src={footer3} className="h-8 md:h-10" />
+                <img
+                  src={footer1}
+                  className="h-8 md:h-10"
+                  alt="Footer image 1"
+                />
+                <img
+                  src={footer2}
+                  className="h-8 md:h-10"
+                  alt="Footer image 2"
+                />
+                <img
+                  src={footer3}
+                  className="h-8 md:h-10"
+                  alt="Footer image 3"
+                />
               </div>
             </div>
           </div>
@@ -117,36 +140,36 @@ const Footer = () => {
             <h3 className="text-gray-700 font-semibold mb-4">Business Setup</h3>
             <ul className="space-y-2">
               <li>
-                <a
-                  href="#"
-                  className="text-gray-600 hover:text-blue-400 text-sm"
+                <span
+                  className="text-gray-600 hover:text-blue-400 text-sm hover:cursor-pointer"
+                  onClick={() => navigate("/business")}
                 >
                   Mainland
-                </a>
+                </span>
               </li>
               <li>
-                <a
-                  href="#"
-                  className="text-gray-600 hover:text-blue-400 text-sm"
+                <span
+                  className="text-gray-600 hover:text-blue-400 text-sm hover:cursor-pointer"
+                  onClick={() => navigate("/business")}
                 >
                   Freezone
-                </a>
+                </span>
               </li>
               <li>
-                <a
-                  href="#"
-                  className="text-gray-600 hover:text-blue-400 text-sm"
+                <span
+                  className="text-gray-600 hover:text-blue-400 text-sm hover:cursor-pointer"
+                  onClick={() => navigate("/business")}
                 >
                   Offshore
-                </a>
+                </span>
               </li>
               <li>
-                <a
-                  href="#"
-                  className="text-gray-600 hover:text-blue-400 text-sm"
+                <span
+                  className="text-gray-600 hover:text-blue-400 text-sm hover:cursor-pointer"
+                  onClick={() => navigate("/business")}
                 >
                   Business Trade License
-                </a>
+                </span>
               </li>
             </ul>
           </div>
@@ -156,44 +179,44 @@ const Footer = () => {
             <h3 className="text-gray-700 font-semibold mb-4">Services</h3>
             <ul className="space-y-2">
               <li>
-                <a
-                  href="#"
-                  className="text-gray-600 hover:text-blue-400 text-sm"
+                <span
+                  className="text-gray-600 hover:text-blue-400 text-sm hover:cursor-pointer"
+                  onClick={() => navigate("/visaservices")}
                 >
                   Visa Services in Dubai
-                </a>
+                </span>
               </li>
               <li>
-                <a
-                  href="#"
-                  className="text-gray-600 hover:text-blue-400 text-sm"
+                <span
+                  className="text-gray-600 hover:text-blue-400 text-sm hover:cursor-pointer"
+                  onClick={() => navigate("/visaservices")}
                 >
                   Family Visa Assistance
-                </a>
+                </span>
               </li>
               <li>
-                <a
-                  href="#"
-                  className="text-gray-600 hover:text-blue-400 text-sm"
+                <span
+                  className="text-gray-600 hover:text-blue-400 text-sm hover:cursor-pointer"
+                  onClick={() => navigate("/visaservices")}
                 >
                   Golden Visa
-                </a>
+                </span>
               </li>
               <li>
-                <a
-                  href="#"
-                  className="text-gray-600 hover:text-blue-400 text-sm"
+                <span
+                  className="text-gray-600 hover:text-blue-400 text-sm hover:cursor-pointer"
+                  onClick={() => navigate("/visaservices")}
                 >
                   PRO Services in Dubai
-                </a>
+                </span>
               </li>
               <li>
-                <a
-                  href="#"
-                  className="text-gray-600 hover:text-blue-400 text-sm"
+                <span
+                  className="text-gray-600 hover:text-blue-400 text-sm hover:cursor-pointer"
+                  onClick={() => navigate("/visaservices")}
                 >
                   Bank Account Opening in Dubai
-                </a>
+                </span>
               </li>
             </ul>
           </div>
@@ -203,36 +226,27 @@ const Footer = () => {
             <h3 className="text-gray-700 font-semibold mb-4">Get in Touch</h3>
             <ul className="space-y-2">
               <li>
-                <a
-                  href="#"
-                  className="text-gray-600 hover:text-blue-400 text-sm"
+                <span
+                  className="text-gray-600 hover:text-blue-400 text-sm hover:cursor-pointer"
+                  onClick={() => navigate("/aboutUs")}
                 >
                   About Us
-                </a>
+                </span>
               </li>
               <li>
-                <a
-                  href="#"
-                  className="text-gray-600 hover:text-blue-400 text-sm"
-                >
+                <span className="text-gray-600 hover:text-blue-400 text-sm hover:cursor-pointer">
                   Partners
-                </a>
+                </span>
               </li>
               <li>
-                <a
-                  href="#"
-                  className="text-gray-600 hover:text-blue-400 text-sm"
-                >
+                <span className="text-gray-600 hover:text-blue-400 text-sm hover:cursor-pointer">
                   Privacy policy
-                </a>
+                </span>
               </li>
               <li>
-                <a
-                  href="#"
-                  className="text-gray-600 hover:text-blue-400 text-sm"
-                >
+                <span className="text-gray-600 hover:text-blue-400 text-sm hover:cursor-pointer">
                   Terms and Conditions
-                </a>
+                </span>
               </li>
               <li>
                 <a
