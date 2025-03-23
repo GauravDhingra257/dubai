@@ -20,6 +20,9 @@ import BlogPage from "./pages/Blog";
 import { ContactUs } from "./pages/Contact";
 import BusinessBanner from "./components/BookApointmentComp";
 import { useEffect } from "react";
+import PrivacyPolicy from "./pages/PrivacyPolicy";
+import TermsAnConditionss from "./pages/TermsAnConditionss";
+import Partners from "./pages/Partners";
 
 // Import other pages as needed
 
@@ -44,6 +47,9 @@ function App() {
               <Route path="/Blog" element={<BlogPage />} />
               <Route path="/contactus" element={<ContactUs />} />
               <Route path="/book-appointment" element={<BusinessBanner />} />
+              <Route path="/privacypolicy" element={<PrivacyPolicy />} />
+              <Route path="/terms" element={<TermsAnConditionss />} />
+              <Route path="/partners" element={<Partners />} />
             </Routes>
           </Layout>
         </main>

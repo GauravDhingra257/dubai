@@ -234,17 +234,26 @@ const Footer = () => {
                 </span>
               </li>
               <li>
-                <span className="text-gray-600 hover:text-blue-400 text-sm hover:cursor-pointer">
+                <span
+                  className="text-gray-600 hover:text-blue-400 text-sm hover:cursor-pointer"
+                  onClick={() => navigate("/partners")}
+                >
                   Partners
                 </span>
               </li>
               <li>
-                <span className="text-gray-600 hover:text-blue-400 text-sm hover:cursor-pointer">
+                <span
+                  className="text-gray-600 hover:text-blue-400 text-sm hover:cursor-pointer"
+                  onClick={() => navigate("/privacypolicy")}
+                >
                   Privacy policy
                 </span>
               </li>
               <li>
-                <span className="text-gray-600 hover:text-blue-400 text-sm hover:cursor-pointer">
+                <span
+                  className="text-gray-600 hover:text-blue-400 text-sm hover:cursor-pointer"
+                  onClick={() => navigate("/terms")}
+                >
                   Terms and Conditions
                 </span>
               </li>

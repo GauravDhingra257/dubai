@@ -1,10 +1,15 @@
-import React from "react";
+import React, { useRef } from "react";
 import person1 from "../assets/images/person1.jpg";
 import person2 from "../assets/images/person2.jpg";
 import BusinessGoalsSection from "../components/BusinessGoalsSection";
-import ContactSection from '../components/ContactUsComponents'
+import ContactSection from "../components/ContactUsComponents";
 
 const ContactPage: React.FC = () => {
+  const targetRef = useRef(null);
+
+  const handleScroll = () => {
+    targetRef.current?.scrollIntoView({ behavior: "smooth" });
+  };
   return (
     <div className="flex flex-col gap-5">
       <div className="flex flex-col md:flex-row justify-between max-w-fit mx-auto p-4 md:p-8 lg:p-12 gap-8 md:gap-0">
@@ -20,10 +25,16 @@ const ContactPage: React.FC = () => {
             </h1>
           </div>
           <div className="flex flex-col sm:flex-row gap-3 md:gap-5">
-            <button className="bg-blue-400 text-white px-8 py-3 rounded-md font-medium hover:bg-blue-400 transition w-full sm:w-auto">
+            <button
+              className="bg-blue-400 text-white px-8 py-3 rounded-md font-medium hover:bg-blue-400 transition w-full sm:w-auto"
+              onClick={handleScroll}
+            >
               Schedule Now
             </button>
-            <button className="bg-white text-blue-400 px-8 py-3 rounded-md font-medium border border-gray-300 hover:bg-gray-50 transition w-full sm:w-auto mt-2 sm:mt-0">
+            <button
+              className="bg-white text-blue-400 px-8 py-3 rounded-md font-medium border border-gray-300 hover:bg-gray-50 transition w-full sm:w-auto mt-2 sm:mt-0"
+              onClick={handleScroll}
+            >
               Drop A Message
             </button>
           </div>
@@ -61,7 +72,8 @@ const ContactPage: React.FC = () => {
             </p>
             <div className="flex items-center">
               <div className="h-12 w-12 rounded-full bg-gray-200 overflow-hidden">
-                <img loading="lazy" 
+                <img
+                  loading="lazy"
                   src={person1}
                   alt="Adrian Barak"
                   className="h-full w-full object-cover"
@@ -105,7 +117,8 @@ const ContactPage: React.FC = () => {
             </p>
             <div className="flex items-center">
               <div className="h-12 w-12 rounded-full bg-gray-200 overflow-hidden">
-                <img loading="lazy" 
+                <img
+                  loading="lazy"
                   src={person2}
                   alt="Adrian Barak"
                   className="h-full w-full object-cover"
@@ -119,19 +132,19 @@ const ContactPage: React.FC = () => {
           </div>
         </div>
       </div>
-      <BusinessGoalsSection />
+      <div ref={targetRef}>
+        <BusinessGoalsSection />
+      </div>
     </div>
   );
 };
 
 export default ContactPage;
 
-
-
-
 export const ContactUs = () => {
   return (
-    <div><ContactSection/></div>
-  )
-}
-
+    <div>
+      <ContactSection />
+    </div>
+  );
+};
