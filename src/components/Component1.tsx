@@ -33,7 +33,7 @@ export const HeroSection: React.FC<HeroSectionProps> = ({
       {triangleImage && (
         <img
           src={triangleImage}
-          className={`hidden md:block absolute top-0 ${
+          className={`hidden md:block absolute top-0 z-20 ${
             !imageFirst ? "left-0" : "right-0"
           }  h-72`}
         ></img>
@@ -118,7 +118,7 @@ export const ContentSection: React.FC<ContentSectionProps> = ({
       {triangleImage && (
         <img
           src={triangleImage}
-          className={`hidden md:block absolute top-0 ${
+          className={`hidden md:block absolute top-0 z-20 ${
             imageFirst ? "left-0" : "right-0"
           }  h-72`}
         ></img>
