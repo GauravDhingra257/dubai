@@ -23,6 +23,7 @@ import { useEffect } from "react";
 import PrivacyPolicy from "./pages/PrivacyPolicy";
 import TermsAnConditionss from "./pages/TermsAnConditionss";
 import Partners from "./pages/Partners";
+import BlogAdmin from "./pages/BlogAdmin";
 
 // Import other pages as needed
 
@@ -50,6 +51,7 @@ function App() {
               <Route path="/privacypolicy" element={<PrivacyPolicy />} />
               <Route path="/terms" element={<TermsAnConditionss />} />
               <Route path="/partners" element={<Partners />} />
+              <Route path="/blogadmin" element={<BlogAdmin />} />
             </Routes>
           </Layout>
         </main>
