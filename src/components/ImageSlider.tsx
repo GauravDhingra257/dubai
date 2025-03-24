@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from "react";
-
+import { Fade } from "react-awesome-reveal";
+import SliderTriangle from "../assets/images/triangles/SliderTriangle.png";
 interface ImageSliderProps {
   subtitle: string;
   images: string[];
@@ -30,9 +31,18 @@ const EnhancedImageSlider: React.FC<ImageSliderProps> = ({
   }
 
   return (
-    <div className="flex flex-row items-center justify-between max-w-5xl mx-auto p-6">
+    <div className="relative">
+      <img loading="lazy" 
+        src={SliderTriangle}
+        className="hidden md:block md:absolute md:top-1/2 -translate-y-1/2 md:left-0 md:h-72 z-20"
+      />
+
+<div className="grid grid-cols-1 md:grid-cols-2 gap-12 items-center max-w-6xl mx-auto p-6 relative">
+
       {/* Left side - Image with shadow */}
-      <div className="relative h-72 w-lg shadow-lg rounded">
+      <Fade triggerOnce direction="left" >
+      <div className="relative h-72 w-full shadow-lg rounded">
+
         {images.map((src, index) => (
           <div
             key={index}
@@ -48,24 +58,28 @@ const EnhancedImageSlider: React.FC<ImageSliderProps> = ({
           </div>
         ))}
       </div>
+      </Fade>
 
       {/* Right side - Text */}
-      <div className="ml-12 w-96 mt-22">
-        <p className="text-blue-600 text-center font-medium">{subtitle}</p>
-        <h1 className="font-lora text-4xl font-bold text-black">{title}</h1>
+      <div className="w-full">
+        <Fade triggerOnce direction="right" cascade damping={0.1}>
+        <p className="text-blue-400 text-center font-medium md:text-left">{subtitle}</p>
+        <h1 className="font-lora text-4xl font-bold text-black text-center md:text-left">{title}</h1>
 
         {/* Slider indicator below the heading that changes with the images */}
-        <div className="mt-4 flex items-center mt-42">
+        <div className="mt-6 md:mt-36 flex items-center justify-center md:justify-start">
           {images.map((_, index) => (
             <div
               key={index}
-              className={`h-0.5  w-15 transition-all duration-300 ${
-                index === currentIndex ? "bg-blue-500" : "bg-gray-300"
+              className={`h-0.5 w-15 transition-all duration-300 ${
+                index === currentIndex ? "bg-blue-400" : "bg-gray-300"
               }`}
             />
           ))}
         </div>
+        </Fade>
       </div>
+    </div>
     </div>
   );
 };

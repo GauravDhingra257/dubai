@@ -1,5 +1,6 @@
 import React from "react";
 import ContactForm from "./ContactForm";
+import { Fade } from "react-awesome-reveal";
 
 const BusinessGoalsSection: React.FC = () => {
   const businessGoals = [
@@ -16,6 +17,7 @@ const BusinessGoalsSection: React.FC = () => {
       <div className="max-w-6xl mx-auto flex flex-col md:flex-row gap-8 md:gap-25">
         {/* Left Side - Business Goals */}
         <div className="w-full md:w-1/2 p-3 ">
+        <Fade triggerOnce direction="left" cascade damping={0.1}>
           <h2 className="text-3xl font-bold mb-8">
             What's your immediate business goal
           </h2>
@@ -43,10 +45,12 @@ const BusinessGoalsSection: React.FC = () => {
               </div>
             ))}
           </div>
+        </Fade>
         </div>
 
         {/* Right Side - Contact Form */}
         <div className="w-full md:w-1/2">
+
           <ContactForm />
         </div>
       </div>

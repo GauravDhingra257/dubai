@@ -222,8 +222,37 @@ const Footer = () => {
           </div>
 
           {/* Contact */}
-          <div className="md:w-1/4">
+          <div className="mb-8 md:mb-0 md:w-1/4">
             <h3 className="text-gray-700 font-semibold mb-4">Get in Touch</h3>
+            <ul className="space-y-2">
+              <li>
+                <a
+                  href="tel:+97148241725"
+                  className="text-gray-600 hover:text-blue-400 text-sm"
+                >
+                  +971 48 241725
+                </a>
+              </li>
+              <li>
+                <a
+                  href="tel:+97154273740"
+                  className="text-gray-600 hover:text-blue-400 text-sm"
+                >
+                  +971 54 2737405
+                </a>
+              </li>
+              <li>
+                <a
+                  href="mailto:info@hagroup.ae"
+                  className="text-gray-600 hover:text-blue-400 text-sm"
+                >
+                  info@hagroup.ae
+                </a>
+              </li>
+            </ul>
+          </div>
+          <div className="md:w-1/4">
+            <h3 className="text-gray-700 font-semibold mb-4">Explore</h3>
             <ul className="space-y-2">
               <li>
                 <span
@@ -256,30 +285,6 @@ const Footer = () => {
                 >
                   Terms and Conditions
                 </span>
-              </li>
-              <li>
-                <a
-                  href="tel:+97148241725"
-                  className="text-gray-600 hover:text-blue-400 text-sm"
-                >
-                  +971 48 241725
-                </a>
-              </li>
-              <li>
-                <a
-                  href="tel:+97154273740"
-                  className="text-gray-600 hover:text-blue-400 text-sm"
-                >
-                  +971 54 2737405
-                </a>
-              </li>
-              <li>
-                <a
-                  href="mailto:info@hagroup.ae"
-                  className="text-gray-600 hover:text-blue-400 text-sm"
-                >
-                  info@hagroup.ae
-                </a>
               </li>
             </ul>
           </div>

@@ -1,9 +1,11 @@
 import React from 'react';
+import { Fade } from 'react-awesome-reveal';
 
 const NewsEventsSection = () => {
   return (
     <div className="bg-gray-50 py-16 px-6">
       {/* Heading */}
+      <Fade triggerOnce direction="up"  cascade damping={0.1}>
       <div className="max-w-6xl mx-auto mb-12">
         <h2 className="text-5xl font-normal text-center ">
           News & <span className="text-blue-400 font-semibold">Events</span>
@@ -38,11 +40,14 @@ const NewsEventsSection = () => {
           </div>
         </div>
       </div>
+      </Fade>
 
       {/* News Grid */}
       <div className="max-w-6xl mx-auto">
+        
         <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
           {/* News Item 1 */}
+          <Fade triggerOnce direction="up"  cascade damping={0.1}>
           <div className="flex flex-col rounded-xl shadow-md">
             <div className="bg-black mb-4 overflow-hidden rounded-t-xl">
               <img loading="lazy"  
@@ -101,9 +106,12 @@ const NewsEventsSection = () => {
             </div>
             </div>
           </div>
+          </Fade>
+
         </div>
       </div>
-    </div>
+
+      </div>
   );
 };
 

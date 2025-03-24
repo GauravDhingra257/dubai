@@ -1,3 +1,4 @@
+import { Fade } from "react-awesome-reveal";
 import terms from "../assets/images/terms.png";
 import EnhancedImageSlider from "../components/ImageSlider";
 import { createGlobalStyle } from "styled-components";
@@ -45,19 +46,20 @@ const TermsAndConditions = () => {
         title="Privacy policy for HA Group"
       />
       <GlobalStyle />
-      <div className="flex flex-col justify-center w-full p-14">
-        <div className="max-w-6xl w-full px-4 md:px-8 py-16">
-          <h1 className="text-5xl md:text-6xl font-bold mb-4">
+       <Fade triggerOnce direction="left"  cascade damping={0.1}>
+      <div className="flex flex-col max-w-5xl justify-center p-14 mx-auto">
+        <div className="max-w-5xl px-4 md:px-8 py-16">
+          <h1 className="text-3xl md:text-4xl font-bold mb-4">
             Terms and Conditions
           </h1>
 
-          <p className="mb-8 text-lg md:text-xl leading-relaxed font-medium">
+          <p className="mb-8 text-sm md:text-md leading-relaxed font-medium">
             Table Of Contents
           </p>
 
           <ul className="list-decimal pl-8 space-y-2">
             {tableOfContents.map((item, index) => (
-              <li key={index} className="text-lg md:text-xl">
+              <li key={index} className="text-sm md:text-md">
                 {item}
               </li>
             ))}
@@ -65,15 +67,15 @@ const TermsAndConditions = () => {
         </div>
 
         <div className="space-y-6">
-          <h2 className="text-6xl font-bold">
-            Agreement To <span className="text-blue-500">Terms</span>
+          <h2 className="text-3xl md:text-4xl font-bold">
+            Agreement To <span className="text-blue-400">Terms</span>
           </h2>
-          <p className="text-lg leading-relaxed">
+          <p className="text-sm md:text-md leading-relaxed">
             These Terms of Use constitute a legally binding agreement made
             between you, whether personally or on behalf of an entity (“you”)
             and HA Group, doing business as HA (“HA,” “we,” “us,” or “our”),
             concerning your access to and use of the
-            <a href="https://hagroup.ae/" className="text-blue-500 underline">
+            <a href="https://hagroup.ae/" className="text-blue-400 underline">
               {" "}
               https://hagroup.ae/
             </a>{" "}
@@ -81,7 +83,7 @@ const TermsAndConditions = () => {
             website, or mobile application related, linked, or otherwise
             connected thereto (collectively, the “Site”).
           </p>
-          <p className="text-lg leading-relaxed">
+          <p className="text-sm md:text-md leading-relaxed">
             We are registered in the United Arab Emirates and have our
             registered office at Office 205, Zalfa Tower – Garhoud – Dubai –
             United Arab Emirates, Dubai, UAE 000000. You agree that by accessing
@@ -90,7 +92,7 @@ const TermsAndConditions = () => {
             OF USE, THEN YOU ARE EXPRESSLY PROHIBITED FROM USING THE SITE AND
             YOU MUST DISCONTINUE USE IMMEDIATELY.
           </p>
-          <p className="text-lg leading-relaxed">
+          <p className="text-sm md:text-md leading-relaxed">
             Supplemental terms and conditions or documents that may be posted on
             the Site from time to time are hereby expressly incorporated herein
             by reference. We reserve the right, in our sole discretion, to make
@@ -104,7 +106,7 @@ const TermsAndConditions = () => {
             revised Terms of Use by your continued use of the Site after the
             date such revised Terms of Use are posted.
           </p>
-          <p className="text-lg leading-relaxed">
+          <p className="text-sm md:text-md leading-relaxed">
             The information provided on the Site is not intended for
             distribution to or use by any person or entity in any jurisdiction
             or country where such distribution or use would be contrary to law
@@ -114,7 +116,7 @@ const TermsAndConditions = () => {
             their own initiative and are solely responsible for compliance with
             local laws, if and to the extent local laws are applicable.
           </p>
-          <p className="text-lg leading-relaxed">
+          <p className="text-sm md:text-md leading-relaxed">
             The Site is not tailored to comply with industry-specific
             regulations (Health Insurance Portability and Accountability Act
             (HIPAA), Federal Information Security Management Act (FISMA), etc.),
@@ -122,7 +124,7 @@ const TermsAndConditions = () => {
             use this Site. You may not use the Site in a way that would violate
             the Gramm-Leach-Bliley Act (GLBA).
           </p>
-          <p className="text-lg leading-relaxed">
+          <p className="text-sm md:text-md leading-relaxed">
             All users who are minors in the jurisdiction in which they reside
             (generally under the age of 18) must have the permission of, and be
             directly supervised by, their parent or guardian to use the Site. If
@@ -132,13 +134,13 @@ const TermsAndConditions = () => {
         </div>
 
         <div className="space-y-6 mt-12">
-          <h2 className="text-6xl font-bold">
-            Power of <span className="text-blue-500">Attorney</span>
+          <h2 className="text-3xl md:text-4xl font-bold">
+            Power of <span className="text-blue-400">Attorney</span>
           </h2>
-          <p className="text-lg leading-relaxed">
+          <p className="text-sm md:text-md leading-relaxed">
             By using the Site, you represent and warrant that:
           </p>
-          <ul className="list-decimal pl-8 space-y-2 text-lg">
+          <ul className="list-decimal pl-8 space-y-2 text-sm md:text-md">
             <li>
               You have the legal capacity and you agree to comply with these
               Terms of Use;
@@ -160,7 +162,7 @@ const TermsAndConditions = () => {
               regulation.
             </li>
           </ul>
-          <p className="text-lg leading-relaxed font-semibold">
+          <p className="text-sm md:text-md leading-relaxed font-semibold">
             If you provide any information that is untrue, inaccurate, not
             current, or incomplete, we have the right to suspend or terminate
             your account and refuse any and all current or future use of the
@@ -169,19 +171,19 @@ const TermsAndConditions = () => {
         </div>
 
         <div className="space-y-6 mt-12">
-          <h2 className="text-6xl font-bold">
-            Prohibited <span className="text-blue-500">Activities</span>
+          <h2 className="text-3xl md:text-4xl font-bold">
+            Prohibited <span className="text-blue-400">Activities</span>
           </h2>
-          <p className="text-lg leading-relaxed">
+          <p className="text-sm md:text-md leading-relaxed">
             You may not access or use the Site for any purpose other than that
             for which we make the Site available. The Site may not be used in
             connection with any commercial endeavors except those that are
             specifically endorsed or approved by us.
           </p>
-          <p className="text-lg leading-relaxed font-semibold">
+          <p className="text-sm md:text-md leading-relaxed font-semibold">
             As a user of the Site, you agree not to:
           </p>
-          <ul className="list-disc pl-8 space-y-4 text-lg">
+          <ul className="list-disc pl-8 space-y-4 text-sm md:text-md">
             <li>
               Systematically retrieve data or other content from the Site to
               create or compile, directly or indirectly, a collection,
@@ -279,10 +281,10 @@ const TermsAndConditions = () => {
         </div>
 
         <div className="space-y-6 mt-12">
-          <h2 className="text-6xl font-bold">
-            User Generated <span className="text-blue-500">Contributions</span>
+          <h2 className="text-3xl md:text-4xl font-bold">
+            User Generated <span className="text-blue-400">Contributions</span>
           </h2>
-          <p className="text-lg leading-relaxed">
+          <p className="text-sm md:text-md leading-relaxed">
             The Site may invite you to chat, contribute to, or participate in
             blogs, message boards, online forums, and other functionality, and
             may provide you with the opportunity to create, submit, post,
@@ -292,14 +294,14 @@ const TermsAndConditions = () => {
             comments, suggestions, or personal information or other material
             (collectively, “Contributions”).
           </p>
-          <p className="text-lg leading-relaxed">
+          <p className="text-sm md:text-md leading-relaxed">
             Contributions may be viewable by other users of the Site and through
             third-party websites. As such, any Contributions you transmit may be
             treated as non-confidential and non-proprietary. When you create or
             make available any Contributions, you thereby represent and warrant
             that:
           </p>
-          <ul className="list-disc pl-8 space-y-4 text-lg">
+          <ul className="list-disc pl-8 space-y-4 text-sm md:text-md">
             <li>
               The creation, distribution, transmission, public display, or
               performance, and the accessing, downloading, or copying of your
@@ -366,10 +368,10 @@ const TermsAndConditions = () => {
         </div>
 
         <div className="space-y-6 mt-12">
-          <h2 className="text-6xl font-bold">
-            Contribution <span className="text-blue-500">License</span>
+          <h2 className="text-3xl md:text-4xl font-bold">
+            Contribution <span className="text-blue-400">License</span>
           </h2>
-          <p className="text-lg leading-relaxed">
+          <p className="text-sm md:text-md leading-relaxed">
             By posting your Contributions to any part of the Site, you
             automatically grant, and you represent and warrant that you have the
             right to grant, to us an unrestricted, unlimited, irrevocable,
@@ -385,7 +387,7 @@ const TermsAndConditions = () => {
             The use and distribution may occur in any media formats and through
             any media channels.
           </p>
-          <p className="text-lg leading-relaxed">
+          <p className="text-sm md:text-md leading-relaxed">
             This license will apply to any form, media, or technology now known
             or hereafter developed, and includes our use of your name, company
             name, and franchise name, as applicable, and any of the trademarks,
@@ -394,7 +396,7 @@ const TermsAndConditions = () => {
             Contributions, and you warrant that moral rights have not otherwise
             been asserted in your Contributions.
           </p>
-          <p className="text-lg leading-relaxed">
+          <p className="text-sm md:text-md leading-relaxed">
             We do not assert any ownership over your Contributions. You retain
             full ownership of all of your Contributions and any intellectual
             property rights or other proprietary rights associated with your
@@ -405,10 +407,10 @@ const TermsAndConditions = () => {
             responsibility and to refrain from any legal action against us
             regarding your Contributions.
           </p>
-          <p className="text-lg leading-relaxed font-semibold">
+          <p className="text-sm md:text-md leading-relaxed font-semibold">
             We have the right, in our sole and absolute discretion,
           </p>
-          <ul className="list-disc pl-8 space-y-4 text-lg">
+          <ul className="list-disc pl-8 space-y-4 text-sm md:text-md">
             <li>To edit, redact, or otherwise change any Contributions;</li>
             <li>
               To re-categorize any Contributions to place them in more
@@ -423,14 +425,14 @@ const TermsAndConditions = () => {
         </div>
 
         <div className="space-y-6 mt-12">
-          <h2 className="text-6xl font-bold">
-            Guidelines For <span className="text-blue-500">Reviews</span>
+          <h2 className="text-3xl md:text-4xl font-bold">
+            Guidelines For <span className="text-blue-400">Reviews</span>
           </h2>
-          <p className="text-lg leading-relaxed">
+          <p className="text-sm md:text-md leading-relaxed">
             We may provide you areas on the Site to leave reviews or ratings.
             When posting a review, you must comply with the following criteria:
           </p>
-          <ul className="list-disc pl-8 space-y-4 text-lg">
+          <ul className="list-disc pl-8 space-y-4 text-sm md:text-md">
             <li>
               You should have firsthand experience with the person/entity being
               reviewed;
@@ -460,7 +462,7 @@ const TermsAndConditions = () => {
               reviews, whether positive or negative.
             </li>
           </ul>
-          <p className="text-lg leading-relaxed font-semibold">
+          <p className="text-sm md:text-md leading-relaxed font-semibold">
             We may accept, reject, or remove reviews in our sole discretion. We
             have absolutely no obligation to screen reviews or to delete
             reviews, even if anyone considers reviews objectionable or
@@ -469,7 +471,7 @@ const TermsAndConditions = () => {
             partners. We do not assume liability for any review or for any
             claims, liabilities, or losses resulting from any review.
           </p>
-          <p className="text-lg leading-relaxed">
+          <p className="text-sm md:text-md leading-relaxed">
             By posting a review, you hereby grant to us a perpetual,
             non-exclusive, worldwide, royalty-free, fully-paid, assignable, and
             sublicensable right and license to reproduce, modify, translate,
@@ -479,8 +481,8 @@ const TermsAndConditions = () => {
         </div>
 
         <div className="space-y-6 mt-12">
-          <h2 className="text-6xl font-bold">Submissions</h2>
-          <p className="text-lg leading-relaxed">
+          <h2 className="text-3xl md:text-4xl font-bold">Submissions</h2>
+          <p className="text-sm md:text-md leading-relaxed">
             You acknowledge and agree that any questions, comments, suggestions,
             ideas, feedback, or other information regarding the Site
             (“Submissions”) provided by you to us are non-confidential and shall
@@ -498,11 +500,11 @@ const TermsAndConditions = () => {
         </div>
 
         <div className="space-y-6 mt-12">
-          <h2 className="text-6xl font-bold">
+          <h2 className="text-3xl md:text-4xl font-bold">
             Third-party Website{" "}
-            <span className="text-blue-500">And Content</span>
+            <span className="text-blue-400">And Content</span>
           </h2>
-          <p className="text-lg leading-relaxed">
+          <p className="text-sm md:text-md leading-relaxed">
             The Site may contain (or you may be sent via the Site) links to
             other websites (“Third-Party Websites”) as well as articles,
             photographs, text, graphics, pictures, designs, music, sound, video,
@@ -526,7 +528,7 @@ const TermsAndConditions = () => {
             of any website to which you navigate from the Site or relating to
             any applications you use or install from the Site.
           </p>
-          <p className="text-lg leading-relaxed">
+          <p className="text-sm md:text-md leading-relaxed">
             Any purchases you make through Third-Party Websites will be through
             other websites and from other companies, and we take no
             responsibility whatsoever in relation to such purchases which are
@@ -542,8 +544,8 @@ const TermsAndConditions = () => {
         </div>
 
         <div className="space-y-6 mt-12">
-          <h2 className="text-6xl font-bold">Advertisers</h2>
-          <p className="text-lg leading-relaxed">
+          <h2 className="text-3xl md:text-4xl font-bold">Advertisers</h2>
+          <p className="text-sm md:text-md leading-relaxed">
             We allow advertisers to display their advertisements and other
             information in certain areas of the Site, such as sidebar
             advertisements or banner advertisements. If you are an advertiser,
@@ -559,13 +561,13 @@ const TermsAndConditions = () => {
         </div>
 
         <div className="space-y-6 mt-12">
-          <h2 className="text-6xl font-bold">
-            Site <span className="text-blue-500">Management</span>
+          <h2 className="text-3xl md:text-4xl font-bold">
+            Site <span className="text-blue-400">Management</span>
           </h2>
-          <p className="text-lg leading-relaxed">
+          <p className="text-sm md:text-md leading-relaxed">
             We reserve the right, but not the obligation, to:
           </p>
-          <ul className="list-disc pl-10 my-4 text-lg">
+          <ul className="list-disc pl-10 my-4 text-sm md:text-md">
             <li>Monitor the Site for violations of these Terms of Use;</li>
             <li>
               Take appropriate legal action against anyone who, in our sole
@@ -594,10 +596,10 @@ const TermsAndConditions = () => {
         </div>
 
         <div className="space-y-6 mt-12">
-          <h2 className="text-6xl font-bold">
-            Privacy <span className="text-blue-500">Policy</span>
+          <h2 className="text-3xl md:text-4xl font-bold">
+            Privacy <span className="text-blue-400">Policy</span>
           </h2>
-          <p className="text-lg leading-relaxed">
+          <p className="text-sm md:text-md leading-relaxed">
             We care about data privacy and security. Please review our Privacy
             Policy: https://hagroup.ae/privacy-policy/. By using the Site, you
             agree to be bound by our Privacy Policy, which is incorporated into
@@ -613,11 +615,11 @@ const TermsAndConditions = () => {
         </div>
 
         <div className="space-y-6 mt-12">
-          <h2 className="text-5xl font-bold">
+          <h2 className="text-3xl font-bold">
             Modifications and{" "}
             <span className="text-blue-400">Interruptions</span>
           </h2>
-          <p className="text-lg leading-relaxed">
+          <p className="text-sm md:text-md leading-relaxed">
             We reserve the right to change, modify, or remove the contents of
             the Site at any time or for any reason at our sole discretion
             without notice. However, we have no obligation to update any
@@ -626,13 +628,13 @@ const TermsAndConditions = () => {
             will not be liable to you or any third party for any modification,
             price change, suspension, or discontinuance of the Site.
           </p>
-          <p className="text-lg leading-relaxed">
+          <p className="text-sm md:text-md leading-relaxed">
             We cannot guarantee the Site will be available at all times. We may
             experience hardware, software, or other problems or need to perform
             maintenance related to the Site, resulting in interruptions, delays,
             or errors.
           </p>
-          <p className="text-lg leading-relaxed">
+          <p className="text-sm md:text-md leading-relaxed">
             We reserve the right to change, revise, update, suspend,
             discontinue, or otherwise modify the Site at any time or for any
             reason without notice to you. You agree that we have no liability
@@ -640,7 +642,7 @@ const TermsAndConditions = () => {
             inability to access or use the Site during any downtime or
             discontinuance of the Site.
           </p>
-          <p className="text-lg leading-relaxed">
+          <p className="text-sm md:text-md leading-relaxed">
             Nothing in these Terms of Use will be construed to obligate us to
             maintain and support the Site or to supply any corrections, updates,
             or releases in connection therewith.
@@ -648,10 +650,10 @@ const TermsAndConditions = () => {
         </div>
 
         <div className="space-y-6 mt-12">
-          <h2 className="text-5xl font-bold">
+          <h2 className="text-3xl font-bold">
             Governing <span className="text-blue-400">Law</span>
           </h2>
-          <p className="text-lg leading-relaxed">
+          <p className="text-sm md:text-md leading-relaxed">
             These Terms shall be governed by and defined following the laws of
             the United Arab Emirates. HA Group and yourself irrevocably consent
             that the courts of the United Arab Emirates shall have exclusive
@@ -661,10 +663,10 @@ const TermsAndConditions = () => {
         </div>
 
         <div className="space-y-6 mt-12">
-          <h2 className="text-5xl font-bold">
+          <h2 className="text-3xl font-bold">
             Dispute <span className="text-blue-400">Resolution</span>
           </h2>
-          <p className="text-lg leading-relaxed">
+          <p className="text-sm md:text-md leading-relaxed">
             You agree to irrevocably submit all disputes related to Terms or the
             relationship established by this Agreement to the jurisdiction of
             the _________, courts. HA Group shall also maintain the right to
@@ -676,8 +678,8 @@ const TermsAndConditions = () => {
         </div>
 
         <div className="space-y-6 mt-12">
-          <h2 className="text-5xl font-bold">Corrections</h2>
-          <p className="text-lg leading-relaxed">
+          <h2 className="text-3xl font-bold">Corrections</h2>
+          <p className="text-sm md:text-md leading-relaxed">
             There may be information on the Site that contains typographical
             errors, inaccuracies, or omissions, including descriptions, pricing,
             availability, and various other information. We reserve the right to
@@ -688,8 +690,8 @@ const TermsAndConditions = () => {
         </div>
 
         <div className="space-y-6 mt-12">
-          <h2 className="text-5xl font-bold">Disclaimer</h2>
-          <p className="text-lg leading-relaxed">
+          <h2 className="text-3xl font-bold">Disclaimer</h2>
+          <p className="text-sm md:text-md leading-relaxed">
             The site is provided on an as-is and as-available basis. You agree
             that your use of the site and our services will be at your sole
             risk. To the fullest extent permitted by law, we disclaim all
@@ -701,23 +703,23 @@ const TermsAndConditions = () => {
             will assume no liability or responsibility for any errors, mistakes,
             or inaccuracies of content and materials.
           </p>
-          <p className="text-lg leading-relaxed">
+          <p className="text-sm md:text-md leading-relaxed">
             Personal Injury or property damage, of any nature whatsoever,
             resulting from your access to and use of the site.
           </p>
-          <p className="text-lg leading-relaxed">
+          <p className="text-sm md:text-md leading-relaxed">
             Any unauthorized access to or use of our secure servers and/or any
             and all personal information and/or financial information stored
             therein.
           </p>
-          <p className="text-lg leading-relaxed">
+          <p className="text-sm md:text-md leading-relaxed">
             Any interruption or cessation of transmission to or from the site.
           </p>
-          <p className="text-lg leading-relaxed">
+          <p className="text-sm md:text-md leading-relaxed">
             Any bugs, viruses, trojan horses, or the like which may be
             transmitted to or through the site by any third party, and/or
           </p>
-          <p className="text-lg leading-relaxed">
+          <p className="text-sm md:text-md leading-relaxed">
             Any errors or omissions in any content and materials or for any loss
             or damage of any kind incurred as a result of the use of any content
             posted, transmitted, or otherwise made available via the site. We do
@@ -734,10 +736,10 @@ const TermsAndConditions = () => {
         </div>
 
         <div className="space-y-6 mt-12">
-          <h2 className="text-5xl font-bold">
+          <h2 className="text-3xl font-bold">
             Limitations Of <span className="text-blue-400">Liability</span>
           </h2>
-          <p className="text-lg leading-relaxed">
+          <p className="text-sm md:text-md leading-relaxed">
             In no event will we or our directors, employees, or agents be liable
             to you or any third party for any direct, indirect, consequential,
             exemplary, incidental, special, or punitive damages, including lost
@@ -748,15 +750,15 @@ const TermsAndConditions = () => {
         </div>
 
         <div className="space-y-6 mt-12">
-          <h2 className="text-6xl font-bold">Indemnification</h2>
-          <p className="text-lg leading-relaxed">
+          <h2 className="text-3xl md:text-4xl font-bold">Indemnification</h2>
+          <p className="text-sm md:text-md leading-relaxed">
             You agree to defend, indemnify, and hold us harmless, including our
             subsidiaries, affiliates, and all of our respective officers,
             agents, partners, and employees, from and against any loss, damage,
             liability, claim, or demand, including reasonable attorneys’ fees
             and expenses, made by any third party due to or arising out of:
           </p>
-          <ul className="list-disc pl-8 space-y-2 text-lg">
+          <ul className="list-disc pl-8 space-y-2 text-sm md:text-md">
             <li>Your Contributions;</li>
             <li>Use of the Site;</li>
             <li>Breach of these Terms of Use;</li>
@@ -773,7 +775,7 @@ const TermsAndConditions = () => {
               you connected via the Site.
             </li>
           </ul>
-          <p className="text-lg leading-relaxed">
+          <p className="text-sm md:text-md leading-relaxed">
             Notwithstanding the foregoing, we reserve the right, at your
             expense, to assume the exclusive defense and control of any matter
             for which you are required to indemnify us, and you agree to
@@ -785,10 +787,10 @@ const TermsAndConditions = () => {
         </div>
 
         <div className="space-y-6 mt-12">
-          <h2 className="text-6xl font-bold">
-            User <span className="text-blue-500">Data</span>
+          <h2 className="text-3xl md:text-4xl font-bold">
+            User <span className="text-blue-400">Data</span>
           </h2>
-          <p className="text-lg leading-relaxed">
+          <p className="text-sm md:text-md leading-relaxed">
             We will maintain certain data that you transmit to the Site for the
             purpose of managing the performance of the Site, as well as data
             relating to your use of the Site. Although we perform regular
@@ -802,11 +804,11 @@ const TermsAndConditions = () => {
         </div>
 
         <div className="space-y-6 mt-12">
-          <h2 className="text-6xl font-bold">
+          <h2 className="text-3xl md:text-4xl font-bold">
             Electronic Communications,{" "}
-            <span className="text-blue-500">Transactions, And Signatures</span>
+            <span className="text-blue-400">Transactions, And Signatures</span>
           </h2>
-          <p className="text-lg leading-relaxed">
+          <p className="text-sm md:text-md leading-relaxed">
             Visiting the Site, sending us emails, and completing online forms
             constitute electronic communications. You consent to receive
             electronic communications and you agree that all agreements,
@@ -814,7 +816,7 @@ const TermsAndConditions = () => {
             electronically, via email and on the Site, satisfy any legal
             requirement that such communications be in writing.
           </p>
-          <p className="text-lg leading-relaxed">
+          <p className="text-sm md:text-md leading-relaxed">
             You hereby agree to the use of electronic signatures, contracts,
             orders, and other records, and to electronic delivery of notices,
             policies, and records of transactions initiated or completed by us
@@ -827,11 +829,11 @@ const TermsAndConditions = () => {
         </div>
 
         <div className="space-y-6 mt-12">
-          <h2 className="text-6xl font-bold">
+          <h2 className="text-3xl md:text-4xl font-bold">
             California Users And{" "}
-            <span className="text-blue-500">Residents</span>
+            <span className="text-blue-400">Residents</span>
           </h2>
-          <p className="text-lg leading-relaxed">
+          <p className="text-sm md:text-md leading-relaxed">
             If any complaint with us is not satisfactorily resolved, you can
             contact the Complaint Assistance Unit of the Division of Consumer
             Services of the California Department of Consumer Affairs in writing
@@ -841,8 +843,8 @@ const TermsAndConditions = () => {
         </div>
 
         <div className="space-y-6 mt-12">
-          <h2 className="text-6xl font-bold">Miscellaneous</h2>
-          <p className="text-lg leading-relaxed">
+          <h2 className="text-3xl md:text-4xl font-bold">Miscellaneous</h2>
+          <p className="text-sm md:text-md leading-relaxed">
             These Terms of Use and any policies or operating rules posted by us
             on the Site or in respect to the Site constitute the entire
             agreement and understanding between you and us. Our failure to
@@ -867,12 +869,12 @@ const TermsAndConditions = () => {
         </div>
 
         <div className="space-y-6 mt-12">
-          <h2 className="text-6xl font-bold">Contact Us</h2>
-          <p className="text-lg leading-relaxed">
+          <h2 className="text-3xl md:text-4xl font-bold">Contact Us</h2>
+          <p className="text-sm md:text-md leading-relaxed">
             In order to resolve a complaint regarding the Site or to receive
             further information regarding use of the Site, please contact us at:
           </p>
-          <p className="text-lg leading-relaxed">
+          <p className="text-sm md:text-md leading-relaxed">
             HA Group
             <br />
             Office 205, Zalfa Tower – Garhoud – Dubai – United Arab Emirates
@@ -885,6 +887,7 @@ const TermsAndConditions = () => {
           </p>
         </div>
       </div>
+      </Fade>
     </>
   );
 };

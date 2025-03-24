@@ -1,14 +1,18 @@
 import { useNavigate } from "react-router-dom";
 import { blogPosts } from "../Constants/constant";
+import { Fade } from "react-awesome-reveal";
 
 export const BlogsSection = () => {
   return (
     <>
       <div className="container mx-auto px-4 py-12 max-w-6xl">
+      <Fade triggerOnce direction="up"  cascade damping={0.1}>
         <div className="text-center mb-12">
+
           <h1 className="text-5xl font-normal inline-block">
             Blog & <span className="text-blue-400 font-semibold">Articles</span>
           </h1>
+
         </div>
 
         <div className="flex flex-col md:flex-row mb-16 gap-8">
@@ -35,6 +39,7 @@ export const BlogsSection = () => {
             </div>
           </div>
         </div>
+        </Fade>
         <BlogsList />
       </div>
     </>
@@ -46,6 +51,7 @@ export const BlogsList = () => {
   const navigate = useNavigate()
   return (
     <div className="space-y-6">
+      <Fade triggerOnce direction="up"  cascade damping={0.1}>
       {recentPosts.map((post, index) => (
         <div
           key={post.id}
@@ -73,6 +79,7 @@ export const BlogsList = () => {
           </div>
         </div>
       ))}
+      </Fade>
     </div>
   );
 };

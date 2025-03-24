@@ -1,6 +1,7 @@
 import React from "react";
 import ServicesHeaderTriangle from "../assets/images/triangles/ServicesHeaderTriangle.png";
 import ServiceHeaderRightTriangle from "../assets/images/triangles/ServiceHeaderRightTriangle.png";
+import { Fade } from "react-awesome-reveal";
 interface HeroSectionProps2 {
   title: string;
   highlightText: string;
@@ -28,6 +29,7 @@ const BusinessSetupHero: React.FC<HeroSectionProps2> = ({
         className="hidden z-20 md:block md:absolute md:bottom-0 md:right-0 md:h-72 translate-y-8 "
       />
       <div className="md:w-1/2 md:ml-16 w-full p-6 flex flex-col justify-center bg-white bg-opacity-95">
+      <Fade triggerOnce direction="up" cascade damping={0.1}>
         <h1 className="text-4xl md:text-6xl  mb-5 font-lora font-medium">
           <span className="text-black">{title}</span>{" "}
           <span className="text-blue-400 font-lora font-medium">
@@ -37,10 +39,12 @@ const BusinessSetupHero: React.FC<HeroSectionProps2> = ({
         <p className="text-gray-800 text-lg md:text-lg leading-relaxed font-medium">
           {description}
         </p>
+      </Fade>
       </div>
 
       {/* Right image section with diagonal cut and shadow */}
       <div className="md:w-1/2 w-full relative">
+      <Fade triggerOnce direction="right" cascade damping={0.1}>
         <div
           className="absolute inset-0 bg-blue-100 sm:rounded-4xl shadow-xl clip-polygon
         style={{
@@ -53,6 +57,7 @@ const BusinessSetupHero: React.FC<HeroSectionProps2> = ({
           alt={imageAlt}
           className="w-full h-full object-cover clip-polygon"
         />
+      </Fade>
       </div>
 
       <style>

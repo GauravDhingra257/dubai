@@ -1,4 +1,5 @@
 import React from "react";
+import { Fade } from "react-awesome-reveal";
 
 interface HeroSectionProps {
   title: string;
@@ -42,7 +43,9 @@ export const HeroSection: React.FC<HeroSectionProps> = ({
           imageFirst ? "md:flex-row" : "md:flex-row-reverse"
         } items-center justify-between gap-8`}
       >
+        
         <div className="flex-1 space-y-6 transform transition-all duration-500">
+        <Fade triggerOnce direction="up"  cascade damping={0.1}>
           <h1 className="text-3xl md:text-4xl lg:text-5xl font-bold group">
 
             <span className="inline-block transition-all duration-300 font-medium font-lora">
@@ -57,9 +60,12 @@ export const HeroSection: React.FC<HeroSectionProps> = ({
           <p className="text-lg text-gray-700 max-w-2xl animate-fade-in">
             {description}
           </p>
+          </Fade>
         </div>
 
+
         <div className="flex-1 flex justify-center">
+        <Fade triggerOnce direction={!imageFirst?"left":"right"}  cascade damping={0.1}>
           <div className="rounded-lg overflow-hidden ">
             <img loading="lazy" 
               src={imagePath}
@@ -68,7 +74,9 @@ export const HeroSection: React.FC<HeroSectionProps> = ({
               style={{ maxHeight: `${imageMaxHeight}px` }}
             />
           </div>
+          </Fade>
         </div>
+
       </div>
     </section>
   );
@@ -121,7 +129,9 @@ export const ContentSection: React.FC<ContentSectionProps> = ({
           imageFirst ? "md:flex-row" : "md:flex-row-reverse"
         } gap-8 items-center max-w-6xl mx-auto`}
       >
+
         <div className="flex-1 animate-slide-in">
+        <Fade triggerOnce direction={imageFirst ? "left" : "right"} cascade damping={0.1}>
           <div className="overflow-hidden rounded-lg shadow-md">
             <img loading="lazy" 
               src={imagePath}
@@ -129,9 +139,12 @@ export const ContentSection: React.FC<ContentSectionProps> = ({
               className="w-full h-64 md:h-80 object-cover"
             />
           </div>
+          </Fade>
         </div>
 
-        <div className="flex-1 space-y-4 transform transition-all duration-500  animate-fade-in-up">
+
+        <div className="flex-1 space-y-4 transform transition-all duration-500 animate-fade-in-up">
+          <Fade triggerOnce direction="up"  cascade damping={0.1}>
           <h2
             className="text-2xl md:text-3xl font-bold text-gray-800 relative inline-block 
             after:content-[''] after:absolute after:-bottom-1 after:left-0 after:w-0 after:h-0.5 
@@ -141,6 +154,7 @@ export const ContentSection: React.FC<ContentSectionProps> = ({
             {title}
           </h2>
           <p className="text-sm md:text-base text-gray-600">{description}</p>
+          </Fade>
         </div>
       </div>
     </section>

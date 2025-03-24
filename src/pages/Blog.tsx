@@ -1,6 +1,8 @@
 import React, { useRef } from 'react';
 import { BlogsList } from '../components/BlogsSection';
 import { useLocation } from 'react-router-dom';
+import { Fade, Zoom } from 'react-awesome-reveal';
+import { calendlyUrl } from '../Constants/constant';
 // Add this helper function at the top of the file
 const slugify = (text) => {
     return text
@@ -93,12 +95,15 @@ const BlogPost = ({ post }) => {
     <div className="max-w-5xl mx-auto bg-white rounded-md overflow-hidden">
       {/* Header */}
       <div className="px-6 py-6 text-center">
+        <Fade triggerOnce direction="up" cascade damping={0.1}>
         <h1 className="text-2xl font-bold text-gray-800">{post.title}</h1>
         <p className="text-sm text-gray-500 mt-2">{post.date}</p>
+        </Fade>
       </div>
 
       {/* Hero Image */}
       <div className="px-6">
+        <Zoom>
         <div className="rounded-lg overflow-hidden mb-6">
           <img loading="lazy"  
             src={post.featuredImage} 
@@ -106,12 +111,14 @@ const BlogPost = ({ post }) => {
             className="w-full h-auto object-cover rounded-4xl"
           />
         </div>
+        </Zoom>
       </div>
 
       {/* Content Grid */}
       <div className="px-6 flex flex-col md:flex-row">
         {/* Sidebar */}
         <div className="md:w-1/4 mb-6 md:mb-0">
+        <Fade triggerOnce direction="left" cascade damping={0.01}>
           <h2 className="uppercase text-sm font-bold text-gray-500 mb-4">CONTENTS</h2>
           <ul className="space-y-2 text-sm">
             {post?.tableOfContents?.map((item, index) => (
@@ -120,12 +127,13 @@ const BlogPost = ({ post }) => {
               </li>
             ))}
           </ul>
+          </Fade>
 
           {/* Contact Box */}
           <div className="mt-8 p-8 rounded-lg bg-linear-to-r from-[#2CAFF3]  to-[#1975BB] ;
 ">
             <h3 className=" font-semibold mb-2 text-white text-2xl">{post.contactText}</h3>
-            <button className="bg-red-600 text-white py-2 px-4 mt-8 w-full rounded text-sm font-medium hover:bg-red-700 transition-colors">
+            <button className="bg-red-600 text-white py-2 px-4 mt-8 w-full rounded text-sm font-medium hover:bg-red-700 transition-colors" onClick={()=>window.open(calendlyUrl)}>
               Schedule a Call
             </button>
           </div>
@@ -134,6 +142,7 @@ const BlogPost = ({ post }) => {
         {/* Main Content */}
         <div className="md:w-3/4 md:pl-8">
           {/* Introduction */}
+          <Fade triggerOnce direction="up" cascade damping={0.1} >
           <div ref={el => sectionRefs.current['introduction'] = el}>
           {post.introduction.map((paragraph, index) => (
             <p key={`intro-${index}`} className="text-gray-700 mb-6">
@@ -141,8 +150,11 @@ const BlogPost = ({ post }) => {
             </p>
           ))}
         </div>
+        </Fade>
+
 
           {/* Sections */}
+          <Fade triggerOnce direction="up" cascade damping={0.1} >
           {post?.sections?.map((section, sectionIndex) => (
             section.type === "cta"?<Advertisement title={section.title} text={section.content[0]} />:
             <div key={`section-${sectionIndex}`}  ref={el => sectionRefs.current[slugify(section.title)] = el}>
@@ -166,6 +178,8 @@ const BlogPost = ({ post }) => {
               ))}
             </div>
           ))}
+          </Fade>
+
 
         </div>
       </div>
@@ -192,7 +206,7 @@ export const Advertisement = ({title,text}) => {
          {text}
         </p>
         
-        <button className="bg-red-600 hover:bg-red-700 text-white text-sm font-medium py-2 px-4 rounded transition-colors w-36 text-center">
+        <button className="bg-red-600 hover:bg-red-700 text-white text-sm font-medium py-2 px-4 rounded transition-colors w-36 text-center" onClick={()=>window.open(calendlyUrl)}>
           Schedule a call
         </button>
       </div>

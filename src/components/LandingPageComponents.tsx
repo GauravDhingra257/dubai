@@ -12,6 +12,7 @@ import {
   testimonials,
   ValueAddedService,
   ValueAddedService2,
+  calendlyUrl,
 } from "../Constants/constant";
 import caseStudyTriangle from "../assets/images/triangles/CaseStudyTriangle.png";
 import caseStudyTriangle2 from "../assets/images/triangles/CaseStudyTriangle2.png";
@@ -22,7 +23,7 @@ import AboutSectionRightTriangle from "../assets/images/triangles/AboutSectionRi
 import LeadershipTriangle from "../assets/images/triangles/LeadershipTriangle.png";
 import ClientTriangle from "../assets/images/triangles/ClientTriangle.png";
 import { useNavigate } from "react-router-dom";
-
+import { Fade ,Flip,Hinge,Slide, Zoom} from "react-awesome-reveal";
 const MainServices = () => {
   const navigate = useNavigate();
   return (
@@ -38,7 +39,7 @@ const MainServices = () => {
           <div
             key={index}
             className="relative group rounded-lg overflow-hidden row-span-2 
-      transform transition-all duration-300 hover:scale-105 hover:shadow-xl max-h-108 md:min-h-96"
+      transform transition-all duration-300 hover:scale-105 hover:shadow-xl max-h-108 md:min-h-96 hover:cursor-pointer"
             onClick={() => navigate(service.path)}
           >
             {/* Image */}
@@ -388,9 +389,9 @@ export const VideoSection = () => {
           </video>
           {/* Text Content */}
           <div className="md:absolute z-10 p-8 md:p-12 bottom-10 left-10 rounded-lg max-w-2xl">
-            <h1 className="text-3xl md:text-5xl font-normal text-black">
+            <h1 className="text-3xl md:text-5xl font-normal text-black text-center md:text-left">
               HAGroup <span className="font-semibold">Transforming</span>
-              <br />
+              <br/>
               <span className="font-semibold">Visions into</span>{" "}
               <span>Ventures</span>
             </h1>
@@ -406,7 +407,7 @@ export const VideoSection = () => {
                 className="px-6 py-2 bg-white text-blue-400 border border-blue-400 rounded-lg hover:cursor-pointer"
                 onClick={() =>
                   window.open(
-                    "https://calendly.com/hagroup-sales/30min?back=1&month=2025-03"
+                    calendlyUrl
                   )
                 }
               >
@@ -667,6 +668,7 @@ export const AboutCompanySection = () => {
         />
 
         {/* Glass effect card overlay */}
+        <Slide direction="right" triggerOnce>
         <div className="absolute bottom-0 right-0 m-0 w-full md:m-6 p-6 rounded-xl md:translate-x-1/3 bg-white/60  backdrop-filter backdrop-blur-md shadow-lg md:max-w-96">
           <h2 className="text-xl font-medium mb-2">
             About <span className="text-blue-400 font-semibold">Company</span>
@@ -680,6 +682,7 @@ export const AboutCompanySection = () => {
             Read More
           </button>
         </div>
+        </Slide>
       </div>
     </div>
   );
@@ -704,6 +707,7 @@ export const LeadershipTeamSection = () => {
 
         {/* Leadership cards grid */}
         <div className="flex flex-row flex-wrap gap-8 justify-around ">
+          <Fade triggerOnce direction="up" cascade damping={0.1} >
           {leaders.map((leader, index) => (
             <div key={index} className="flex flex-col">
               {/* Leader image */}
@@ -724,9 +728,11 @@ export const LeadershipTeamSection = () => {
               )}
             </div>
           ))}
+          </Fade>
         </div>
 
         {/* Description text */}
+        <Fade triggerOnce direction="up" >
         <div className="mt-6">
           <p className="text-gray-600 text-sm leading-relaxed">
             Sultan Almuheisen has 25+ years of experience as a distinguished
@@ -741,6 +747,7 @@ export const LeadershipTeamSection = () => {
             University of New York, and holds 12 US patents.
           </p>
         </div>
+        </Fade>
       </div>
     </div>
   );
@@ -759,6 +766,7 @@ export const ClientsSpeak = () => {
         style={{ clipPath: "polygon(0 0, 100% 0, 100% 100%)" }}
       ></div>
       <div className="max-w-6xl mx-auto grid grid-cols-1 sm:grid-cols-3 gap-6 pt-24 z-20 relative">
+        <Fade triggerOnce direction="up" >
         <div className="col-span-1">
           <h2 className="text-5xl font-medium text-left leading-snug">
             Our <br />{" "}
@@ -771,7 +779,10 @@ export const ClientsSpeak = () => {
             What clients have to say about Techwards
           </p>
         </div>
+        </Fade>
+
         <div className="col-span-2 grid grid-cols-1 sm:grid-cols-2 gap-6">
+        <Fade triggerOnce direction="right" cascade damping={0.1} >
           {ClientsSpeaktestimonials.map((testimonial, index) => (
             <div key={index} className="bg-white shadow-lg rounded-lg p-6">
               <p className="text-gray-700 mb-4">{testimonial.feedback}</p>
@@ -785,7 +796,9 @@ export const ClientsSpeak = () => {
               </div>
             </div>
           ))}
+          </Fade>
         </div>
+
       </div>
     </section>
   );

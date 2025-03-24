@@ -1,4 +1,5 @@
 import React, { useState } from "react";
+import { Fade } from "react-awesome-reveal";
 
 const ContactForm: React.FC = () => {
   const [formData, setFormData] = useState({
@@ -28,8 +29,12 @@ const ContactForm: React.FC = () => {
   };
 
   return (
+    
+    
     <form onSubmit={handleSubmit} className="space-y-6">
+      <Fade triggerOnce direction="right"  cascade damping={0.1}>
       {/* First Name */}
+
       <div>
         <label
           htmlFor="firstName"
@@ -187,6 +192,7 @@ const ContactForm: React.FC = () => {
           Submit
         </button>
       </div>
+    </Fade>
     </form>
   );
 };

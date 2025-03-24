@@ -41,9 +41,7 @@ const Header = () => {
             <div key={item.id} className="relative">
               <a
                 // href={item.href}
-                className={`text-black font-medium hover:text-gray-700 hover:cursor-pointer ${
-                  activePage === item.id ? "border-b-2 border-black pb-1" : ""
-                }`}
+                className={`text-white font-medium hover:text-gray-700 hover:cursor-pointer`}
                 onClick={(e) => {
                   e.preventDefault();
                   navigate(item.href);
@@ -54,7 +52,7 @@ const Header = () => {
               </a>
               {activePage === item.id && (
                 <div className="absolute -bottom-5 left-1/2 transform -translate-x-1/2">
-                  <div className="rotate-180 w-0 h-0 border-l-4 border-r-4 border-t-4 border-t-black border-l-transparent border-r-transparent" />
+                  <div className="rotate-180 w-0 h-0 border-l-4 border-r-4 border-t-4 border-t-white border-l-transparent border-r-transparent" />
                 </div>
               )}
             </div>
@@ -69,7 +67,7 @@ const Header = () => {
 
         {/* Mobile menu button */}
         <div className="md:hidden">
-          <button onClick={toggleMenu} className="text-black">
+          <button onClick={toggleMenu} className="text-white">
             {isMenuOpen ? <X size={24} /> : <Menu size={24} />}
           </button>
         </div>
@@ -82,7 +80,7 @@ const Header = () => {
             {navItems.map((item) => (
               <div key={item.id} className="relative">
                 <a
-                  className={`text-black font-medium hover:text-gray-700 ${
+                  className={`text-white font-medium hover:text-gray-700 ${
                     activePage === item.id ? "font-bold" : ""
                   }`}
                   onClick={(e) => {

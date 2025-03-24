@@ -3,6 +3,7 @@ import person1 from "../assets/images/person1.jpg";
 import person2 from "../assets/images/person2.jpg";
 import BusinessGoalsSection from "../components/BusinessGoalsSection";
 import ContactSection from "../components/ContactUsComponents";
+import { Fade } from "react-awesome-reveal";
 
 const ContactPage: React.FC = () => {
   const targetRef = useRef(null);
@@ -15,6 +16,7 @@ const ContactPage: React.FC = () => {
       <div className="flex flex-col md:flex-row justify-between max-w-fit mx-auto p-4 md:p-8 lg:p-12 gap-8 md:gap-0">
         {/* Left Section */}
         <div className="w-full md:w-5/12 flex flex-col justify-center">
+        <Fade triggerOnce direction="left" triggerOnce> 
           <div className="mb-6 md:mb-10">
             <h3 className="text-orange-500 font-medium text-lg mb-2 md:mb-4">
               Let's Contact
@@ -38,12 +40,16 @@ const ContactPage: React.FC = () => {
               Drop A Message
             </button>
           </div>
+        </Fade>
         </div>
 
         {/* Right Section - Testimonials with offset positioning */}
+
         <div className="w-full md:w-6/12 mt-10 md:mt-0 relative">
           {/* First Testimonial */}
+
           <div className="bg-white p-5 rounded-lg border border-gray-100 mb-6 md:mb-0 md:relative z-10">
+          <Fade triggerOnce direction="right" triggerOnce>
             <div className="flex items-center mb-3">
               {[1, 2, 3].map((star) => (
                 <svg
@@ -85,10 +91,11 @@ const ContactPage: React.FC = () => {
                 <p className="font-medium">Google</p>
               </div>
             </div>
+          </Fade>
           </div>
-
           {/* Second Testimonial - Offset position on desktop */}
           <div className="bg-white p-5 rounded-lg border border-gray-100 md:absolute md:top-32 md:right-0 z-0 md:w-11/12 md:pt-24">
+          <Fade triggerOnce direction="right" triggerOnce>
             <div className="flex items-center mb-3">
               {[1, 2, 3].map((star) => (
                 <svg
@@ -129,8 +136,10 @@ const ContactPage: React.FC = () => {
                 <p className="text-gray-600 text-sm">Manager</p>
               </div>
             </div>
+              </Fade>
           </div>
         </div>
+
       </div>
       <div ref={targetRef}>
         <BusinessGoalsSection />

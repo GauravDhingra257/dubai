@@ -9,6 +9,7 @@ import ServiceLeftTriangle from "../../assets/images/triangles/ServiceLeftTriang
 import ServiceRightTriangle from "../../assets/images/triangles/ServiceRightTriangle.png";
 import ServiceRightTriangle2 from "../../assets/images/triangles/ServiceRightTriangle2.png";
 import { useNavigate } from "react-router-dom";
+import { Fade } from "react-awesome-reveal";
 const BuisnessService = () => {
   const navigate = useNavigate();
   return (
@@ -24,6 +25,7 @@ const BuisnessService = () => {
       <div className="flex items-center justify-center h-[60vh] bg-gray-50 px-4">
         <div className="text-center max-w-2xl">
           {/* Heading */}
+          <Fade triggerOnce direction="up" cascade damping={0.1}>
           <h1 className="text-3xl md:text-4xl font-semibold text-gray-900 mb-4">
             How Much Does Business Setup In Dubai Cost?
           </h1>
@@ -44,6 +46,7 @@ const BuisnessService = () => {
           >
             Calculate Now
           </button>
+          </Fade>
         </div>
       </div>
       <HeroSection
