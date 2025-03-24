@@ -6,6 +6,7 @@ import footer2 from "../assets/images/footer/footer2.png";
 import footer3 from "../assets/images/footer/footer3.png";
 import leftfooterTriangle from "../assets/images/triangles/leftfooterTriangle.png";
 import footerRightTriangle from "../assets/images/triangles/footerRightTriangle.png";
+import { Link } from "react-router";
 
 // Triangle component that can be reused
 const Triangle = ({ className }) => {
@@ -37,7 +38,7 @@ const Footer = () => {
 
   return (
     <div className="relative bg-gray-200 mt-auto">
-      <Triangle2 className="hidden md:absolute md:top-0 md:right-0 md:-translate-y-1/2 " />
+      <Triangle2 className="hidden md:block md:absolute md:top-0 md:right-0 md:-translate-y-1/2 " />
       {/* Diagonal cut at the top */}
       <div
         className="absolute top-0 left-0 w-full h-24 bg-white"
@@ -290,7 +291,7 @@ const Footer = () => {
           </div>
         </div>
       </div>
-      <Triangle className="-mt-16" />
+      <Triangle className="-mt-16 hidden md:block" />
     </div>
   );
 };
