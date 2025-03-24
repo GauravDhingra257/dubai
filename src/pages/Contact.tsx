@@ -16,7 +16,7 @@ const ContactPage: React.FC = () => {
       <div className="flex flex-col md:flex-row justify-between max-w-fit mx-auto p-4 md:p-8 lg:p-12 gap-8 md:gap-0">
         {/* Left Section */}
         <div className="w-full md:w-5/12 flex flex-col justify-center">
-        <Fade triggerOnce direction="left" triggerOnce> 
+        <Fade triggerOnce direction="left" > 
           <div className="mb-6 md:mb-10">
             <h3 className="text-orange-500 font-medium text-lg mb-2 md:mb-4">
               Let's Contact
@@ -49,7 +49,7 @@ const ContactPage: React.FC = () => {
           {/* First Testimonial */}
 
           <div className="bg-white p-5 rounded-lg border border-gray-100 mb-6 md:mb-0 md:relative z-10">
-          <Fade triggerOnce direction="right" triggerOnce>
+          <Fade triggerOnce direction="right" >
             <div className="flex items-center mb-3">
               {[1, 2, 3].map((star) => (
                 <svg
@@ -95,7 +95,7 @@ const ContactPage: React.FC = () => {
           </div>
           {/* Second Testimonial - Offset position on desktop */}
           <div className="bg-white p-5 rounded-lg border border-gray-100 md:absolute md:top-32 md:right-0 z-0 md:w-11/12 md:pt-24">
-          <Fade triggerOnce direction="right" triggerOnce>
+          <Fade triggerOnce direction="right" >
             <div className="flex items-center mb-3">
               {[1, 2, 3].map((star) => (
                 <svg
