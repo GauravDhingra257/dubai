@@ -1,4 +1,5 @@
 import React, { useState, ChangeEvent } from "react";
+import { Fade } from "react-awesome-reveal";
 
 interface FormData {
   companyName: string;
@@ -112,11 +113,13 @@ const CalculateSetup: React.FC = () => {
 
   return (
     <div className="font-sans w-full max-w-5xl mx-auto px-4 mt-8 md:mt-40 mb-16 md:mb-65">
+      <Fade triggerOnce direction="down" damping={0.1}>
       <h1 className="text-2xl md:text-3xl font-medium text-center mb-6 md:mb-25 font-lora">
         Calculate your business cost here
       </h1>
-
-      <div className="w-full bg-white rounded-xl md:rounded-3xl overflow-hidden border border-gray-200 shadow-sm mt-4 md:mt-7">
+      </Fade>
+      <Fade triggerOnce direction="up" damping={0.1}>
+      <div className="w-full bg-white rounded-xl md:rounded-3xl overflow-hidden border border-gray-200 shadow-sm mt-4 md:mt-7 transition-all duration-300 ease-in-out">
         {/* Mobile Progress Indicator - only visible on small screens */}
         <div className="md:hidden py-4 bg-blue-50">{renderMobileSteps()}</div>
 
@@ -294,7 +297,7 @@ const CalculateSetup: React.FC = () => {
                 <div className="flex justify-end mt-8 md:mt-55">
                   <button
                     onClick={handleNext}
-                    className="px-6 md:px-8 py-2.5 bg-blue-500 text-white rounded text-sm font-medium hover:bg-blue-600 w-full md:w-38"
+                    className="px-6 md:px-8 py-2.5 bg-blue-400 text-white rounded text-sm font-medium hover:bg-blue-400 w-full md:w-38"
                   >
                     Next
                   </button>
@@ -387,7 +390,7 @@ const CalculateSetup: React.FC = () => {
                   </button>
                   <button
                     onClick={handleNext}
-                    className="px-6 md:px-8 py-2.5 bg-blue-500 text-white rounded text-sm font-medium hover:bg-blue-600 w-full md:w-38"
+                    className="px-6 md:px-8 py-2.5 bg-blue-400 text-white rounded text-sm font-medium hover:bg-blue-400 w-full md:w-38"
                   >
                     Next
                   </button>
@@ -469,6 +472,7 @@ const CalculateSetup: React.FC = () => {
           </div>
         </div>
       </div>
+      </Fade>
     </div>
   );
 };

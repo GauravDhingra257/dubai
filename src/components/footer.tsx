@@ -6,6 +6,7 @@ import footer2 from "../assets/images/footer/footer2.png";
 import footer3 from "../assets/images/footer/footer3.png";
 import leftfooterTriangle from "../assets/images/triangles/leftfooterTriangle.png";
 import footerRightTriangle from "../assets/images/triangles/footerRightTriangle.png";
+import { Link } from "react-router";
 
 // Triangle component that can be reused
 const Triangle = ({ className }) => {
@@ -37,7 +38,7 @@ const Footer = () => {
 
   return (
     <div className="relative bg-gray-200 mt-auto">
-      <Triangle2 className="hidden md:absolute md:top-0 md:right-0 md:-translate-y-1/2 " />
+      <Triangle2 className="hidden md:block md:absolute md:top-0 md:right-0 md:-translate-y-1/2 " />
       {/* Diagonal cut at the top */}
       <div
         className="absolute top-0 left-0 w-full h-24 bg-white"
@@ -222,8 +223,37 @@ const Footer = () => {
           </div>
 
           {/* Contact */}
-          <div className="md:w-1/4">
+          <div className="mb-8 md:mb-0 md:w-1/4">
             <h3 className="text-gray-700 font-semibold mb-4">Get in Touch</h3>
+            <ul className="space-y-2">
+              <li>
+                <a
+                  href="tel:+97148241725"
+                  className="text-gray-600 hover:text-blue-400 text-sm"
+                >
+                  +971 48 241725
+                </a>
+              </li>
+              <li>
+                <a
+                  href="tel:+97154273740"
+                  className="text-gray-600 hover:text-blue-400 text-sm"
+                >
+                  +971 54 2737405
+                </a>
+              </li>
+              <li>
+                <a
+                  href="mailto:info@hagroup.ae"
+                  className="text-gray-600 hover:text-blue-400 text-sm"
+                >
+                  info@hagroup.ae
+                </a>
+              </li>
+            </ul>
+          </div>
+          <div className="md:w-1/4">
+            <h3 className="text-gray-700 font-semibold mb-4">Explore</h3>
             <ul className="space-y-2">
               <li>
                 <span
@@ -257,35 +287,11 @@ const Footer = () => {
                   Terms and Conditions
                 </span>
               </li>
-              <li>
-                <a
-                  href="tel:+97148241725"
-                  className="text-gray-600 hover:text-blue-400 text-sm"
-                >
-                  +971 48 241725
-                </a>
-              </li>
-              <li>
-                <a
-                  href="tel:+97154273740"
-                  className="text-gray-600 hover:text-blue-400 text-sm"
-                >
-                  +971 54 2737405
-                </a>
-              </li>
-              <li>
-                <a
-                  href="mailto:info@hagroup.ae"
-                  className="text-gray-600 hover:text-blue-400 text-sm"
-                >
-                  info@hagroup.ae
-                </a>
-              </li>
             </ul>
           </div>
         </div>
       </div>
-      <Triangle className="-mt-16" />
+      <Triangle className="-mt-16 hidden md:block" />
     </div>
   );
 };

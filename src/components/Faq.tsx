@@ -1,4 +1,5 @@
 import React, { useState } from 'react';
+import { Fade } from 'react-awesome-reveal';
 
 const FAQAccordion = () => {
   const [activeItem, setActiveItem] = useState('free-zone-company');
@@ -52,12 +53,15 @@ const FAQAccordion = () => {
 
   return (
     <div className="bg-white py-16 px-6">
+      <Fade triggerOnce direction="up"  cascade damping={0.1}>
       <div className="max-w-6xl mx-auto mb-12">
         <h2 className="text-5xl font-normal text-center px-12">
           Frequently Asked <span className="text-blue-400 font-semibold">Question</span>
         </h2>
       </div>
+      </Fade>
       <div className="space-y-4 max-w-3xl justify-center mx-auto">
+        <Fade triggerOnce direction="up"  cascade damping={0.1}>
         {faqItems.map((item) => (
           <div 
             key={item.id} 
@@ -94,6 +98,7 @@ const FAQAccordion = () => {
             </div>
           </div>
         ))}
+        </Fade>
       </div>
     </div>
   );

@@ -2,10 +2,16 @@ import React from "react";
 import haVideo from "../assets/video/main.mp4";
 import ourMission from "../assets/images/about/OurMission.png";
 import OurPhilosophy from "../assets/images/about/OurPhilosophy.png";
+import { Fade, Zoom } from "react-awesome-reveal";
+import SliderTriangle from "../assets/images/triangles/SliderTriangle.png";
 // Component 1: Hero Section with About Us
 export const AboutSection = () => {
   return (
-    <div className="flex flex-col md:flex-row bg-white drop-shadow-lg p-4 md:p-6 items-center">
+    <div className="flex flex-col md:flex-row bg-white drop-shadow-lg p-4 md:p-6 items-center relative">
+      <img loading="lazy" 
+        src={SliderTriangle}
+        className="hidden md:block md:absolute md:top-1/2 -translate-y-1/2 md:left-0 md:h-72"
+      />
       <div className="max-w-4xl flex flex-col items-center mx-auto md:flex-row">
         <div className="relative w-full md:w-1/2 mb-4 md:mb-0">
           <div className="w-full h-48 md:h-64 bg-gray-300 relative">
@@ -41,6 +47,7 @@ export const AboutSection = () => {
 export const WhyHAGroupSection = () => {
   return (
     <div className="py-12 px-4 md:px-6 bg-white max-w-5xl mx-auto">
+      <Fade triggerOnce direction="up"  cascade damping={0.1}>
       <h2 className="text-3xl font-bold mb-6">
         Why <span className="text-blue-400">HA Group</span>?
       </h2>
@@ -48,12 +55,13 @@ export const WhyHAGroupSection = () => {
         We prioritise our people, ensuring they are nurtured at their fullest
         potential to contribute seamlessly to our vision!
       </p>
+      </Fade>
 
       <div className="grid grid-cols-1 md:grid-cols-3 gap-4 relative">
         {/* Vertical Dividers */}
         <div className="hidden md:block absolute left-1/3 top-0 bottom-0 w-px bg-gradient-to-b from-transparent via-gray-300 to-transparent" />
         <div className="hidden md:block absolute left-2/3 top-0 bottom-0 w-px bg-gradient-to-b from-transparent via-gray-300 to-transparent" />
-
+        <Fade triggerOnce direction="down"  cascade damping={0.1}>
         {/* Card 1 */}
         <div className="flex flex-col p-3 justify-center items-center">
           <div className="flex items-start mb-2 w-full">
@@ -134,11 +142,12 @@ export const WhyHAGroupSection = () => {
             and all the way to our deliverables.
           </p>
         </div>
-
+        </Fade>
         {/* Horizontal Divider */}
         <div className="col-span-full h-px bg-gradient-to-r from-transparent via-gray-300 to-transparent my-6" />
 
         {/* Card 4 */}
+        <Fade triggerOnce direction="up"  cascade damping={0.1}>
         <div className="flex flex-col p-3 justify-center items-center">
           <div className="flex items-start mb-2 w-full">
             <div className="mr-2">
@@ -223,6 +232,9 @@ export const WhyHAGroupSection = () => {
             We don't stop you when you need help to future-proof your solution.
           </p>
         </div>
+        </Fade>
+
+
       </div>
     </div>
   );
@@ -232,7 +244,9 @@ export const WhyHAGroupSection = () => {
 export const ApplyNowSection = () => {
   return (
     <div className="bg-[radial-gradient(closest-side,#00AEEF,#0076B6,#0563AC)] text-white py-10 px-4 md:px-6">
+
       <div className="flex flex-col md:flex-row justify-between items-center max-w-6xl mx-auto">
+      <Fade triggerOnce direction="down"  cascade damping={0.1}> 
         <h2 className="text-2xl font-bold mb-4 md:mb-0">Apply Now</h2>
 
         <div className="flex-grow mx-0 md:mx-8 mb-4 md:mb-0">
@@ -245,6 +259,7 @@ export const ApplyNowSection = () => {
         <button className="bg-red-700 hover:bg-red-800 text-white px-6 py-2 rounded">
           See More
         </button>
+        </Fade>
       </div>
     </div>
   );
@@ -349,6 +364,7 @@ export const TeamSection = () => {
   return (
     <div className="bg-gray-50 py-12 px-4 md:px-6 ">
       <div className="max-w-5xl mx-auto">
+        <Zoom cascade damping={0.1}>
         <h2 className="text-3xl font-bold mb-10">
           Our <span className="text-blue-400">Team</span>
         </h2>
@@ -376,6 +392,7 @@ export const TeamSection = () => {
             ))}
           </div>
         </div>
+        </Zoom>
       </div>
     </div>
   );
@@ -385,15 +402,21 @@ export const CompanySection = () => {
   return (
     <div className="max-w-5xl md:px-6 mx-auto px-4 py-12 font-sans">
       {/* Committed To Our Work Section */}
+
       <div className="mb-12">
+      <Fade triggerOnce direction="up"  cascade damping={0.1}>
         <h2 className="text-3xl font-bold text-gray-800">Committed To</h2>
         <h2 className="text-3xl font-bold text-blue-400">Our Work</h2>
+        </Fade>
       </div>
+
 
       {/* Two Columns Section */}
       <div className="flex flex-col md:flex-row justify-between mb-16">
         {/* Mission Column */}
+
         <div className="flex-1 text-center px-6 pb-8 md:pb-0">
+        <Fade triggerOnce direction="left" cascade damping={0.1}>
           <div className="flex justify-center mb-4">
             <div className="relative">
               <img
@@ -409,6 +432,7 @@ export const CompanySection = () => {
             Technuvus aims to leverage technology to help people live
             meaningfully and purposefully.
           </p>
+        </Fade>
         </div>
 
         {/* Vertical Divider */}
@@ -416,6 +440,7 @@ export const CompanySection = () => {
 
         {/* Philosophy Column */}
         <div className="flex-1 text-center px-6">
+          <Fade triggerOnce direction="right" cascade damping={0.1}>
           <div className="flex justify-center mb-4">
             <div className="relative">
               <img
@@ -431,13 +456,16 @@ export const CompanySection = () => {
             At Technuvus, we want our team to positively contribute towards the
             success of society.
           </p>
+          </Fade>
         </div>
       </div>
 
       {/* CEO Message Section */}
       <div>
+        <Fade triggerOnce direction="up"  cascade damping={0.1}>
         <h2 className="text-3xl font-bold text-gray-800">Message From</h2>
         <h2 className="text-3xl font-bold text-blue-400 mb-6">Our CEO</h2>
+
 
         <div className="text-sm text-gray-600 space-y-4">
           <p>
@@ -464,10 +492,14 @@ export const CompanySection = () => {
             meaningful impact on a global scale.
           </p>
         </div>
+
         <div className="w-full h-px bg-gradient-to-r from-transparent via-gray-300 to-transparent my-8" />
+
         <div className="mt-8 text-center">
           <p className="font-medium text-gray-800">Nabeel Akbar</p>
         </div>
+        </Fade>
+
       </div>
     </div>
   );

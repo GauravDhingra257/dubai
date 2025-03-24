@@ -1,9 +1,12 @@
 import { InlineWidget } from "react-calendly";
 import BookAppointmentTri from "../assets/images/triangles/BookAppointmentTri.png";
+import { Fade, Zoom } from "react-awesome-reveal";
+import { calendlyUrl } from "../Constants/constant";
 const BusinessBanner = () => {
   return (
     <>
       <section className="relative w-full max-w-6xl mx-auto py-12 px-6">
+        <Zoom>
         <div className="relative">
           <img
             loading="lazy"
@@ -11,6 +14,7 @@ const BusinessBanner = () => {
             alt="Empower Business"
             className="w-full min-h-108 object-cover rounded-4xl"
           />
+
           <div className="absolute inset-0 flex items-end justify-start bg-black/50  rounded-4xl p-8">
             <div className="text-white max-w-md">
               <h2 className="text-3xl md:text-4xl font-bold mb-4">
@@ -23,6 +27,7 @@ const BusinessBanner = () => {
             </div>
           </div>
         </div>
+        </Zoom>
       </section>
       <LetsConnect />
       <Calendly />
@@ -39,6 +44,7 @@ export const LetsConnect = () => {
         className="hidden md:block md:absolute md:top-0 md:right-0 md:h-56)"
       />
       <section className="max-w-6xl mx-auto py-12 px-6 grid grid-cols-1 md:grid-cols-2 gap-8 items-center">
+        <Fade triggerOnce direction="left">
         <div>
           <h2 className="text-3xl md:text-4xl font-bold text-left leading-snug">
             Let’s <span className="text-blue-400">Connect</span>
@@ -59,13 +65,15 @@ export const LetsConnect = () => {
             className="mt-6 bg-red-500 text-white px-6 py-3 rounded-lg font-semibold shadow-md hover:bg-red-600"
             onClick={() =>
               window.open(
-                "https://calendly.com/hagroup-sales/30min?back=1&month=2025-03"
+                calendlyUrl
               )
             }
           >
             Book an appointment
           </button>
         </div>
+        </Fade>
+        <Fade triggerOnce direction="right">
         <div className="flex justify-center">
           <img
             loading="lazy"
@@ -74,6 +82,7 @@ export const LetsConnect = () => {
             className=" h-108 max-w-sm rounded-lg object-cover shadow-lg"
           />
         </div>
+        </Fade>
       </section>
     </div>
   );
@@ -86,7 +95,7 @@ export const Calendly = () => {
         styles={{
           height: "58rem",
         }}
-        url="https://calendly.com/hagroup-sales/30min?back=1&month=2025-03"
+        url={calendlyUrl}
       />
     </div>
   );
@@ -95,6 +104,7 @@ export const MeetHAGroup = () => {
   return (
     <section className="bg-white py-12 px-6">
       <div className="max-w-6xl mx-auto">
+        <Fade triggerOnce direction="up" cascade damping={0.1}>
         <h2 className="text-4xl font-bold text-left">
           Meet <span className="text-blue-400">HA Group</span>
         </h2>
@@ -120,6 +130,7 @@ export const MeetHAGroup = () => {
         <button className="mt-6 bg-red-500 text-white px-6 py-2 rounded-lg font-semibold hover:bg-red-600">
           Know more
         </button>
+        </Fade>
       </div>
     </section>
   );

@@ -18,6 +18,7 @@ import partner2 from "../assets/images/ourPartners/partner2.png";
 import partner3 from "../assets/images/ourPartners/partner3.png";
 import partner4 from "../assets/images/ourPartners/partner4.png";
 import partner5 from "../assets/images/ourPartners/partner5.png";
+export const calendlyUrl= `https://calendly.com/hagroup-sales/30min?back=1&month=${new Date().getFullYear()}-${String(new Date().getMonth() + 1).padStart(2, '0')}`
 export const ClientsSpeaktestimonials = [
   {
     name: "Alex Tom",
