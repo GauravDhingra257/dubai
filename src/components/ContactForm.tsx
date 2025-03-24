@@ -83,7 +83,7 @@ const ContactForm: React.FC = () => {
           value={formData.email}
           onChange={handleChange}
           className="mt-1 block w-full border-b border-gray-300 py-2 focus:border-blue-400 focus:outline-none"
-          placeholder="Name"
+          placeholder="Buisness email"
           required
         />
       </div>
@@ -152,7 +152,7 @@ const ContactForm: React.FC = () => {
           value={formData.message}
           onChange={handleChange}
           className="mt-1 block w-full border-b border-gray-300 py-2 focus:border-blue-400 focus:outline-none resize-none"
-          placeholder="Name"
+          placeholder="How can we help?"
           rows={3}
           required
         />
@@ -167,7 +167,8 @@ const ContactForm: React.FC = () => {
               I'm not a robot
             </label>
             <div className="ml-auto m-1 pl-4">
-              <img loading="lazy" 
+              <img
+                loading="lazy"
                 src="/api/placeholder/30/30"
                 alt="reCAPTCHA logo"
                 className="h-8"
