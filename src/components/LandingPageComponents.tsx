@@ -441,49 +441,6 @@ export const VideoSection = () => {
 };
 
 const CaseStudiesCarousel = ({ caseStudies }) => {
-  const [isDragging, setIsDragging] = useState(false);
-  const [startX, setStartX] = useState(0);
-  const [scrollLeft, setScrollLeft] = useState(0);
-  const carouselRef = useRef(null);
-
-  const handleMouseDown = (e) => {
-    setIsDragging(true);
-    setStartX(e.pageX - carouselRef.current.offsetLeft);
-    setScrollLeft(carouselRef.current.scrollLeft);
-  };
-
-  const handleMouseUp = () => {
-    setIsDragging(false);
-  };
-
-  const handleMouseMove = (e) => {
-    if (!isDragging) return;
-    e.preventDefault();
-    const x = e.pageX - carouselRef.current.offsetLeft;
-    const walk = (x - startX) * 2;
-    carouselRef.current.scrollLeft = scrollLeft - walk;
-  };
-
-  const handleTouchStart = (e) => {
-    setIsDragging(true);
-    setStartX(e.touches[0].pageX - carouselRef.current.offsetLeft);
-    setScrollLeft(carouselRef.current.scrollLeft);
-  };
-
-  const handleTouchMove = (e) => {
-    if (!isDragging) return;
-    const x = e.touches[0].pageX - carouselRef.current.offsetLeft;
-    const walk = (x - startX) * 2;
-    carouselRef.current.scrollLeft = scrollLeft - walk;
-  };
-
-  useEffect(() => {
-    document.addEventListener("mouseup", handleMouseUp);
-    return () => {
-      document.removeEventListener("mouseup", handleMouseUp);
-    };
-  }, []);
-
   return (
     <div className="bg-gray-100 py-6 relative">
       <div
@@ -498,9 +455,8 @@ const CaseStudiesCarousel = ({ caseStudies }) => {
       <img
         loading="lazy"
         src={caseStudyTriangle2}
-        className="hidden md:block md:absolute md:bottom-0 md:right-0 md:h-48 -mb-6 -pb-6)"
+        className="hidden md:block md:absolute md:bottom-0 md:right-0 md:h-48 -mb-6"
       />
-      {/* Diagonal cut at the top */}
 
       <div className="container mx-auto px-4 py-8 pt-24">
         <div className="mb-8">
@@ -512,26 +468,11 @@ const CaseStudiesCarousel = ({ caseStudies }) => {
           </h2>
         </div>
 
-        <div
-          ref={carouselRef}
-          className="flex overflow-x-auto scrollbar-hide select-none"
-          style={{
-            cursor: isDragging ? "grabbing" : "grab",
-            scrollbarWidth: "none",
-            msOverflowStyle: "none",
-          }}
-          onMouseDown={handleMouseDown}
-          onMouseMove={handleMouseMove}
-          onMouseUp={handleMouseUp}
-          onMouseLeave={handleMouseUp}
-          onTouchStart={handleTouchStart}
-          onTouchMove={handleTouchMove}
-          onTouchEnd={handleMouseUp}
-        >
+        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
           {caseStudies.map((study, index) => (
-            <div key={index} className="max-w-xl min-w-sm mr-4 flex p-2">
-              <div className="bg-white rounded shadow-md overflow">
-                <div className=" h-72 overflow-hidden">
+            <div key={index} className="flex">
+              <div className="bg-white rounded shadow-md overflow-hidden w-full">
+                <div className="h-72 overflow-hidden">
                   <img
                     loading="lazy"
                     src={study.image}
