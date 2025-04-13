@@ -90,9 +90,10 @@ const CalculateSetup: React.FC = () => {
 
   // Render progress steps for mobile view
   const renderMobileSteps = () => (
-    <div className="flex justify-between px-4 mb-6">
+    <div className="flex justify-between px-4 mb-6 relative">
+      <div className="absolute w-[85%] h-0.5 bg-gray-200 left-8 top-4 z-1"></div>
       {[1, 2, 3].map((stepNumber) => (
-        <div key={stepNumber} className="flex flex-col items-center">
+        <div key={stepNumber} className="flex flex-col items-center z-10">
           <div
             className={`w-8 h-8 rounded-full flex items-center justify-center text-sm 
               ${
@@ -129,7 +130,7 @@ const CalculateSetup: React.FC = () => {
             <h2 className="text-lg font-medium mb-12">Your business</h2>
 
             <div className="relative">
-              <div className="absolute h-full w-0.5 bg-gray-200 left-4 top-5"></div>
+              <div className="absolute h-[80%] w-0.5 bg-gray-200 left-4 top-5"></div>
 
               <div className="space-y-12 relative">
                 <div className="flex items-center">

@@ -137,7 +137,7 @@ const ContactForm: React.FC = () => {
             value={formData.phone}
             onChange={handleChange}
             className="block w-3/4 border-b border-gray-300 py-2 focus:border-blue-400 focus:outline-none"
-            placeholder="+92"
+            placeholder={countryCode}
             required
           />
         </div>
@@ -163,7 +163,7 @@ const ContactForm: React.FC = () => {
         />
       </div>
 
-      {/* reCAPTCHA */}
+      {/* reCAPTCHA
       <div className="flex items-center">
         <div className="g-recaptcha border border-gray-200 rounded p-4 w-fit">
           <div className="flex items-center">
@@ -181,7 +181,7 @@ const ContactForm: React.FC = () => {
             </div>
           </div>
         </div>
-      </div>
+      </div> */}
 
       {/* Submit Button */}
       <div>
