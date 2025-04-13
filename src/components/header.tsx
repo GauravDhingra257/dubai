@@ -1,7 +1,8 @@
 import React, { useState } from "react";
 import { Menu, X } from "lucide-react";
-import logo from "../assets/images/home/logo.png";
+import logo from "../assets/images/home/footer_logo.png";
 import { Navigate, useNavigate } from "react-router-dom";
+import { calendlyUrl } from "../Constants/constant";
 const Header = () => {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
   const [activePage, setActivePage] = useState("business"); // Default active page
@@ -11,8 +12,8 @@ const Header = () => {
   };
 
   const navItems = [
-    { name: "Business", href: "mainservices", id: "business" },
-    { name: "Services", href: "business", id: "services" },
+    { name: "Business Services", href: "mainservices", id: "business" },
+    { name: "Business Setup", href: "business", id: "services" },
     { name: "Blog", href: "blog", id: "blog" },
     { name: "About us", href: "aboutUs", id: "about" },
     { name: "Contact us", href: "contact", id: "contact" },
@@ -31,7 +32,7 @@ const Header = () => {
               navigate("/");
             }}
             alt="HA Group Logo"
-            className="h-12 w-auto hover:cursor-pointer"
+            className="h-12 w-auto hover:cursor-pointer "
           />
         </div>
 
@@ -59,7 +60,7 @@ const Header = () => {
           ))}
           <button
             className="bg-red-600 text-white px-4 py-2 rounded font-medium hover:bg-red-700 transition hover:cursor-pointer"
-            onClick={() => navigate("/book-appointment")}
+            onClick={() => window.open(calendlyUrl)}
           >
             Book Appointment
           </button>

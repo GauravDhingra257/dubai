@@ -10,15 +10,24 @@ import BusinessSetup from "../assets/images/MainServices/BusinessSetup.png";
 import VisaServices from "../assets/images/MainServices/VisaServices.png";
 import BankAccount from "../assets/images/MainServices/BankAccount.png";
 import CompanyLiquidation from "../assets/images/MainServices/CompanyLiquidation.png";
-import HamdanSheikh from "../assets/images/LeaderShipTeam/HamdanSheikh.jpg";
-import SultanAlmuheisen from "../assets/images/LeaderShipTeam/SultanAlmuheisen.jpg";
-import WesamKattan from "../assets/images/LeaderShipTeam/WesamKattan.jpg";
 import partner1 from "../assets/images/ourPartners/partner1.png";
 import partner2 from "../assets/images/ourPartners/partner2.png";
 import partner3 from "../assets/images/ourPartners/partner3.png";
 import partner4 from "../assets/images/ourPartners/partner4.png";
 import partner5 from "../assets/images/ourPartners/partner5.png";
-export const calendlyUrl= `https://calendly.com/hagroup-sales/30min?back=1&month=${new Date().getFullYear()}-${String(new Date().getMonth() + 1).padStart(2, '0')}`
+import offshore from "../assets/images/buisness/OffShore.png";
+import freezone from "../assets/images/buisness/FreeZone.png";
+import mainlandbusiness from "../assets/images/buisness/VisaServices.png";
+import Naqib from "../assets/images/Team/Naqib.jpg";
+import Yasir from "../assets/images/Team/Yasir.jpg";
+import Romana from "../assets/images/Team/Romana.jpg";
+import Helma from "../assets/images/Team/Helma.jpg";
+import Jennifer from "../assets/images/Team/Jennifer.jpg";
+import Maleeha from "../assets/images/Team/Maleeha.jpg";
+
+export const calendlyUrl = `https://calendly.com/hagroup-sales/30min?back=1&month=${new Date().getFullYear()}-${String(
+  new Date().getMonth() + 1
+).padStart(2, "0")}`;
 export const ClientsSpeaktestimonials = [
   {
     name: "Alex Tom",
@@ -47,55 +56,56 @@ export const ClientsSpeaktestimonials = [
 ];
 export const leaders = [
   {
-    name: "Adnan Almenhali",
-    position: "CEO",
-    image: SultanAlmuheisen,
+    name: "Mr. Naqib ",
+    position: "Real Estate Advisor",
+    image: Naqib,
   },
   {
-    name: "Vincent Kasten",
-    position: "CEO",
-    image: WesamKattan,
+    name: "Mr. Yasir",
+    position: "PRO & Sales Manager",
+    image: Yasir,
   },
   {
-    name: "Hamdan Sheikh",
-    position: "CEO",
-    image: HamdanSheikh,
+    name: "Romana",
+    position: "Assistant Sales Manager",
+    image: Romana,
+  },
+  {
+    name: "Helma Christopher",
+    position: "Assistant Accounts Manager",
+    image: Helma,
+  },
+  {
+    name: "Jennifer ",
+    position: "Business Consultant",
+    image: Jennifer,
+  },
+  {
+    name: "Maleeha",
+    position: "Director Operations & HR",
+    image: Maleeha,
   },
 ];
 export const sampleCaseStudies = [
   {
-    title: "Construction Management",
+    title: "Offshore Business",
     description:
-      "We built a mobile app that streamlines site management for construction projects.",
-    image: "https://picsum.photos/300/200?random=2",
+      "Looking to expand globally? An offshore company in the UAE offers 100% foreign ownership, no physical office requirements, and a tax-efficient structure—perfect for international trade and asset protection.",
+    image: offshore,
     link: "#",
   },
   {
-    title: "Remote Team Productivity",
+    title: "Free Zone Business",
     description:
-      "Our app helped a remote team increase productivity by 42% within three months.",
-    image: "https://picsum.photos/300/200?random=2",
+      "Want full control and exclusive benefits? Free zones offer 100% ownership, tax advantages, and simplified business regulations, making them ideal for startups, SMEs, and global investors.",
+    image: freezone,
     link: "#",
   },
   {
-    title: "Healthcare Solutions",
+    title: "Mainland Business",
     description:
-      "A patient management system that reduced wait times by 35% at a major hospital.",
-    image: "https://picsum.photos/300/200?random=2",
-    link: "#",
-  },
-  {
-    title: "Supply Chain Optimization",
-    description:
-      "We helped streamline logistics operations for a multinational corporation.",
-    image: "https://picsum.photos/300/200?random=2",
-    link: "#",
-  },
-  {
-    title: "Education Technology",
-    description:
-      "Our platform helped universities transition to effective online learning.",
-    image: "https://picsum.photos/300/200?random=2",
+      "Planning to trade across the UAE? A mainland license lets you operate without restrictions, secure government contracts, and sponsor unlimited visas—giving your business unlimited growth potential.",
+    image: mainlandbusiness,
     link: "#",
   },
 ];

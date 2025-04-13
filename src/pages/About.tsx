@@ -1,21 +1,26 @@
-
-import { Fade } from 'react-awesome-reveal'
-import { AboutSection, ApplyNowSection, CompanySection, TeamSection, WhyHAGroupSection } from '../components/AboutUs'
+import { Fade } from "react-awesome-reveal";
+import {
+  AboutSection,
+  ApplyNowSection,
+  CompanySection,
+  TeamSection,
+  WhyHAGroupSection,
+} from "../components/AboutUs";
+import { LeadershipTeamSection } from "../components/LandingPageComponents";
 
 const AboutPage = () => {
   return (
     <>
-    <Fade triggerOnce direction="up">
-        <AboutSection/>
-    </Fade>
-        <WhyHAGroupSection/>
+      <Fade triggerOnce direction="up">
+        <AboutSection />
+      </Fade>
+      <WhyHAGroupSection />
 
-        <ApplyNowSection/>
-        <TeamSection/>
-        <CompanySection/>
-
+      <ApplyNowSection />
+      <LeadershipTeamSection />
+      <CompanySection />
     </>
-  )
-}
+  );
+};
 
-export default AboutPage
+export default AboutPage;

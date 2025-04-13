@@ -23,16 +23,39 @@ import AboutSectionRightTriangle from "../assets/images/triangles/AboutSectionRi
 import LeadershipTriangle from "../assets/images/triangles/LeadershipTriangle.png";
 import ClientTriangle from "../assets/images/triangles/ClientTriangle.png";
 import { useNavigate } from "react-router-dom";
-import { Fade ,Flip,Hinge,Slide, Zoom} from "react-awesome-reveal";
+import { Fade, Flip, Hinge, Slide, Zoom } from "react-awesome-reveal";
+import {
+  IoChevronBack,
+  IoChevronForward,
+  IoChevronBackOutline,
+  IoChevronForwardOutline,
+} from "react-icons/io5";
+import {
+  Award,
+  Building,
+  FileCheck,
+  Home,
+  PenTool,
+  Handshake,
+} from "lucide-react";
 const MainServices = () => {
   const navigate = useNavigate();
+  const achievements = [
+    { icon: <Award />, count: "5+", label: "Years of Excellence" },
+    { icon: <Building />, count: "3500+", label: "Businesses Set Up" },
+    { icon: <FileCheck />, count: "2,000+", label: "Visas Processed" },
+    { icon: <Building />, count: "150+", label: "Corporate Bank Accounts" },
+    { icon: <Home />, count: "200+", label: "Real Estate Transactions" },
+    { icon: <PenTool />, count: "300+", label: "Branding Campaigns" },
+    { icon: <Handshake />, count: "3,000+", label: "Deals Brokered" },
+  ];
   return (
     <div className="py-10 px-6">
       {/* Services Section */}
       <h2 className="text-5xl font-normal  text-center">
         Main <span className="text-blue-400 font-semibold">Services</span>
       </h2>
-      <div className="mt-8 grid grid-cols-1  px-4  md:grid-cols-4 gap-6 max-w-6xl md:max-h-[600px] mx-auto">
+      <div className="mt-8 grid grid-cols-1  px-4  md:grid-cols-4 gap-8 max-w-6xl md:max-h-[600px] mx-auto">
         {/* <div className="mt-8  max-w-6xl grid grid-cols-1 md:grid-cols-4 gap-6 justify-items-center mx-auto "> */}
 
         {services.map((service, index) => (
@@ -217,7 +240,7 @@ export function ValueAddedServices() {
       </h2>
 
       {/* Services Grid */}
-      <div className="mt-8 grid grid-cols-1 grid-rows-12 md:grid-rows-3 px-4  md:grid-cols-4 gap-6 max-w-6xl md:max-h-[600px] mx-auto">
+      <div className="mt-8 grid grid-cols-1 grid-rows-12 md:grid-rows-3 px-4  md:grid-cols-4 gap-9 max-w-6xl md:max-h-[600px] mx-auto">
         {ValueAddedService.map((service, index) => (
           <div
             key={index}
@@ -391,7 +414,7 @@ export const VideoSection = () => {
           <div className="md:absolute z-10 p-8 md:p-12 bottom-10 left-10 rounded-lg max-w-2xl">
             <h1 className="text-3xl md:text-5xl font-normal text-black text-center md:text-left">
               HAGroup <span className="font-semibold">Transforming</span>
-              <br/>
+              <br />
               <span className="font-semibold">Visions into</span>{" "}
               <span>Ventures</span>
             </h1>
@@ -401,17 +424,13 @@ export const VideoSection = () => {
                 className="px-8 py-2 text-white rounded-lg bg-gradient-to-r from-[#2CAFF3] to-[#1975BB] hover:cursor-pointer"
                 onClick={() => navigate("/business")}
               >
-                Get Started
+                Start Your Buisness Today
               </button>
               <button
                 className="px-6 py-2 bg-white text-blue-400 border border-blue-400 rounded-lg hover:cursor-pointer"
-                onClick={() =>
-                  window.open(
-                    calendlyUrl
-                  )
-                }
+                onClick={() => window.open(calendlyUrl)}
               >
-                Connect over a Call
+                Speak To An Expert
               </button>
             </div>
           </div>
@@ -422,49 +441,6 @@ export const VideoSection = () => {
 };
 
 const CaseStudiesCarousel = ({ caseStudies }) => {
-  const [isDragging, setIsDragging] = useState(false);
-  const [startX, setStartX] = useState(0);
-  const [scrollLeft, setScrollLeft] = useState(0);
-  const carouselRef = useRef(null);
-
-  const handleMouseDown = (e) => {
-    setIsDragging(true);
-    setStartX(e.pageX - carouselRef.current.offsetLeft);
-    setScrollLeft(carouselRef.current.scrollLeft);
-  };
-
-  const handleMouseUp = () => {
-    setIsDragging(false);
-  };
-
-  const handleMouseMove = (e) => {
-    if (!isDragging) return;
-    e.preventDefault();
-    const x = e.pageX - carouselRef.current.offsetLeft;
-    const walk = (x - startX) * 2;
-    carouselRef.current.scrollLeft = scrollLeft - walk;
-  };
-
-  const handleTouchStart = (e) => {
-    setIsDragging(true);
-    setStartX(e.touches[0].pageX - carouselRef.current.offsetLeft);
-    setScrollLeft(carouselRef.current.scrollLeft);
-  };
-
-  const handleTouchMove = (e) => {
-    if (!isDragging) return;
-    const x = e.touches[0].pageX - carouselRef.current.offsetLeft;
-    const walk = (x - startX) * 2;
-    carouselRef.current.scrollLeft = scrollLeft - walk;
-  };
-
-  useEffect(() => {
-    document.addEventListener("mouseup", handleMouseUp);
-    return () => {
-      document.removeEventListener("mouseup", handleMouseUp);
-    };
-  }, []);
-
   return (
     <div className="bg-gray-100 py-6 relative">
       <div
@@ -479,40 +455,24 @@ const CaseStudiesCarousel = ({ caseStudies }) => {
       <img
         loading="lazy"
         src={caseStudyTriangle2}
-        className="hidden md:block md:absolute md:bottom-0 md:right-0 md:h-48 -mb-6 -pb-6)"
+        className="hidden md:block md:absolute md:bottom-0 md:right-0 md:h-48 -mb-6"
       />
-      {/* Diagonal cut at the top */}
 
       <div className="container mx-auto px-4 py-8 pt-24">
         <div className="mb-8">
           <h2 className="text-5xl font-normal">
-            Featured
+            Choose the Right
             <span className="text-blue-400 block font-semibold">
-              Case Studies
+              Business Setup for You
             </span>
           </h2>
         </div>
 
-        <div
-          ref={carouselRef}
-          className="flex overflow-x-auto scrollbar-hide select-none"
-          style={{
-            cursor: isDragging ? "grabbing" : "grab",
-            scrollbarWidth: "none",
-            msOverflowStyle: "none",
-          }}
-          onMouseDown={handleMouseDown}
-          onMouseMove={handleMouseMove}
-          onMouseUp={handleMouseUp}
-          onMouseLeave={handleMouseUp}
-          onTouchStart={handleTouchStart}
-          onTouchMove={handleTouchMove}
-          onTouchEnd={handleMouseUp}
-        >
+        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
           {caseStudies.map((study, index) => (
-            <div key={index} className="max-w-xl min-w-sm mr-4 flex p-2">
-              <div className="bg-white rounded shadow-md overflow">
-                <div className=" h-72 overflow-hidden">
+            <div key={index} className="flex">
+              <div className="bg-white rounded shadow-md overflow-hidden w-full">
+                <div className="h-72 overflow-hidden">
                   <img
                     loading="lazy"
                     src={study.image}
@@ -551,86 +511,48 @@ export const CaseStudies = () => {
 };
 
 export const TeamSection = () => {
+  const achievements = [
+    { icon: <Award />, count: "5+", label: "Years of Excellence" },
+    { icon: <Building />, count: "3500+", label: "Businesses Set Up" },
+    { icon: <FileCheck />, count: "2,000+", label: "Visas Processed" },
+    { icon: <Building />, count: "150+", label: "Corporate Bank Accounts" },
+    { icon: <Home />, count: "200+", label: "Real Estate Transactions" },
+    { icon: <PenTool />, count: "300+", label: "Branding Campaigns" },
+    { icon: <Handshake />, count: "3,000+", label: "Deals Brokered" },
+  ];
   return (
     <div className="bg-white py-12 relative min-h-[600px] flex">
       {/* Blue triangles can be added here if needed */}
 
-      <div className="container mx-auto px-4 flex flex-col md:flex-row items-center z-10">
-        {/* Text content */}
-        <div className="w-full md:w-1/2 mb-8 md:mb-0 md:pr-8">
-          <h2 className="text-5xl font-bold mb-3">
-            Innovators, Leaders and passionate collaborators
+      <div className="container mx-auto px-4 py-12">
+        <div className="w-full bg-gradient-to-r from-blue-50 to-indigo-50 py-16 px-4 rounded-xl shadow-sm text-center">
+          <h2 className="text-3xl font-bold text-center text-gray-800 mb-6">
+            Why Us?
           </h2>
-          <p className="text-gray-700 mb-6 text-lg">
-            A team dedicated to making significant impact.
+          <p className="text-gray-700 mb-12 text-lg max-w-2xl mx-auto">
+            Your success, our commitment.
           </p>
-          <div className="flex space-x-4">
-            <a
-              href="#careers"
-              className="px-4 md:px-12 py-2 text-center text-xl bg-red-500 text-white rounded-md hover:bg-red-600 transition duration-300"
-            >
-              Career
-            </a>
-            <a
-              href="#postings"
-              className="px-4 md:px-12 py-2 border text-xl border-gray-300 rounded-md text-red-500 hover:bg-gray-50 transition duration-300 decoration-none"
-            >
-              Latest posting
-            </a>
-          </div>
-        </div>
 
-        {/* Image collage */}
-        <div className="w-full md:w-1/2 relative">
-          <div className="grid grid-cols-2 gap-2 md:gap-3">
-            <div className="grid gap-4 grid-rows-5">
-              {/* Top left image */}
-              <div className="row-start-2 row-span-2 overflow-hidden rounded-md">
-                <img
-                  loading="lazy"
-                  src="https://s3-alpha-sig.figma.com/img/fbba/ec12/ca9017a79b2d59252744f9d5aea04d97?Expires=1743379200&Key-Pair-Id=APKAQ4GOSFWCW27IBOMQ&Signature=jaja1EUxCBQTsv-en62sj3RZiA3R5HUiO8~iQeGpEgQDo0vSUwSOy1EWBVK8IL45rubqgkhJMPzbBeprqWzXGxnjMsN57NBucYK7hn7UU4rySOIoIH8lk1l~wmVvcPpl94dmWWnf5tfzzowUWyFqaAgebmPfmgqMJI3rIcnfNc~5VaryDSJvXJasYZb3kuqoD0T3dZdeYapejZVX-f6eVCcKo~R2wsCAp9qhdlNN6w9i3TYBl68pG-mWQpz3vY5CXpUHUxZbmcxToB6hs-r0MPEal8hgBpGq3xIZFJupM-pDIKerOVFWMLTBc8pKmulDRCU0IYBz~4~J49BkV4Ub-w__"
-                  alt="Team meeting"
-                  className="w-full h-full min-h-56 max-h-72 object-cover"
-                />
+          <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-8 px-10">
+            {achievements.map((item, index) => (
+              <div
+                key={index}
+                className="flex flex-col items-center p-6 bg-white rounded-lg shadow-md hover:shadow-lg transition-shadow duration-300 transform hover:-translate-y-1"
+              >
+                <div className="text-indigo-600 mb-4">{item.icon}</div>
+                <h3 className="text-4xl font-bold text-gray-800 mb-2">
+                  {item.count}
+                </h3>
+                <p className="text-gray-600 text-center">{item.label}</p>
               </div>
-              {/* Top right image */}
-              <div className="overflow-hidden row-span-2 rounded-md">
-                <img
-                  loading="lazy"
-                  src="https://s3-alpha-sig.figma.com/img/467e/aa46/3d71ebf2cc48e8bb50282e6a759c5483?Expires=1743379200&Key-Pair-Id=APKAQ4GOSFWCW27IBOMQ&Signature=a3Pitw5mdDJS-v6yTol-kmq0SZMXXmHUnNLZUlfuTPwpVHaOfr~G38vxblRRQeBrJce6Dge9JPKsHtAFPqtOOPNaJtRmsJpIsZ4i2I5Zgp13zBJ6ykyizKqWdKEUqZG4rzy0LikV1wb24QE7-ibaNf3wmRUxqT0c745A5Ke6GfYNy23PF~30SQp4GILo9Uoc2EHKuCtTyW8WizwQIG8C1MXvf4vdnI5wRvcM92ts6Ts00G8tu-I27JFvzC5L3YvJhick0eW9HkrEsWhmIfnR-pin5CxSqMzMY2nodL3lMHJ7RKzXYFYG7ieaJ0nmRNFPc~99Fvo0bHtIoaGecqEowA__"
-                  alt="Office space"
-                  className="w-full min-h-56 max-h-72 object-cover"
-                />
-              </div>
-            </div>
-            <div className="grid gap-4 grid-rows-5">
-              {/* Bottom left - taller image */}
-              <div className=" overflow-hidden rounded-md row-span-2">
-                <img
-                  loading="lazy"
-                  src="https://s3-alpha-sig.figma.com/img/84c6/54e3/7f1d7ac6d301b29f050732396f3e9740?Expires=1743379200&Key-Pair-Id=APKAQ4GOSFWCW27IBOMQ&Signature=oHrzKt8o-37H3zQLPaQxmh5-OIqDiLP2JO7qTvkemhGplxoP-BW-SlcDvCp9YqyoM9i0XzRBRWvnEgGtWE-AGnJEQmS0QoewKqRKQcfwzmh5c~olkuXXbkEOl3XPUcxEGt4m2V-bwbv6D1wLEjO7dh4pU0ywFgFGtvn8P0xXhc86E40Qe9qllziqGPJdQon7mZv0hlwLsgXXBcBidZOA3uyso8UWiYHTMUCZ~7qXdGevACZBSlev8kDyqd-bWpF6TKjfUe5tyJyS6aMF3-HXDpiOsQXmPNnPA5XiOPM2-ScpDtrE4B2Ug7pvAXwdvWlcIj~hv7CFU28w8JOIWSW6Xw__"
-                  alt="Team collaboration"
-                  className="w-full min-h-56 max-h-72 object-cover"
-                />
-              </div>
-
-              {/* Bottom right image */}
-              <div className=" overflow-hidden rounded-md row-span-2">
-                <img
-                  loading="lazy"
-                  src="https://s3-alpha-sig.figma.com/img/c4d8/da93/0e37a49e8a5bcedcc1d0c166ed415232?Expires=1743379200&Key-Pair-Id=APKAQ4GOSFWCW27IBOMQ&Signature=OvAmNcY~cTXmQB9ntFcqIGLUuONFRwql0R4OsdUKc7X~RIQk0rU5vzks9WMf7EzZ1nJMEpr7oQwJR2~zrLpgrHzkZAKHs12QEc8RIu4KOtPDJGvFcjWYwfKGy6WUHGstOrfRa6CIkp4KQzRrav7BIgZr7z9GR1j9gOMw0AI0QAjQHoslQbrz9x9I-iS0~MpQ4lTGuEEpFwwejsPxQBLoETEeQz9mAaI6hI5pjKSR1ZesOesfHePbhNw897Jdnp~nTa1cgDg5eWeFBmUFASKpixFnMUyzOn1~iNOEL7UiLBjMev9~TY0yQApwaUkQFCjisieA5CDUuO1uWRBGJLDFbg__"
-                  alt="Conference room"
-                  className="w-full min-h-56 max-h-72 object-cover"
-                />
-              </div>
-            </div>
+            ))}
           </div>
         </div>
       </div>
       <img
         loading="lazy"
         src={InnovationTriangle2}
-        className="hidden md:block md:absolute md:bottom-0 md:left-0  md:h-72"
+        className="hidden md:block md:absolute md:bottom-0 md:left-0 md:h-72"
       />
       <img
         loading="lazy"
@@ -669,19 +591,22 @@ export const AboutCompanySection = () => {
 
         {/* Glass effect card overlay */}
         <Slide direction="right" triggerOnce>
-        <div className="absolute bottom-0 right-0 m-0 w-full md:m-6 p-6 rounded-xl md:translate-x-1/3 bg-white/60  backdrop-filter backdrop-blur-md shadow-lg md:max-w-96">
-          <h2 className="text-xl font-medium mb-2">
-            About <span className="text-blue-400 font-semibold">Company</span>
-          </h2>
-          <p className="text-gray-700 text-sm mb-4">
-            Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
-            eiusmod tempor incididunt ut labore et magna aliqua. Integer
-            feugiat.
-          </p>
-          <button className="bg-red-600 text-white px-4 py-2 text-sm rounded hover:bg-red-700 transition duration-300">
-            Read More
-          </button>
-        </div>
+          <div className="absolute bottom-0 right-0 m-0 w-full md:m-6 p-6 rounded-xl md:translate-x-1/3 bg-white/60  backdrop-filter backdrop-blur-md shadow-lg md:max-w-96">
+            <h2 className="text-xl font-medium mb-2">
+              About{" "}
+              <span className="text-blue-400 font-semibold">HA Group</span>
+            </h2>
+            <p className="text-gray-700 text-sm mb-4">
+              Starting a business doesn’t have to be complicated. With our
+              experience,network, and hands-on support, we make it easy.
+            </p>
+            <button
+              className="bg-red-600 text-white px-4 py-2 text-sm rounded hover:bg-red-700 transition duration-300"
+              onClick={() => window.open(calendlyUrl)}
+            >
+              Let’s talk! Get expert advice today.
+            </button>
+          </div>
         </Slide>
       </div>
     </div>
@@ -689,6 +614,95 @@ export const AboutCompanySection = () => {
 };
 
 export const LeadershipTeamSection = () => {
+  const scrollRef = useRef(null);
+  const [isDragging, setIsDragging] = useState(false);
+  const [startX, setStartX] = useState(0);
+  const [scrollLeft, setScrollLeft] = useState(0);
+  const [scrollDirection, setScrollDirection] = useState(1); // 1 for right, -1 for left
+  const [slidesToShow, setSlidesToShow] = useState(3);
+
+  // Handle responsiveness
+  useEffect(() => {
+    const handleResize = () => {
+      // Set slides to show based on screen width
+      if (window.innerWidth < 640) {
+        setSlidesToShow(1); // Mobile: 1 slide
+      } else if (window.innerWidth < 1024) {
+        setSlidesToShow(2); // Tablet: 2 slides
+      } else {
+        setSlidesToShow(3); // Desktop: 3 slides
+      }
+    };
+
+    // Initial check
+    handleResize();
+
+    // Add event listener
+    window.addEventListener("resize", handleResize);
+
+    // Cleanup
+    return () => window.removeEventListener("resize", handleResize);
+  }, []);
+
+  // Auto scroll functionality
+  useEffect(() => {
+    const scrollContainer = scrollRef.current;
+    if (!scrollContainer) return;
+
+    const autoScroll = () => {
+      if (!isDragging && scrollContainer) {
+        const maxScroll =
+          scrollContainer.scrollWidth - scrollContainer.clientWidth;
+
+        // Check if we've reached the ends
+        if (scrollContainer.scrollLeft >= maxScroll) {
+          setScrollDirection(-1); // Change direction to left
+        } else if (scrollContainer.scrollLeft <= 0) {
+          setScrollDirection(1); // Change direction to right
+        }
+
+        // Perform the scroll
+        scrollContainer.scrollLeft += 1 * scrollDirection;
+      }
+    };
+
+    // Set up the interval for smooth scrolling
+    const scrollInterval = setInterval(autoScroll, 20);
+
+    // Cleanup
+    return () => {
+      clearInterval(scrollInterval);
+    };
+  }, [isDragging, scrollDirection]);
+
+  const startDragging = (e) => {
+    setIsDragging(true);
+    setStartX(e.pageX - scrollRef.current.offsetLeft);
+    setScrollLeft(scrollRef.current.scrollLeft);
+  };
+
+  const stopDragging = () => {
+    setIsDragging(false);
+  };
+
+  const handleMouseMove = (e) => {
+    if (!isDragging) return;
+    e.preventDefault();
+    const x = e.pageX - scrollRef.current.offsetLeft;
+    const walk = (x - startX) * 2;
+    scrollRef.current.scrollLeft = scrollLeft - walk;
+  };
+
+  const scrollStyle = {
+    msOverflowStyle: "none", // IE and Edge
+    scrollbarWidth: "none", // Firefox
+    WebkitOverflowScrolling: "touch",
+    "&::-webkit-scrollbar": {
+      // Chrome, Safari, Opera
+      display: "none",
+    },
+  };
+
   return (
     <div className="bg-white py-12 relative">
       <img
@@ -705,49 +719,55 @@ export const LeadershipTeamSection = () => {
           </h2>
         </div>
 
-        {/* Leadership cards grid */}
-        <div className="flex flex-row flex-wrap gap-8 justify-around ">
-          <Fade triggerOnce direction="up" cascade damping={0.1} >
-          {leaders.map((leader, index) => (
-            <div key={index} className="flex flex-col">
-              {/* Leader image */}
-              <div className="bg-gray-200 h-64 w-64 rounded-lg overflow-hidden mb-2">
-                <img
-                  loading="lazy"
-                  src={leader.image}
-                  alt={leader.name}
-                  className="w-64 h-64 object-cover object-top"
-                />
+        {/* Leadership cards with scroll */}
+        <div
+          className="relative overflow-x-auto"
+          ref={scrollRef}
+          style={scrollStyle}
+          onMouseDown={startDragging}
+          onMouseUp={stopDragging}
+          onMouseLeave={stopDragging}
+          onMouseMove={handleMouseMove}
+        >
+          <div className="flex space-x-6 px-6">
+            {leaders.map((leader, index) => (
+              <div
+                key={index}
+                className="flex-shrink-0"
+                style={{
+                  width: `${100 / slidesToShow}%`,
+                  maxWidth: "350px",
+                  minWidth: "280px",
+                }}
+              >
+                <div className="flex flex-col items-center w-full px-2">
+                  {/* Leader image */}
+                  <div className="bg-gray-200 rounded-lg overflow-hidden mb-2 w-full">
+                    <div className="aspect-square">
+                      <img
+                        loading="lazy"
+                        src={leader.image}
+                        alt={leader.name}
+                        className="w-full h-full object-cover object-top"
+                      />
+                    </div>
+                  </div>
+                  <div className="w-full h-px bg-gradient-to-r from-transparent via-blue-400 to-transparent my-2"></div>
+
+                  {/* Leader info */}
+                  <h3 className="font-medium text-base text-center">
+                    {leader.name}
+                  </h3>
+                  {leader.position && (
+                    <p className="text-gray-600 text-sm text-center">
+                      {leader.position}
+                    </p>
+                  )}
+                </div>
               </div>
-              <div className="col-span-full h-px bg-gradient-to-r from-transparent via-blue-400 to-transparent my-2"></div>
-
-              {/* Leader info */}
-              <h3 className="font-medium text-base">{leader.name}</h3>
-              {leader.position && (
-                <p className="text-gray-600 text-sm">{leader.position}</p>
-              )}
-            </div>
-          ))}
-          </Fade>
+            ))}
+          </div>
         </div>
-
-        {/* Description text */}
-        <Fade triggerOnce direction="up" >
-        <div className="mt-6">
-          <p className="text-gray-600 text-sm leading-relaxed">
-            Sultan Almuheisen has 25+ years of experience as a distinguished
-            industry executive and general manager for high-tech corporations in
-            compute, communications. As an executive, he has navigated companies
-            to key strategic inflections in areas of cloud computing, machine
-            learning, and 5G. As Vice President at Qualcomm, Vinay played an
-            integral part in the establishment of its Data Center server and
-            Machine-Learning technology, and drove their advanced mobile
-            software product management. He obtained a Masters of Science from
-            Georgia Institute of Technology, a Bachelors of Engineering at City
-            University of New York, and holds 12 US patents.
-          </p>
-        </div>
-        </Fade>
       </div>
     </div>
   );
@@ -766,39 +786,38 @@ export const ClientsSpeak = () => {
         style={{ clipPath: "polygon(0 0, 100% 0, 100% 100%)" }}
       ></div>
       <div className="max-w-6xl mx-auto grid grid-cols-1 sm:grid-cols-3 gap-6 pt-24 z-20 relative">
-        <Fade triggerOnce direction="up" >
-        <div className="col-span-1">
-          <h2 className="text-5xl font-medium text-left leading-snug">
-            Our <br />{" "}
-            <span className="text-blue-400 font-semibold">
-              Clients
-              <br /> Speak
-            </span>
-          </h2>
-          <p className="text-gray-600 text-left mt-2">
-            What clients have to say about Techwards
-          </p>
-        </div>
+        <Fade triggerOnce direction="up">
+          <div className="col-span-1">
+            <h2 className="text-5xl font-medium text-left leading-snug">
+              Our <br />{" "}
+              <span className="text-blue-400 font-semibold">
+                Clients
+                <br /> Speak
+              </span>
+            </h2>
+            <p className="text-gray-600 text-left mt-2">
+              What clients have to say about Techwards
+            </p>
+          </div>
         </Fade>
 
         <div className="col-span-2 grid grid-cols-1 sm:grid-cols-2 gap-6">
-        <Fade triggerOnce direction="right" cascade damping={0.1} >
-          {ClientsSpeaktestimonials.map((testimonial, index) => (
-            <div key={index} className="bg-white shadow-lg rounded-lg p-6">
-              <p className="text-gray-700 mb-4">{testimonial.feedback}</p>
-              <div className="flex items-center">
-                <div className="ml-3">
-                  <h4 className="text-blue-400 font-semibold">
-                    {testimonial.name}
-                  </h4>
-                  <p className="text-sm text-gray-500">{testimonial.role}</p>
+          <Fade triggerOnce direction="right" cascade damping={0.1}>
+            {ClientsSpeaktestimonials.map((testimonial, index) => (
+              <div key={index} className="bg-white shadow-lg rounded-lg p-6">
+                <p className="text-gray-700 mb-4">{testimonial.feedback}</p>
+                <div className="flex items-center">
+                  <div className="ml-3">
+                    <h4 className="text-blue-400 font-semibold">
+                      {testimonial.name}
+                    </h4>
+                    <p className="text-sm text-gray-500">{testimonial.role}</p>
+                  </div>
                 </div>
               </div>
-            </div>
-          ))}
+            ))}
           </Fade>
         </div>
-
       </div>
     </section>
   );

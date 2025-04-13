@@ -16,31 +16,31 @@ const ContactPage: React.FC = () => {
       <div className="flex flex-col md:flex-row justify-between max-w-fit mx-auto p-4 md:p-8 lg:p-12 gap-8 md:gap-0">
         {/* Left Section */}
         <div className="w-full md:w-5/12 flex flex-col justify-center">
-        <Fade triggerOnce direction="left" > 
-          <div className="mb-6 md:mb-10">
-            <h3 className="text-orange-500 font-medium text-lg mb-2 md:mb-4">
-              Let's Contact
-            </h3>
-            <h1 className="text-3xl md:text-4xl lg:text-5xl font-bold leading-tight">
-              We'll contact you within a couple of hours to schedule a meeting
-              to discuss your goals.
-            </h1>
-          </div>
-          <div className="flex flex-col sm:flex-row gap-3 md:gap-5">
-            <button
-              className="bg-blue-400 text-white px-8 py-3 rounded-md font-medium hover:bg-blue-400 transition w-full sm:w-auto"
-              onClick={handleScroll}
-            >
-              Schedule Now
-            </button>
-            <button
-              className="bg-white text-blue-400 px-8 py-3 rounded-md font-medium border border-gray-300 hover:bg-gray-50 transition w-full sm:w-auto mt-2 sm:mt-0"
-              onClick={handleScroll}
-            >
-              Drop A Message
-            </button>
-          </div>
-        </Fade>
+          <Fade triggerOnce direction="left">
+            <div className="mb-6 md:mb-10">
+              <h3 className="text-orange-500 font-medium text-lg mb-2 md:mb-4">
+                Let's Contact
+              </h3>
+              <h1 className="text-3xl md:text-4xl lg:text-5xl font-bold leading-tight">
+                We'll contact you within a couple of hours to schedule a meeting
+                to discuss your goals.
+              </h1>
+            </div>
+            <div className="flex flex-col sm:flex-row gap-3 md:gap-5">
+              <button
+                className="bg-blue-400 text-white px-8 py-3 rounded-md font-medium hover:bg-blue-400 transition w-full sm:w-auto"
+                onClick={handleScroll}
+              >
+                Schedule Now
+              </button>
+              <button
+                className="bg-white text-blue-400 px-8 py-3 rounded-md font-medium border border-gray-300 hover:bg-gray-50 transition w-full sm:w-auto mt-2 sm:mt-0"
+                onClick={handleScroll}
+              >
+                Drop A Message
+              </button>
+            </div>
+          </Fade>
         </div>
 
         {/* Right Section - Testimonials with offset positioning */}
@@ -49,7 +49,6 @@ const ContactPage: React.FC = () => {
           {/* First Testimonial */}
           <Fade triggerOnce direction="right" className="mb-6 md:mb-0 md:relative z-10">
           <div className="bg-white p-5 rounded-lg border border-gray-100 ">
-
             <div className="flex items-center mb-3">
               {[1, 2, 3].map((star) => (
                 <svg
@@ -85,11 +84,26 @@ const ContactPage: React.FC = () => {
                   className="h-full w-full object-cover"
                 />
               </div>
-              <div className="ml-3">
-                <p className="font-medium">Adrian Barak</p>
-                <p className="text-gray-600 text-sm">Web Developer at</p>
-                <p className="font-medium">Google</p>
+              <p className="text-gray-800 font-medium mb-4 text-sm">
+                "It Is A Long Established Fact That A Reader Will Be Distracted
+                By The Readable Content Of A Page When Looking At Its Layout."
+              </p>
+              <div className="flex items-center">
+                <div className="h-12 w-12 rounded-full bg-gray-200 overflow-hidden">
+                  <img
+                    loading="lazy"
+                    src={person1}
+                    alt="Adrian Barak"
+                    className="h-full w-full object-cover"
+                  />
+                </div>
+                <div className="ml-3">
+                  <p className="font-medium">Adrian Barak</p>
+                  <p className="text-gray-600 text-sm">Web Developer at</p>
+                  <p className="font-medium">Google</p>
+                </div>
               </div>
+
             </div>
           </div>
           </Fade>
@@ -131,15 +145,29 @@ const ContactPage: React.FC = () => {
                   className="h-full w-full object-cover"
                 />
               </div>
-              <div className="ml-3">
-                <p className="font-medium">Adrian Barak</p>
-                <p className="text-gray-600 text-sm">Manager</p>
+              <p className="text-gray-800 font-medium mb-4 text-sm">
+                "It Is A Long Established Fact That A Reader Will Be Distracted
+                By The Readable Content Of A Page When Looking At Its Layout."
+              </p>
+              <div className="flex items-center">
+                <div className="h-12 w-12 rounded-full bg-gray-200 overflow-hidden">
+                  <img
+                    loading="lazy"
+                    src={person2}
+                    alt="Adrian Barak"
+                    className="h-full w-full object-cover"
+                  />
+                </div>
+                <div className="ml-3">
+                  <p className="font-medium">Adrian Barak</p>
+                  <p className="text-gray-600 text-sm">Manager</p>
+                </div>
               </div>
+
             </div>
           </div>
               </Fade>
         </div>
-
       </div>
       <div ref={targetRef}>
         <BusinessGoalsSection />
