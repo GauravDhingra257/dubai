@@ -39,7 +39,7 @@ const MainServices = () => {
           <div
             key={index}
             className="relative group rounded-lg overflow-hidden row-span-2 
-      transform transition-all duration-300 hover:scale-105 hover:shadow-xl max-h-108 md:min-h-96 hover:cursor-pointer"
+      transform transition-all duration-300 hover:scale-105 hover:shadow-xl max-h-96 md:min-h-84 hover:cursor-pointer"
             onClick={() => navigate(service.path)}
           >
             {/* Image */}
