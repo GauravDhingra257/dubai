@@ -10,69 +10,102 @@ import ServiceRightTriangle from "../../assets/images/triangles/ServiceRightTria
 import ServiceRightTriangle2 from "../../assets/images/triangles/ServiceRightTriangle2.png";
 import { useNavigate } from "react-router-dom";
 import { Fade } from "react-awesome-reveal";
+import { calendlyUrl } from "../../Constants/constant";
 const BuisnessService = () => {
   const navigate = useNavigate();
   return (
     <>
       <BusinessSetupHero
-        title="Business"
-        highlightText="Setup"
-        description="Whether you're looking to establish your venture on the mainland, leverage the advantages of Freezones, or explore the benefits of an offshore jurisdiction, we have you covered."
+        title="BUSINESS SETUP"
+        highlightText="IN DUBAI"
+        description="Start Your Business in Just One Week
+Thinking of launching a business in Dubai? Whether it's a Mainland, Free Zone, or Offshore setup, choosing the right option is key. We simplify the process and handle everything for you—so you can focus on what matters."
         imagePath={BusinessSetup}
         imageAlt="Business Services Illustration"
+        buttontext="Get Started Today"
       />
 
       <div className="flex items-center justify-center h-[60vh] bg-gray-50 px-4">
         <div className="text-center max-w-2xl">
           {/* Heading */}
           <Fade triggerOnce direction="up" cascade damping={0.1}>
-          <h1 className="text-3xl md:text-4xl font-semibold text-gray-900 mb-4">
-            How Much Does Business Setup In Dubai Cost?
-          </h1>
+            <h1 className="text-3xl md:text-4xl font-semibold text-gray-900 mb-4">
+              How Much Does Business Setup In Dubai Cost?
+            </h1>
 
-          {/* Description */}
-          <p className="text-gray-700 mb-6 leading-relaxed text-sm md:text-base">
-            That depends. What is your business activity? Free zone or mainland?
-            How many visas or shareholders? From our experience with business
-            setup in Dubai for over{" "}
-            <span className="font-semibold">80,000 entrepreneurs</span>, we have
-            created the Business Setup Cost Calculator to give you the answer.
-          </p>
+            {/* Description */}
+            <p className="text-gray-700 mb-6 leading-relaxed text-sm md:text-base">
+              The cost depends on your business type, location (Free Zone or
+              Mainland), number of visas, and shareholders. With 3,500+
+              businesses launched, we know what it takes. Our Business Setup
+              Cost Calculator gives you a quick, accurate estimate—so you can
+              plan with confidence.{" "}
+            </p>
 
-          {/* Button */}
-          <button
-            className="bg-red-600 text-white py-2 px-6 rounded-lg shadow-md hover:bg-red-700 transition"
-            onClick={() => navigate("/calculate")}
-          >
-            Calculate Now
-          </button>
+            {/* Button */}
+            <button
+              className="bg-red-600 text-white py-2 px-6 rounded-lg shadow-md hover:bg-red-700 transition"
+              onClick={() => navigate("/calculate")}
+            >
+              Find Out Your Business Setup Cost Now
+            </button>
           </Fade>
         </div>
       </div>
       <HeroSection
-        title="Free"
-        highlightText="Zone"
-        description="The Free Zone is a new idea located in the heart of the United Arab Emirates. It represents not only a geographical place but it is a land where you can prosper and enjoy at the same time. This dynamic platform has become a lighthouse for global visionaries, offering them a canvas on which to paint their ambitions free from all the potential hurdles. By starting a business setup in a Free Zone you can have an experience that is the fusion of creativity and entrepreneurial spirit."
+        title="Free Zone "
+        highlightText="Business Setup"
+        description={`Want 100% ownership, tax benefits, and fast setup? Free Zones are the perfect choice. With over 40 Free Zones in the UAE, each designed for specific industries, picking the right one is crucial. We help you choose, handle the paperwork, and get you licensed — quickly and hassle-free.
+
+          Key benefits:
+          - Low taxes and full foreign ownership
+          - Fast and easy registration
+          - Industry-specific Free Zones to match your business`}
         imagePath={FreeZone}
         imageAlt="Business Services Illustration"
         imageMaxHeight={700}
         triangleImage={ServiceRightTriangle}
+        buttontext="Start Your Free Zone Business Today"
       />
       <HeroSection
         title="Visa"
         highlightText="Services"
-        description="Everybody dreams of visiting Dubai, but not everyone gets there. Why? The visa procedures can be quite complex. Don't worry, we're the experts, and we'll take care of it for you. We provide a variety of visa services in Dubai, helping individuals and businesses across the Emirates with documentation and issuance. Our commitment is to provide guidance and support during the visa and documentation process, prioritizing your convenience and peace of mind. Explore our services for a hassle-free visa experience."
+        description="Need a business visa, investor visa, or family sponsorship? UAE visa rules can be tricky, but we make it simple. We handle applications, approvals, and renewals so you don’t have to.."
         imagePath={VisaServicespng}
         imageAlt="Business Services Illustration"
         imageMaxHeight={700}
         imageFirst={false}
+        buttontext="Apply for Your UAE Visa Now"
+        buttonlink={calendlyUrl}
         triangleImage={ServiceLeftTriangle}
       />
       <HeroSection
-        title="Off"
-        highlightText="Shore"
-        description="Are you thinking about forming an offshore company? Then you have landed at the right place. Dive into the complexities of Offshore Company Formation in Dubai, a decision that opens unlimited opportunities. HA Group reveals the distinctive characteristics of UAE Offshore Companies, with a focus on Dubai's effectiveness as a worldwide commercial hub. We will guide you and clear your doubts by providing all the information."
+        title="Offshore "
+        highlightText="Company Formation"
+        description="Looking for global expansion, tax benefits, and privacy? Offshore companies in the UAE offer zero corporate tax, full profit repatriation, and asset protection. Our experts make the setup process smooth and stress-free.
+          
+            Key benefits:
+            - No corporate tax and full profit repatriation
+            - Operate globally with complete privacy
+            - Protect assets with a simplified company structure"
         imagePath={OffShore}
+        buttonlink={calendlyUrl}
+        buttontext="Set Up Your Offshore Company Today"
+        imageAlt="Business Services Illustration"
+        imageMaxHeight={700}
+        triangleImage={ServiceRightTriangle2}
+      />
+      <HeroSection
+        title="Mainland  "
+        highlightText="Business Setup "
+        description="Want full flexibility and access to UAE markets? A Mainland company lets you trade anywhere in the UAE, work with government contracts, and expand without limits. We handle everything—so you can focus on growing your business.
+            Key benefits:
+            - Operate anywhere in the UAE
+            - No restrictions on business activities
+            - Eligible for government contracts"
+        imagePath={OffShore}
+        buttonlink={calendlyUrl}
+        buttontext="Launch Your Mainland Business Now"
         imageAlt="Business Services Illustration"
         imageMaxHeight={700}
         triangleImage={ServiceRightTriangle2}
