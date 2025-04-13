@@ -673,12 +673,12 @@ export const AboutCompanySection = () => {
 };
 
 export const LeadershipTeamSection = () => {
-  const [currentIndex, setCurrentIndex] = useState(0);
+  const scrollRef = useRef(null);
+  const [isDragging, setIsDragging] = useState(false);
+  const [startX, setStartX] = useState(0);
+  const [scrollLeft, setScrollLeft] = useState(0);
+  const [scrollDirection, setScrollDirection] = useState(1); // 1 for right, -1 for left
   const [slidesToShow, setSlidesToShow] = useState(3);
-  const sliderRef = useRef(null);
-
-  // Calculate max index based on current slidesToShow value
-  const maxIndex = Math.max(0, leaders.length - slidesToShow);
 
   // Handle responsiveness
   useEffect(() => {
@@ -703,37 +703,65 @@ export const LeadershipTeamSection = () => {
     return () => window.removeEventListener("resize", handleResize);
   }, []);
 
-  // Reset current index when slidesToShow changes
+  // Auto scroll functionality
   useEffect(() => {
-    if (currentIndex > maxIndex) {
-      setCurrentIndex(Math.min(currentIndex, maxIndex));
-    }
-  }, [slidesToShow, maxIndex, currentIndex]);
+    const scrollContainer = scrollRef.current;
+    if (!scrollContainer) return;
 
-  // Auto-slide effect
-  useEffect(() => {
-    const interval = setInterval(() => {
-      setCurrentIndex((prevIndex) =>
-        prevIndex >= maxIndex ? 0 : prevIndex + 1
-      );
-    }, 3000); // Change slide every 3 seconds
+    const autoScroll = () => {
+      if (!isDragging && scrollContainer) {
+        const maxScroll =
+          scrollContainer.scrollWidth - scrollContainer.clientWidth;
 
-    return () => clearInterval(interval);
-  }, [maxIndex]);
+        // Check if we've reached the ends
+        if (scrollContainer.scrollLeft >= maxScroll) {
+          setScrollDirection(-1); // Change direction to left
+        } else if (scrollContainer.scrollLeft <= 0) {
+          setScrollDirection(1); // Change direction to right
+        }
 
-  // Navigation functions
-  const goToPrevious = () => {
-    setCurrentIndex((prevIndex) =>
-      prevIndex === 0 ? maxIndex : prevIndex - 1
-    );
+        // Perform the scroll
+        scrollContainer.scrollLeft += 1 * scrollDirection;
+      }
+    };
+
+    // Set up the interval for smooth scrolling
+    const scrollInterval = setInterval(autoScroll, 20);
+
+    // Cleanup
+    return () => {
+      clearInterval(scrollInterval);
+    };
+  }, [isDragging, scrollDirection]);
+
+  const startDragging = (e) => {
+    setIsDragging(true);
+    setStartX(e.pageX - scrollRef.current.offsetLeft);
+    setScrollLeft(scrollRef.current.scrollLeft);
   };
 
-  const goToNext = () => {
-    setCurrentIndex((prevIndex) => (prevIndex >= maxIndex ? 0 : prevIndex + 1));
+  const stopDragging = () => {
+    setIsDragging(false);
   };
 
-  // Calculate if we should show navigation based on number of items
-  const showNavigation = leaders.length > slidesToShow;
+  const handleMouseMove = (e) => {
+    if (!isDragging) return;
+    e.preventDefault();
+    const x = e.pageX - scrollRef.current.offsetLeft;
+    const walk = (x - startX) * 2;
+    scrollRef.current.scrollLeft = scrollLeft - walk;
+  };
+
+  const scrollStyle = {
+    msOverflowStyle: "none", // IE and Edge
+    scrollbarWidth: "none", // Firefox
+    WebkitOverflowScrolling: "touch",
+    "&::-webkit-scrollbar": {
+      // Chrome, Safari, Opera
+      display: "none",
+    },
+  };
+
   return (
     <div className="bg-white py-12 relative">
       <img
@@ -750,79 +778,54 @@ export const LeadershipTeamSection = () => {
           </h2>
         </div>
 
-        {/* Leadership cards grid */}
-        <div className="flex flex-row flex-wrap gap-8 justify-around px-4 sm:px-8">
-          <Fade triggerOnce direction="up" cascade damping={0.1}>
-            <div
-              className="relative w-full max-w-screen px-2 sm:px-4 mx-auto"
-              ref={sliderRef}
-            >
-              {/* Main slider */}
-              <div className="overflow-hidden rounded-lg">
-                <div
-                  className="flex transition-transform duration-500 ease-in-out"
-                  style={{
-                    transform: `translateX(-${
-                      currentIndex * (100 / slidesToShow)
-                    }%)`,
-                  }}
-                >
-                  {leaders.map((leader, index) => (
-                    <div
-                      key={index}
-                      className="flex-shrink-0"
-                      style={{ width: `${100 / slidesToShow}%` }}
-                    >
-                      <div className="flex flex-col items-center w-full max-w-[90vw] sm:max-w-xs mx-auto px-2">
-                        {/* Leader image */}
-                        <div className="bg-gray-200 rounded-lg overflow-hidden mb-2 w-full ">
-                          <div className="aspect-square">
-                            <img
-                              loading="lazy"
-                              src={leader.image}
-                              alt={leader.name}
-                              className="w-full h-full object-cover object-top"
-                            />
-                          </div>
-                        </div>
-                        <div className="w-full h-px bg-gradient-to-r from-transparent via-blue-400 to-transparent my-2"></div>
-
-                        {/* Leader info */}
-                        <h3 className="font-medium text-base text-center">
-                          {leader.name}
-                        </h3>
-                        {leader.position && (
-                          <p className="text-gray-600 text-sm text-center">
-                            {leader.position}
-                          </p>
-                        )}
-                      </div>
+        {/* Leadership cards with scroll */}
+        <div
+          className="relative overflow-x-auto"
+          ref={scrollRef}
+          style={scrollStyle}
+          onMouseDown={startDragging}
+          onMouseUp={stopDragging}
+          onMouseLeave={stopDragging}
+          onMouseMove={handleMouseMove}
+        >
+          <div className="flex space-x-6 px-6">
+            {leaders.map((leader, index) => (
+              <div
+                key={index}
+                className="flex-shrink-0"
+                style={{
+                  width: `${100 / slidesToShow}%`,
+                  maxWidth: "350px",
+                  minWidth: "280px",
+                }}
+              >
+                <div className="flex flex-col items-center w-full px-2">
+                  {/* Leader image */}
+                  <div className="bg-gray-200 rounded-lg overflow-hidden mb-2 w-full">
+                    <div className="aspect-square">
+                      <img
+                        loading="lazy"
+                        src={leader.image}
+                        alt={leader.name}
+                        className="w-full h-full object-cover object-top"
+                      />
                     </div>
-                  ))}
+                  </div>
+                  <div className="w-full h-px bg-gradient-to-r from-transparent via-blue-400 to-transparent my-2"></div>
+
+                  {/* Leader info */}
+                  <h3 className="font-medium text-base text-center">
+                    {leader.name}
+                  </h3>
+                  {leader.position && (
+                    <p className="text-gray-600 text-sm text-center">
+                      {leader.position}
+                    </p>
+                  )}
                 </div>
               </div>
-
-              {/* Navigation arrows - only show if needed */}
-              {showNavigation && (
-                <>
-                  <button
-                    onClick={goToPrevious}
-                    className="hidden sm:block absolute left-0 top-1/2 -translate-y-1/2 bg-white bg-opacity-50 hover:bg-opacity-75 rounded-full p-1 sm:p-2 ml-1 sm:ml-2 shadow"
-                    aria-label="Previous slide"
-                  >
-                    <IoChevronBack className="h-4 w-4 sm:h-6 sm:w-6" />
-                  </button>
-                  <button
-                    onClick={goToNext}
-                    className="hidden sm:block absolute right-0 top-1/2 -translate-y-1/2 bg-white bg-opacity-50 hover:bg-opacity-75 rounded-full p-1 sm:p-2 mr-1 sm:mr-2 shadow"
-                    aria-label="Next slide"
-                  >
-                    <IoChevronForward className="h-4 w-4 sm:h-6 sm:w-6" />
-                  </button>
-                </>
-              )}
-            </div>
-          </Fade>
+            ))}
+          </div>
         </div>
       </div>
     </div>
