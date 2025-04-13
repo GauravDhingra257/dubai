@@ -47,9 +47,9 @@ const ContactPage: React.FC = () => {
 
         <div className="w-full md:w-6/12 mt-10 md:mt-0 relative">
           {/* First Testimonial */}
+          <Fade triggerOnce direction="right" className="mb-6 md:mb-0 md:relative z-10">
+          <div className="bg-white p-5 rounded-lg border border-gray-100 ">
 
-          <div className="bg-white p-5 rounded-lg border border-gray-100 mb-6 md:mb-0 md:relative z-10">
-          <Fade triggerOnce direction="right" >
             <div className="flex items-center mb-3">
               {[1, 2, 3].map((star) => (
                 <svg
@@ -91,11 +91,11 @@ const ContactPage: React.FC = () => {
                 <p className="font-medium">Google</p>
               </div>
             </div>
-          </Fade>
           </div>
+          </Fade>
           {/* Second Testimonial - Offset position on desktop */}
-          <div className="bg-white p-5 rounded-lg border border-gray-100 md:absolute md:top-32 md:right-0 z-0 md:w-11/12 md:pt-24">
-          <Fade triggerOnce direction="right" >
+          <Fade triggerOnce direction="right" className="md:absolute md:top-20 md:right-0 z-0 md:w-11/12 md:pt-24" >
+          <div className="bg-white p-5 rounded-lg border border-gray-100 ">
             <div className="flex items-center mb-3">
               {[1, 2, 3].map((star) => (
                 <svg
@@ -136,8 +136,8 @@ const ContactPage: React.FC = () => {
                 <p className="text-gray-600 text-sm">Manager</p>
               </div>
             </div>
-              </Fade>
           </div>
+              </Fade>
         </div>
 
       </div>

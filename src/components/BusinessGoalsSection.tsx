@@ -13,7 +13,7 @@ const BusinessGoalsSection: React.FC = () => {
   ];
 
   return (
-    <div className="bg-gray-50 py-12 px-8 md:px-8">
+    <div className="bg-white py-12 px-8 md:px-8">
       <div className="max-w-6xl mx-auto flex flex-col md:flex-row gap-8 md:gap-25">
         {/* Left Side - Business Goals */}
         <div className="w-full md:w-1/2 p-3 ">
