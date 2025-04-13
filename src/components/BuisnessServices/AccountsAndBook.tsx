@@ -1,12 +1,6 @@
 import React from "react";
 import { HeroSection, ContentSection } from "../../components/Component1";
 
-import LoadImage from "../../assets/images/buisness/load.png";
-import AccountImage from "../../assets/images/buisness/calculator.jpg";
-import TaxImage from "../../assets/images/buisness/tax.png";
-import TaxReturnImage from "../../assets/images/buisness/tax2.jpg";
-import MarketingImage from "../../assets/images/buisness/load.png";
-import DevelopmentImage from "../../assets/images/buisness/code.jpg";
 import BusinessSetupHero from "../Component2";
 import ServiceLeftTriangle from "../../assets/images/triangles/ServiceLeftTriangle.png";
 import ServiceRightTriangle from "../../assets/images/triangles/ServiceRightTriangle.png";
@@ -19,7 +13,6 @@ import powerofattorney from "../../assets/images/buisness/HA-Group-Clients/Group
 import nominee from "../../assets/images/buisness/HA-Group-Clients/Layer_1-3.png";
 import mortage from "../../assets/images/buisness/HA-Group-Clients/Group 1597886772.png";
 import insurance from "../../assets/images/buisness/HA-Group-Clients/Group 1597886775.png";
-import { useNavigate } from "react-router-dom";
 import liquidation from "../../assets/images/liquidation.png";
 import visaimage from "../../assets/images/buisness/VisaServices.png";
 import branding from "../../assets/images/ValueAddedServices/Branding&Marketing.png";

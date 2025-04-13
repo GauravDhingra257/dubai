@@ -63,18 +63,20 @@ export const HeroSection: React.FC<HeroSectionProps> = ({
             <p className="text-lg text-gray-700 max-w-2xl animate-fade-in whitespace-pre-line">
               {description}
             </p>
-            <button
-              className="px-8 py-2 text-white rounded-lg bg-gradient-to-r from-[#2CAFF3] to-[#1975BB] hover:cursor-pointer mt-4"
-              onClick={() => {
-                if (buttonlink) {
-                  window.open(buttonlink, "_blank");
-                } else {
-                  navigate("/book-appointment");
-                }
-              }}
-            >
-              {buttontext}
-            </button>
+            {buttontext && (
+              <button
+                className="px-8 py-2 text-white rounded-lg bg-gradient-to-r from-[#2CAFF3] to-[#1975BB] hover:cursor-pointer mt-4"
+                onClick={() => {
+                  if (buttonlink) {
+                    window.open(buttonlink, "_blank");
+                  } else {
+                    navigate("/book-appointment");
+                  }
+                }}
+              >
+                {buttontext}
+              </button>
+            )}
           </Fade>
         </div>
 
