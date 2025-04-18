@@ -108,13 +108,13 @@ export function Testimonials() {
       const div = document.querySelector('.mydiv');
       if (div) {
         const links = div.querySelectorAll('a');
-        links.forEach(link => {
-          link.style.display = 'none !important';
-          link.innerHTML = ' ';
-        });
-        if (links.length > 0) clearInterval(interval);
+        if( links.length > 0) {
+        links[links.length-1].style.display = 'none !important';
+        links[links.length-1].innerHTML = ' ';
+        clearInterval(interval);
+        }
       }
-    }, 2000);
+    }, 5000);
     return () => clearInterval(interval);
   }, []);
 

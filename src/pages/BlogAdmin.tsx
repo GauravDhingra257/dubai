@@ -11,7 +11,13 @@ import {
   updateDoc,
 } from "firebase/firestore";
 import { ref, uploadBytes, getDownloadURL } from "firebase/storage";
-
+function formatDate(dateObj) {
+  return dateObj.toLocaleDateString("en-US", {
+    month: "short",
+    day: "2-digit",
+    year: "numeric",
+  });
+}
 const BlogAdmin = () => {
   const [tab, setTab] = useState("editor");
   const [previewMode, setPreviewMode] = useState(false);
@@ -21,7 +27,7 @@ const BlogAdmin = () => {
   const initialBlogState = {
     // id: Date.now(),
     title: "",
-    date: new Date().toDateString(),
+    date: formatDate(new Date()),
     featuredImage: "",
     imageAlt: "",
     introduction: [""],
@@ -56,7 +62,7 @@ const BlogAdmin = () => {
 
       const blogToSave = {
         ...blog,
-        featuredImage: imageUrl,
+        featuredImage: imageUrl
       };
       if(blog.id) {
         await updateDoc(doc(db, "blogs", String(blog.id)), blogToSave);
@@ -350,23 +356,13 @@ export const BlogForm = ({
         <div className="mb-4">
           <label className="block text-sm font-medium mb-1">Blog Title</label>
           <input
+          required
             type="text"
             name="title"
             value={blog.title}
             onChange={handleChange}
             className="w-full p-2 border rounded"
             placeholder="Enter blog title"
-          />
-        </div>
-        <div className="mb-4">
-          <label className="block text-sm font-medium mb-1">Date</label>
-          <input
-            type="text"
-            name="date"
-            value={blog.date}
-            onChange={handleChange}
-            className="w-full p-2 border rounded"
-            placeholder="MMM DD, YYYY"
           />
         </div>
         <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
