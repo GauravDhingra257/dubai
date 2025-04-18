@@ -21,7 +21,7 @@ export const AboutSection = () => {
               autoPlay
               loop
               controls
-              playsinline
+              playsInline
               muted
               className="w-full h-full object-cover"
             >
@@ -485,7 +485,7 @@ export const CompanySection = () => {
             <p>
               We firmly believe that organizations should be conduits for
               positive change in the world. Technuvus aspires to be the trusted
-              technology partner for each visionary enterprise. Our commitment
+              technology partner2 for each visionary enterprise. Our commitment
               is to harness the power of AI and technology to propel your
               mission and make a meaningful impact on a global scale.
             </p>

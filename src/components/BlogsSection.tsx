@@ -3,49 +3,54 @@ import { blogPosts } from "../Constants/constant";
 import { Fade } from "react-awesome-reveal";
 
 export const BlogsSection = () => {
+  const navigate = useNavigate();
+  const mainPost = blogPosts[0];
+
   return (
     <>
       <div className="container mx-auto px-4 py-12 max-w-6xl">
-      <Fade triggerOnce direction="up"  cascade damping={0.1}>
-        <div className="text-center mb-12">
+        <Fade triggerOnce direction="up" cascade damping={0.1}>
+          <div className="text-center mb-12">
+            <h1 className="text-5xl font-normal inline-block">
+              Blog & <span className="text-blue-400 font-semibold">Articles</span>
+            </h1>
+          </div>
 
-          <h1 className="text-5xl font-normal inline-block">
-            Blog & <span className="text-blue-400 font-semibold">Articles</span>
-          </h1>
-
-        </div>
-
-        <div className="flex flex-col md:flex-row mb-16 gap-8">
-          <div className="md:w-1/2">
-            <div className="border border-gray-300 rounded-lg overflow-hidden">
-              <img loading="lazy" 
-                src="https://images.unsplash.com/photo-1518770660439-4636190af475?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1000&q=80"
-                alt="Semiconductor chip"
-                className="w-full h-64 object-cover object-center"
-              />
+          {/* Main Blog Highlight - dynamic from blogPosts[0] */}
+          <div className="flex flex-col md:flex-row mb-16 gap-8">
+            <div className="md:w-1/2">
+              <div className="border border-gray-300 rounded-lg overflow-hidden">
+                <img
+                  loading="lazy"
+                  src={mainPost.featuredImage}
+                  alt={mainPost.imageAlt}
+                  className="w-full h-64 object-cover object-center"
+                />
+              </div>
+            </div>
+            <div className="md:w-1/2 flex flex-col justify-center">
+              <div className="mb-2 text-gray-600">{mainPost?.author || "—"}</div>
+              <div className="mb-2 text-gray-600">{mainPost.date}</div>
+              <h2 className="text-2xl font-bold mb-4">
+                {mainPost.title}
+              </h2>
+              <p className="mb-4 text-gray-700">{mainPost.introduction?.[0]}</p>
+              <div>
+                <button
+                  className="bg-red-600 hover:bg-red-700 text-white font-medium py-2 px-6 rounded-md"
+                  onClick={() => navigate(`/Blog`, { state: { post: mainPost } })}
+                >
+                  See More
+                </button>
+              </div>
             </div>
           </div>
-          <div className="md:w-1/2 flex flex-col justify-center">
-            <div className="mb-2 text-gray-600">Actiontec</div>
-            <div className="mb-2 text-gray-600">February 24,2024</div>
-            <h2 className="text-2xl font-bold mb-4">
-              HA Group, an innovative 4G/5G System on a Chip (SoC) in the
-              semiconductor startup.
-            </h2>
-            <div>
-              <button className="bg-red-600 hover:bg-red-700 text-white font-medium py-2 px-6 rounded-md">
-                See More
-              </button>
-            </div>
-          </div>
-        </div>
         </Fade>
         <BlogsList />
       </div>
     </>
   );
 };
-
 export const BlogsList = () => {
   const recentPosts = blogPosts.slice(0, 4);
   const navigate = useNavigate()
@@ -67,7 +72,7 @@ export const BlogsList = () => {
             />
           </div>
           <div className="col-span-4 md:col-span-3">
-            <div className="text-sm font-medium hover:text-blue-400 transition-colors cursor-pointer" onClick={() =>{ navigate(`/Blog`, { state: { post } });console.log("clciked")}}>
+            <div className="text-sm font-medium hover:text-blue-400 transition-colors cursor-pointer" onClick={() =>{ navigate(`/Blog`, { state: { post } });}}>
               {post.title}
             </div>
           </div>

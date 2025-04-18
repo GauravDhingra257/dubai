@@ -7,7 +7,7 @@ import MainServices, {
   ClientsSpeak,
   LeadershipTeamSection,
   PartnersSection,
-  TeamSection,
+  WhyUs,
   Testimonials,
   ValueAddedServices,
   VideoSection,
@@ -30,11 +30,11 @@ const HeroSection = () => {
       </Fade>
       <Zoom cascade triggerOnce damping={0.1}>
         <CaseStudies />
-        <TeamSection />
+        <WhyUs />
         <AboutCompanySection />
       </Zoom>
       <LeadershipTeamSection />
-      <ClientsSpeak />
+      {/* <ClientsSpeak /> */}
       <BlogsSection />
       {/* <NewsEventsSection/> */}
       <FAQAccordion />

@@ -13,6 +13,7 @@ import {
   ValueAddedService,
   ValueAddedService2,
   calendlyUrl,
+  patners2,
 } from "../Constants/constant";
 import caseStudyTriangle from "../assets/images/triangles/CaseStudyTriangle.png";
 import caseStudyTriangle2 from "../assets/images/triangles/CaseStudyTriangle2.png";
@@ -38,6 +39,7 @@ import {
   PenTool,
   Handshake,
 } from "lucide-react";
+import { elfsightAppClass } from "../Constants/config";
 const MainServices = () => {
   const navigate = useNavigate();
   const achievements = [
@@ -98,72 +100,28 @@ const MainServices = () => {
 export default MainServices;
 
 export function Testimonials() {
-  const scrollRef = useRef(null);
-  const [isDragging, setIsDragging] = useState(false);
-  const [startX, setStartX] = useState(0);
-  const [scrollLeft, setScrollLeft] = useState(0);
-  const [scrollDirection, setScrollDirection] = useState(1); // 1 for right, -1 for left
+ 
 
   // Auto scroll functionality
   useEffect(() => {
-    const scrollContainer = scrollRef.current;
-    if (!scrollContainer) return;
-
-    const autoScroll = () => {
-      if (!isDragging && scrollContainer) {
-        const maxScroll =
-          scrollContainer.scrollWidth - scrollContainer.clientWidth;
-
-        // Check if we've reached the ends
-        if (scrollContainer.scrollLeft >= maxScroll) {
-          setScrollDirection(-1); // Change direction to left
-        } else if (scrollContainer.scrollLeft <= 0) {
-          setScrollDirection(1); // Change direction to right
-        }
-
-        // Perform the scroll
-        scrollContainer.scrollLeft += 1 * scrollDirection;
+    const interval = setInterval(() => {
+      const div = document.querySelector('.mydiv');
+      if (div) {
+        const links = div.querySelectorAll('a');
+        links.forEach(link => {
+          link.style.display = 'none !important';
+          link.innerHTML = ' ';
+        });
+        if (links.length > 0) clearInterval(interval);
       }
-    };
-
-    // Set up the interval for smooth scrolling
-    const scrollInterval = setInterval(autoScroll, 20);
-
-    // Cleanup
-    return () => {
-      clearInterval(scrollInterval);
-    };
-  }, [isDragging, scrollDirection]);
-
-  const startDragging = (e: React.MouseEvent<HTMLDivElement>) => {
-    setIsDragging(true);
-    setStartX(e.pageX - scrollRef.current!.offsetLeft);
-    setScrollLeft(scrollRef.current!.scrollLeft);
-  };
-
-  const stopDragging = () => {
-    setIsDragging(false);
-  };
-
-  const handleMouseMove = (e: React.MouseEvent<HTMLDivElement>) => {
-    if (!isDragging) return;
-    e.preventDefault();
-    const x = e.pageX - scrollRef.current!.offsetLeft;
-    const walk = (x - startX) * 2;
-    scrollRef.current!.scrollLeft = scrollLeft - walk;
-  };
-  const scrollStyle = {
-    msOverflowStyle: "none", // IE and Edge
-    scrollbarWidth: "none", // Firefox
-    WebkitOverflowScrolling: "touch",
-    "&::-webkit-scrollbar": {
-      // Chrome, Safari, Opera
-      display: "none",
-    },
-  } as React.CSSProperties;
+    }, 2000);
+    return () => clearInterval(interval);
+  }, []);
 
   return (
-    <div className="bg-gray-100 py-16 px-6 mt-10">
+
+    <div className="bg-gray-100 py-16 px-6 mt-10 [&a]:hidden">
+      
       {/* Header in Grid */}
       <div className="grid grid-cols-1 lg:grid-cols-3 gap-8 items-center max-w-6xl mx-auto text-center lg:text-left">
         <h2 className="text-5xl font-normal">
@@ -177,55 +135,10 @@ export function Testimonials() {
           humanitarian pioneers.
         </p>
       </div>
-
+      <script src="https://static.elfsight.com/platform/platform.js" async></script>
+      <div className={`${elfsightAppClass} mydiv w-full my-16`} data-elfsight-app-lazy></div>
       {/* Scrollable Testimonials */}
-      <div
-        className="relative mt-8 overflow-x-auto"
-        ref={scrollRef}
-        style={scrollStyle}
-        onMouseDown={startDragging}
-        onMouseUp={stopDragging}
-        onMouseLeave={stopDragging}
-        onMouseMove={handleMouseMove}
-      >
-        <div className="flex space-x-6 px-6">
-          {testimonials.map((testimonial, index) => (
-            <div
-              key={index}
-              className="bg-white p-6 rounded-lg shadow-lg min-w-[300px] max-w-xs select-none"
-            >
-              {/* Profile */}
-              <div className="flex items-center space-x-4">
-                <img
-                  loading="lazy"
-                  src={testimonial.image}
-                  alt={testimonial.name}
-                  className="w-12 h-12 rounded-full object-cover"
-                />
-                <div>
-                  <h4 className="font-semibold text-blue-400">
-                    {testimonial.name}
-                  </h4>
-                  <p className="text-sm text-gray-500">{testimonial.date}</p>
-                </div>
-              </div>
 
-              {/* Rating */}
-              <div className="flex mt-2 text-yellow-500">
-                {"⭐".repeat(testimonial.rating)}
-              </div>
-
-              {/* Feedback */}
-              <p className="mt-4 text-gray-700">{testimonial.feedback}</p>
-
-              {/* Read More */}
-              <a href="#" className="text-blue-400 mt-4 block font-semibold">
-                Read More
-              </a>
-            </div>
-          ))}
-        </div>
-      </div>
     </div>
   );
 }
@@ -315,7 +228,7 @@ export function PartnersSection() {
         {/* Scrolling Logos */}
         <div className="mt-6 w-full overflow-hidden">
           {/* Row 1: Left to Right */}
-          <div className="flex gap-6  animate-scroll-bounce-left w-[1200px]">
+          <div className="flex gap-6  animate-scroll-bounce-left w-[1400px]">
             {patners.map((partner, index) => (
               <img
                 loading="lazy"
@@ -338,24 +251,24 @@ export function PartnersSection() {
           </div>
 
           {/* Row 2: Right to Left */}
-          <div className="flex gap-6 mt-6 animate-scroll-bounce-right w-[1200px]">
-            {patners.map((partner, index) => (
+          <div className="flex gap-6 mt-6 animate-scroll-bounce-right w-[1400px]">
+            {patners2.map((partner, index) => (
               <img
                 loading="lazy"
                 key={`row2-${index}`}
                 src={`${partner}`}
                 alt={`Partner ${index + 1}`}
-                className="h-20 mx-4 grayscale flex-shrink-0"
+                className="h-20 mx-4 grayscale flex-shrink-0 w-[200px] object-fill"
               />
             ))}
             {/* Duplicate images for seamless loop */}
-            {patners.map((partner, index) => (
+            {patners2.map((partner, index) => (
               <img
                 loading="lazy"
                 key={`row2-dup-${index}`}
                 src={`${partner}`}
                 alt={`Partner ${index + 1}`}
-                className="h-20 mx-4 grayscale flex-shrink-0"
+                className="h-20 mx-4 grayscale flex-shrink-0 w-[200px]"
               />
             ))}
           </div>
@@ -402,7 +315,7 @@ export const VideoSection = () => {
         {/* Hero Section */}
         <div className="relative w-full mt-6 h-[500px] md:h-[600px] flex items-center justify-center text-center text-white">
           <video
-            playsinline
+            playsInline
             autoPlay
             loop
             muted
@@ -441,6 +354,7 @@ export const VideoSection = () => {
 };
 
 const CaseStudiesCarousel = ({ caseStudies }) => {
+  const navigate = useNavigate();
   return (
     <div className="bg-gray-100 py-6 relative">
       <div
@@ -487,9 +401,10 @@ const CaseStudiesCarousel = ({ caseStudies }) => {
                   </p>
                   <a
                     href={study.link}
+                    onClick={()=>navigate("/business")}
                     className="text-blue-400 text-sm hover:underline"
                   >
-                    Read Case Study →
+                    Know More →
                   </a>
                 </div>
               </div>
@@ -510,7 +425,7 @@ export const CaseStudies = () => {
   );
 };
 
-export const TeamSection = () => {
+export const WhyUs = () => {
   const achievements = [
     { icon: <Award />, count: "5+", label: "Years of Excellence" },
     { icon: <Building />, count: "3500+", label: "Businesses Set Up" },
@@ -525,7 +440,7 @@ export const TeamSection = () => {
       {/* Blue triangles can be added here if needed */}
 
       <div className="container mx-auto px-4 py-12">
-        <div className="w-full bg-gradient-to-r from-blue-50 to-indigo-50 py-16 px-4 rounded-xl shadow-sm text-center">
+        <div className="w-full bg-gradient-to-b from-blue-50 to-white py-16 px-4 rounded-xl shadow-sm text-center">
           <h2 className="text-3xl font-bold text-center text-gray-800 mb-6">
             Why Us?
           </h2>

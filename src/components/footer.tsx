@@ -66,7 +66,7 @@ const Footer = () => {
             </p>
 
             <div className="flex space-x-3 justify-center md:justify-start">
-              <a href="#" className="text-gray-500 hover:text-blue-400">
+              <a href="https://www.facebook.com/hagroup.ae" className="text-gray-500 hover:text-blue-400">
                 <span className="sr-only">Facebook</span>
                 <svg
                   className="h-5 w-5"
@@ -80,7 +80,7 @@ const Footer = () => {
                   />
                 </svg>
               </a>
-              <a href="#" className="text-gray-500 hover:text-blue-400">
+              <a href="https://twitter.com/HagroupDxb?t=Icv3-071vKKI9iG9-OQ-3A&s=09" className="text-gray-500 hover:text-blue-400">
                 <span className="sr-only">Twitter</span>
                 <svg
                   className="h-5 w-5"
@@ -90,7 +90,7 @@ const Footer = () => {
                   <path d="M8.29 20.251c7.547 0 11.675-6.253 11.675-11.675 0-.178 0-.355-.012-.53A8.348 8.348 0 0022 5.92a8.19 8.19 0 01-2.357.646 4.118 4.118 0 001.804-2.27 8.224 8.224 0 01-2.605.996 4.107 4.107 0 00-6.993 3.743 11.65 11.65 0 01-8.457-4.287 4.106 4.106 0 001.27 5.477A4.072 4.072 0 012.8 9.713v.052a4.105 4.105 0 003.292 4.022 4.095 4.095 0 01-1.853.07 4.108 4.108 0 003.834 2.85A8.233 8.233 0 012 18.407a11.616 11.616 0 006.29 1.84" />
                 </svg>
               </a>
-              <a href="#" className="text-gray-500 hover:text-blue-400">
+              <a href="https://www.instagram.com/hagroupae/" className="text-gray-500 hover:text-blue-400">
                 <span className="sr-only">Instagram</span>
                 <svg
                   className="h-5 w-5"
@@ -104,7 +104,7 @@ const Footer = () => {
                   />
                 </svg>
               </a>
-              <a href="#" className="text-gray-500 hover:text-blue-400">
+                <a href="https://www.linkedin.com/company/ha-group-dubai/" className="text-gray-500 hover:text-blue-400">
                 <span className="sr-only">LinkedIn</span>
                 <svg
                   className="h-5 w-5"
@@ -113,7 +113,13 @@ const Footer = () => {
                 >
                   <path d="M19 0h-14c-2.761 0-5 2.239-5 5v14c0 2.761 2.239 5 5 5h14c2.762 0 5-2.239 5-5v-14c0-2.761-2.238-5-5-5zm-11 19h-3v-11h3v11zm-1.5-12.268c-.966 0-1.75-.79-1.75-1.764s.784-1.764 1.75-1.764 1.75.79 1.75 1.764-.783 1.764-1.75 1.764zm13.5 12.268h-3v-5.604c0-3.368-4-3.113-4 0v5.604h-3v-11h3v1.765c1.396-2.586 7-2.777 7 2.476v6.759z" />
                 </svg>
-              </a>
+                </a>
+                <a href="https://www.youtube.com/@hagroup5040?themeRefresh=1" className="text-gray-500 hover:text-blue-400">
+  <span className="sr-only">YouTube</span>
+  <svg  fill="currentColor" className="h-5 w-5" viewBox="0 0 24 24">
+  <path d="M 12.0765 2.9985 h 0.1335 c 1.233 0.0045 7.4805 0.0495 9.165 0.5025 a 3.015 3.015 13.7878 0 1 2.1225 2.13 c 0.1515 0.57 0.258 1.3245 0.33 2.103 l 0.015 0.156 l 0.033 0.39 l 0.012 0.156 c 0.0975 1.371 0.1095 2.655 0.111 2.9355 v 0.1125 c -0.0015 0.291 -0.015 1.662 -0.123 3.09 l -0.012 0.1575 l -0.0135 0.156 c -0.075 0.858 -0.186 1.71 -0.3525 2.337 a 3.015 3.015 13.7878 0 1 -2.1225 2.13 c -1.74 0.468 -8.3535 0.501 -9.27 0.5025 h -0.213 c -0.4635 0 -2.3805 -0.009 -4.3905 -0.078 l -0.255 -0.009 l -0.1305 -0.006 l -0.2565 -0.0105 l -0.2565 -0.0105 c -1.665 -0.0735 -3.2505 -0.192 -3.981 -0.39 a 3.015 3.015 13.7878 0 1 -2.1225 -2.1285 c -0.1665 -0.6255 -0.2775 -1.479 -0.3525 -2.337 L 0.135 14.73 l -0.012 -0.156 A 46.5 46.5 45 0 1 0 11.52 v -0.1845 c 0.003 -0.3225 0.015 -1.437 0.096 -2.667 l 0.0105 -0.1545 l 0.0045 -0.078 l 0.012 -0.156 l 0.033 -0.39 l 0.015 -0.156 c 0.072 -0.7785 0.1785 -1.5345 0.33 -2.103 a 3.015 3.015 13.7878 0 1 2.1225 -2.13 c 0.7305 -0.195 2.316 -0.315 3.981 -0.39 l 0.255 -0.0105 l 0.258 -0.009 l 0.129 -0.0045 l 0.2565 -0.0105 A 150 150 45 0 1 11.787 3 z M 9.6 7.8135 v 7.227 l 6.2355 -3.612 z"/>
+</svg>
+</a>
             </div>
             <div className="mt-4 pt-6">
               <div className="flex justify-start items-center gap-8 flex-wrap md:flex-nowrap ">
@@ -141,36 +147,39 @@ const Footer = () => {
             <h3 className="text-gray-700 font-semibold mb-4">Business Setup</h3>
             <ul className="space-y-2">
               <li>
-                <span
+                <a
+                href="#Mainland"
                   className="text-gray-600 hover:text-blue-400 text-sm hover:cursor-pointer"
                   onClick={() => navigate("/business")}
                 >
                   Mainland
-                </span>
+                </a>
               </li>
               <li>
-                <span
+                <a
+                href="#FreeZone"
                   className="text-gray-600 hover:text-blue-400 text-sm hover:cursor-pointer"
                   onClick={() => navigate("/business")}
                 >
                   Freezone
-                </span>
+                </a>
               </li>
               <li>
-                <span
+                <a
+                href="#Offshore"
                   className="text-gray-600 hover:text-blue-400 text-sm hover:cursor-pointer"
                   onClick={() => navigate("/business")}
                 >
                   Offshore
-                </span>
+                </a>
               </li>
               <li>
-                <span
+                <a
                   className="text-gray-600 hover:text-blue-400 text-sm hover:cursor-pointer"
                   onClick={() => navigate("/business")}
                 >
                   Business Trade License
-                </span>
+                </a>
               </li>
             </ul>
           </div>
@@ -180,44 +189,48 @@ const Footer = () => {
             <h3 className="text-gray-700 font-semibold mb-4">Services</h3>
             <ul className="space-y-2">
               <li>
-                <span
+                <a
+                href="#Visa"
                   className="text-gray-600 hover:text-blue-400 text-sm hover:cursor-pointer"
                   onClick={() => navigate("/visaservices")}
                 >
                   Visa Services in Dubai
-                </span>
+                </a>
               </li>
               <li>
-                <span
+                <a
+                              href="#Family"
                   className="text-gray-600 hover:text-blue-400 text-sm hover:cursor-pointer"
                   onClick={() => navigate("/visaservices")}
                 >
                   Family Visa Assistance
-                </span>
+                </a>
               </li>
               <li>
-                <span
+                <a
+                 href="#Golden"
                   className="text-gray-600 hover:text-blue-400 text-sm hover:cursor-pointer"
                   onClick={() => navigate("/visaservices")}
                 >
                   Golden Visa
-                </span>
+                </a>
               </li>
               <li>
-                <span
+                <a
                   className="text-gray-600 hover:text-blue-400 text-sm hover:cursor-pointer"
-                  onClick={() => navigate("/visaservices")}
+                  onClick={() => navigate("/business")}
                 >
                   PRO Services in Dubai
-                </span>
+                </a>
               </li>
               <li>
-                <span
+                <a
+                href="#Bank"
                   className="text-gray-600 hover:text-blue-400 text-sm hover:cursor-pointer"
-                  onClick={() => navigate("/visaservices")}
+                  onClick={() => navigate("/bankservices")}
                 >
                   Bank Account Opening in Dubai
-                </span>
+                </a>
               </li>
             </ul>
           </div>

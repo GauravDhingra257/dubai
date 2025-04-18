@@ -22,7 +22,7 @@ const BusinessSetupHero: React.FC<HeroSectionProps2> = ({
 }) => {
   const navigate = useNavigate();
   return (
-    <div className="flex flex-col-reverse md:flex-row w-full overflow-hidden bg-white  shadow-lg p-4 md:p-8 relative">
+    <div id={title?.replace(" ","").trim()}className="flex flex-col-reverse md:flex-row w-full overflow-hidden bg-white  shadow-lg p-4 md:p-8 relative">
       {/* Left content section */}
       <img
         loading="lazy"

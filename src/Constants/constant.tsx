@@ -15,6 +15,15 @@ import partner2 from "../assets/images/ourPartners/partner2.png";
 import partner3 from "../assets/images/ourPartners/partner3.png";
 import partner4 from "../assets/images/ourPartners/partner4.png";
 import partner5 from "../assets/images/ourPartners/partner5.png";
+import partner6 from "../assets/images/ourPartners/partner6.png";
+import partner7 from "../assets/images/ourPartners/partner7.png";
+import partner21 from "../assets/images/ourPartners/partner21.png";
+import partner22 from "../assets/images/ourPartners/partner22.png";
+import partner23 from "../assets/images/ourPartners/partner23.png";
+import partner24 from "../assets/images/ourPartners/partner24.png";
+import partner25 from "../assets/images/ourPartners/partner25.png";
+import partner26 from "../assets/images/ourPartners/partner26.png";
+import partner27 from "../assets/images/ourPartners/partner27.png";
 import offshore from "../assets/images/buisness/OffShore.png";
 import freezone from "../assets/images/buisness/FreeZone.png";
 import mainlandbusiness from "../assets/images/buisness/VisaServices.png";
@@ -92,21 +101,21 @@ export const sampleCaseStudies = [
     description:
       "Looking to expand globally? An offshore company in the UAE offers 100% foreign ownership, no physical office requirements, and a tax-efficient structure—perfect for international trade and asset protection.",
     image: offshore,
-    link: "#",
+    link: "#Offshore",
   },
   {
     title: "Free Zone Business",
     description:
       "Want full control and exclusive benefits? Free zones offer 100% ownership, tax advantages, and simplified business regulations, making them ideal for startups, SMEs, and global investors.",
     image: freezone,
-    link: "#",
+    link: "#FreeZone",
   },
   {
     title: "Mainland Business",
     description:
       "Planning to trade across the UAE? A mainland license lets you operate without restrictions, secure government contracts, and sponsor unlimited visas—giving your business unlimited growth potential.",
     image: mainlandbusiness,
-    link: "#",
+    link: "#Mainland",
   },
 ];
 export const ValueAddedService = [
@@ -207,7 +216,16 @@ export const testimonials = [
   },
 ];
 
-export const patners = [partner1, partner2, partner3, partner4, partner5];
+export const patners = [partner1, partner2, partner3, partner4, partner5,partner6,partner7];
+export const patners2 = [
+  partner21,
+  partner22,
+  partner23,
+  partner24,
+  partner25,
+  partner26,
+  partner27,
+];
 export const services = [
   { title: "Business Setup", image: BusinessSetup, path: "business" },
   { title: "Visa Services", image: VisaServices, path: "visaservices" },

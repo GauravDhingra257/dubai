@@ -75,14 +75,12 @@ const blogPost = {
 };
 
 // Blog component
-const BlogPost = ({ post }) => {
-  console.log(post);
+export const BlogPost = ({ post }) => {
     const sectionRefs = useRef({});
 
     // Add scroll handler
     const scrollToSection = (item) => {
         const sectionId = slugify(item);
-        console.log(sectionId);
       const element = sectionRefs.current[sectionId];
       if (element) {
         element.scrollIntoView({ 
@@ -190,7 +188,6 @@ const BlogPost = ({ post }) => {
 // Usage example
 const BlogPage = () => {
   const location = useLocation();
-  console.log(location)
   const post = location?.state?.post;
   return <>
   <BlogPost post={post?post:blogPost} />

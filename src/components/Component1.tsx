@@ -34,7 +34,7 @@ export const HeroSection: React.FC<HeroSectionProps> = ({
 }) => {
   const navigate = useNavigate();
   return (
-    <section className="relative flex flex-col md:flex-row items-center justify-center gap-8 py-16 px-4 md:px-8  mx-auto ">
+    <section id={title.replace(" ","").trim()} className="relative flex flex-col md:flex-row items-center justify-center gap-8 py-16 px-4 md:px-8  mx-auto ">
       {/* <AnimationStyles /> */}
       {triangleImage && (
         <img

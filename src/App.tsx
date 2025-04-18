@@ -46,7 +46,7 @@ function App() {
               <Route path="/calculate" element={<CalculateSetup />} />
               <Route path="/BuisnessService" element={<BuisnessService />} />
               <Route path="/Blog" element={<BlogPage />} />
-              <Route path="/contactus" element={<ContactUs />} />
+              {/* <Route path="/contactus" element={<ContactUs />} /> */}
               <Route path="/book-appointment" element={<BusinessBanner />} />
               <Route path="/privacypolicy" element={<PrivacyPolicy />} />
               <Route path="/terms" element={<TermsAnConditionss />} />

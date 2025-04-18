@@ -1,42 +1,128 @@
-import React, { useState, useRef } from "react";
+import React, { useState, useRef, useEffect } from "react";
+import { BlogPost } from "./Blog";
 
 const BlogAdmin = () => {
-  const slugify = (text) => {
-    return text
-      .toLowerCase()
-      .replace(/[^a-z0-9]+/g, "-")
-      .replace(/(^-|-$)+/g, "");
-  };
-  const initialBlogState = {
-    id: Date.now(), // Generate a temporary ID
-    title: "",
-    date: new Date()
-      .toLocaleDateString("en-GB", {
-        day: "2-digit",
-        month: "2-digit",
-        year: "2-digit",
-      })
-      .replace(/\//g, "."),
-    featuredImage: "",
-    imageAlt: "",
-    introduction: ["", ""],
-    tableOfContents: [],
-    sections: [
-      {
-        title: "",
-        content: [""],
-        subsections: [],
-      },
-    ],
-    ctaText: "INQUIRE TODAY",
-    ctaUrl: "/contact",
-    contactText: "Connect with our team to start your business!",
-  };
-
-  const [blog, setBlog] = useState(initialBlogState);
+  const [tab, setTab] = useState("editor");
   const [previewMode, setPreviewMode] = useState(false);
   const [submitting, setSubmitting] = useState(false);
   const [success, setSuccess] = useState(false);
+
+  const initialBlogState = {
+    id: Date.now(),
+    title: "",
+    date: new Date().toDateString(),
+    featuredImage: "",
+    imageAlt: "",
+    introduction: [""],
+    tableOfContents: [],
+    sections: [],
+    ctaText: "",
+    ctaUrl: "",
+    contactText: "",
+    visible: true,
+  };
+
+  const [blog, setBlog] = useState(initialBlogState);
+
+  const handleSubmit = async (e) => {
+    e.preventDefault();
+    setSubmitting(true);
+
+    try {
+      // Save to Firebase here
+      // await addDoc(collection(db, "blogs"), blog);
+
+      await new Promise((resolve) => setTimeout(resolve, 1000)); // simulate API
+      setSuccess(true);
+      setTimeout(() => setSuccess(false), 3000);
+    } catch (error) {
+      console.error("Error submitting blog:", error);
+    } finally {
+      setSubmitting(false);
+    }
+  };
+
+  const handleEdit = (post) => {
+    setBlog(post);
+    setTab("editor");
+    setPreviewMode(false);
+  };
+
+  return (
+    <div className="max-w-5xl mx-auto bg-white rounded-md overflow-hidden p-6">
+      <h1 className="text-3xl font-bold mb-6">Tech Blog Admin Panel</h1>
+
+      <div className="mb-4 flex gap-4">
+        <button
+          onClick={() => setTab("editor")}
+          className={`px-4 py-2 rounded ${
+            tab === "editor" ? "bg-blue-600 text-white" : "bg-gray-200"
+          }`}
+        >
+          Blog Editor
+        </button>
+        <button
+          onClick={() => setTab("manager")}
+          className={`px-4 py-2 rounded ${
+            tab === "manager" ? "bg-blue-600 text-white" : "bg-gray-200"
+          }`}
+        >
+          Manage Posts
+        </button>
+      </div>
+
+      {tab === "editor" && (
+        <>
+          <div className="mb-6 flex justify-between items-center">
+            <button
+              onClick={() => setPreviewMode(!previewMode)}
+              className="bg-blue-500 text-white px-4 py-2 rounded hover:bg-blue-600"
+            >
+              {previewMode ? "Edit Mode" : "Preview Mode"}
+            </button>
+
+            {!previewMode && (
+              <button
+                onClick={handleSubmit}
+                disabled={submitting}
+                className={`px-4 py-2 rounded ${
+                  submitting ? "bg-gray-400" : "bg-green-500 hover:bg-green-600"
+                } text-white`}
+              >
+                {submitting ? "Submitting..." : "Save Blog"}
+              </button>
+            )}
+
+            {success && (
+              <div className="bg-green-100 border border-green-400 text-green-700 px-4 py-2 rounded">
+                Blog saved successfully!
+              </div>
+            )}
+          </div>
+
+          {previewMode ? (
+            <BlogPost post={blog} />
+          ) : (
+            <BlogForm
+              blog={blog}
+              setBlog={setBlog}
+              handleSubmit={handleSubmit}
+              submitting={submitting}
+              setSubmitting={setSubmitting}
+            />
+          )}
+        </>
+      )}
+
+      {tab === "manager" && <ManagePosts onEdit={handleEdit} />}
+    </div>
+  );
+};
+
+
+export const BlogForm=({blog,setBlog,handleSubmit,submitting, setSubmitting})=>{
+
+
   const fileInputRef = useRef(null);
 
   // Handle basic field changes
@@ -219,555 +305,494 @@ const BlogAdmin = () => {
   };
 
   // Submit the blog
-  const handleSubmit = async (e) => {
-    e.preventDefault();
-    setSubmitting(true);
 
-    try {
-      // Here you would typically send the blog data to your API
-      console.log("Submitting blog:", blog);
 
-      // Simulate API call
-      await new Promise((resolve) => setTimeout(resolve, 1000));
+  return(        <form onSubmit={handleSubmit} className="space-y-6">
+    {/* Basic Information */}
+    <div className="p-4 bg-gray-50 rounded-md">
+      <h2 className="text-xl font-semibold mb-4">Basic Information</h2>
 
-      setSuccess(true);
-      setTimeout(() => setSuccess(false), 3000);
+      <div className="mb-4">
+        <label className="block text-sm font-medium mb-1">
+          Blog Title
+        </label>
+        <input
+          type="text"
+          name="title"
+          value={blog.title}
+          onChange={handleChange}
+          className="w-full p-2 border rounded"
+          placeholder="Enter blog title"
+        />
+      </div>
 
-      // Reset form if needed
-      // setBlog(initialBlogState);
-    } catch (error) {
-      console.error("Error submitting blog:", error);
-    } finally {
-      setSubmitting(false);
-    }
-  };
+      <div className="mb-4">
+        <label className="block text-sm font-medium mb-1">Date</label>
+        <input
+          type="text"
+          name="date"
+          value={blog.date}
+          onChange={handleChange}
+          className="w-full p-2 border rounded"
+          placeholder="MMM DD, YYYY"
+        />
+      </div>
 
-  return (
-    <div className="max-w-5xl mx-auto bg-white rounded-md overflow-hidden p-6">
-      <h1 className="text-3xl font-bold mb-6">Blog Admin Panel</h1>
+      <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
+        <div>
+          <label className="block text-sm font-medium mb-1">
+            Featured Image URL
+          </label>
+          <input
+            type="text"
+            name="featuredImage"
+            value={blog.featuredImage}
+            onChange={handleChange}
+            className="w-full p-2 border rounded"
+            placeholder="Image URL"
+          />
+          <div className="mt-2">
+            <span className="text-sm text-gray-500">Or upload:</span>
+            <input
+              type="file"
+              ref={fileInputRef}
+              onChange={handleImageUpload}
+              className="w-full p-2"
+              accept="image/*"
+            />
+          </div>
+          {blog.featuredImage && (
+            <div className="mt-2">
+              <img
+                src={blog.featuredImage}
+                alt="Preview"
+                className="h-24 object-cover rounded"
+              />
+            </div>
+          )}
+        </div>
 
-      <div className="mb-6 flex justify-between items-center">
-        <button
-          onClick={() => setPreviewMode(!previewMode)}
-          className="bg-blue-500 text-white px-4 py-2 rounded hover:bg-blue-600"
-        >
-          {previewMode ? "Edit Mode" : "Preview Mode"}
-        </button>
+        <div>
+          <label className="block text-sm font-medium mb-1">
+            Image Alt Text
+          </label>
+          <input
+            type="text"
+            name="imageAlt"
+            value={blog.imageAlt}
+            onChange={handleChange}
+            className="w-full p-2 border rounded"
+            placeholder="Image description for accessibility"
+          />
+        </div>
+      </div>
 
-        {!previewMode && (
+      <div className="mt-4">
+        <label className="block text-sm font-medium mb-1">
+          Contact Text
+        </label>
+        <input
+          type="text"
+          name="contactText"
+          value={blog.contactText}
+          onChange={handleChange}
+          className="w-full p-2 border rounded"
+          placeholder="Call to action text"
+        />
+      </div>
+
+      <div className="mt-4">
+        <label className="block text-sm font-medium mb-1">
+          CTA Button Text
+        </label>
+        <input
+          type="text"
+          name="ctaText"
+          value={blog.ctaText}
+          onChange={handleChange}
+          className="w-full p-2 border rounded"
+          placeholder="Call to action button text"
+        />
+      </div>
+
+      <div className="mt-4">
+        <label className="block text-sm font-medium mb-1">CTA URL</label>
+        <input
+          type="text"
+          name="ctaUrl"
+          value={blog.ctaUrl}
+          onChange={handleChange}
+          className="w-full p-2 border rounded"
+          placeholder="Call to action URL"
+        />
+      </div>
+    </div>
+
+    {/* Introduction Section */}
+    <div className="p-4 bg-gray-50 rounded-md">
+      <h2 className="text-xl font-semibold mb-4">Introduction</h2>
+
+      {blog.introduction.map((paragraph, index) => (
+        <div key={index} className="mb-4 flex items-start">
+          <textarea
+            value={paragraph}
+            onChange={(e) => handleIntroChange(index, e.target.value)}
+            className="w-full p-2 border rounded mr-2"
+            rows={3}
+            placeholder={`Introduction paragraph ${index + 1}`}
+          />
+
           <button
-            onClick={handleSubmit}
-            disabled={submitting}
-            className={`px-4 py-2 rounded ${
-              submitting ? "bg-gray-400" : "bg-green-500 hover:bg-green-600"
-            } text-white`}
+            type="button"
+            onClick={() => removeIntroParagraph(index)}
+            className="bg-red-500 text-white p-2 rounded hover:bg-red-600"
+            disabled={blog.introduction.length <= 1}
           >
-            {submitting ? "Submitting..." : "Save Blog"}
+            ✕
+          </button>
+        </div>
+      ))}
+
+      <button
+        type="button"
+        onClick={addIntroParagraph}
+        className="mt-2 bg-blue-500 text-white px-3 py-1 rounded hover:bg-blue-600"
+      >
+        Add Paragraph
+      </button>
+    </div>
+
+    {/* Table of Contents */}
+    <div className="p-4 bg-gray-50 rounded-md">
+      <h2 className="text-xl font-semibold mb-4">Table of Contents</h2>
+
+      {blog.tableOfContents.map((item, index) => (
+        <div key={index} className="mb-4 flex items-center">
+          <input
+            type="text"
+            value={item}
+            onChange={(e) => handleTocChange(index, e.target.value)}
+            className="w-full p-2 border rounded mr-2"
+            placeholder={`Table of Contents item ${index + 1}`}
+          />
+
+          <button
+            type="button"
+            onClick={() => removeTocItem(index)}
+            className="bg-red-500 text-white p-2 rounded hover:bg-red-600"
+          >
+            ✕
+          </button>
+        </div>
+      ))}
+
+      <button
+        type="button"
+        onClick={addTocItem}
+        className="mt-2 bg-blue-500 text-white px-3 py-1 rounded hover:bg-blue-600"
+      >
+        Add ToC Item
+      </button>
+    </div>
+
+    {/* Sections */}
+    {blog.sections.map((section, sectionIndex) => (
+      <div key={sectionIndex} className="p-4 bg-gray-50 rounded-md">
+        <div className="flex justify-between items-center mb-4">
+          <h2 className="text-xl font-semibold">
+            Section {sectionIndex + 1}
+          </h2>
+
+          <div className="flex space-x-2">
+            <button
+              type="button"
+              onClick={() => toggleSectionType(sectionIndex)}
+              className={`px-3 py-1 rounded ${
+                section.type === "cta"
+                  ? "bg-purple-500 hover:bg-purple-600"
+                  : "bg-gray-500 hover:bg-gray-600"
+              } text-white`}
+            >
+              {section.type === "cta" ? "CTA Section" : "Regular Section"}
+            </button>
+
+            <button
+              type="button"
+              onClick={() => removeSection(sectionIndex)}
+              className="bg-red-500 text-white p-2 rounded hover:bg-red-600"
+              disabled={blog.sections.length <= 1}
+            >
+              ✕
+            </button>
+          </div>
+        </div>
+
+        <div className="mb-4">
+          <label className="block text-sm font-medium mb-1">
+            Section Title
+          </label>
+          <input
+            type="text"
+            value={section.title}
+            onChange={(e) =>
+              handleSectionChange(sectionIndex, "title", e.target.value)
+            }
+            className="w-full p-2 border rounded"
+            placeholder="Section title"
+          />
+        </div>
+
+        <h3 className="text-lg font-medium mb-2">Content</h3>
+
+        {section.content.map((paragraph, contentIndex) => (
+          <div key={contentIndex} className="mb-4 flex items-start">
+            <textarea
+              value={paragraph}
+              onChange={(e) =>
+                handleSectionContentChange(
+                  sectionIndex,
+                  contentIndex,
+                  e.target.value
+                )
+              }
+              className="w-full p-2 border rounded mr-2"
+              rows={3}
+              placeholder={`Section content paragraph ${
+                contentIndex + 1
+              }`}
+            />
+
+            <button
+              type="button"
+              onClick={() =>
+                removeSectionContent(sectionIndex, contentIndex)
+              }
+              className="bg-red-500 text-white p-2 rounded hover:bg-red-600"
+              disabled={section.content.length <= 1}
+            >
+              ✕
+            </button>
+          </div>
+        ))}
+
+        {section.type !== "cta" && (
+          <button
+            type="button"
+            onClick={() => addSectionContent(sectionIndex)}
+            className="mt-2 bg-blue-500 text-white px-3 py-1 rounded hover:bg-blue-600"
+          >
+            Add Paragraph
           </button>
         )}
 
-        {success && (
-          <div className="bg-green-100 border border-green-400 text-green-700 px-4 py-2 rounded">
-            Blog saved successfully!
-          </div>
-        )}
-      </div>
+        {/* Subsections (only for regular sections) */}
+        {section.type !== "cta" && (
+          <div className="mt-6">
+            <div className="flex justify-between items-center mb-4">
+              <h3 className="text-lg font-medium">Subsections</h3>
 
-      {previewMode ? (
-        <div className="border p-4 rounded-md">
-          <h2 className="text-2xl font-bold mb-2">
-            {blog.title || "Blog Title"}
-          </h2>
-          <p className="text-sm text-gray-500 mb-4">{blog.date}</p>
-
-          {blog.featuredImage && (
-            <img
-              src={blog.featuredImage}
-              alt={blog.imageAlt || "Blog image"}
-              className="w-full h-auto object-cover rounded-lg mb-6"
-            />
-          )}
-
-          <div className="grid grid-cols-4 gap-6">
-            <div className="col-span-1">
-              <h3 className="uppercase text-sm font-bold text-gray-500 mb-4">
-                CONTENTS
-              </h3>
-              <ul className="space-y-2 text-sm">
-                {blog.tableOfContents.map((item, index) => (
-                  <li key={index} className="text-black whitespace-pre-wrap">
-                    {item}
-                  </li>
-                ))}
-              </ul>
+              <button
+                type="button"
+                onClick={() => addSubsection(sectionIndex)}
+                className="bg-blue-500 text-white px-3 py-1 rounded hover:bg-blue-600"
+              >
+                Add Subsection
+              </button>
             </div>
 
-            <div className="col-span-3">
-              {blog.introduction.map((paragraph, index) => (
-                <p key={index} className="text-gray-700 mb-6">
-                  {paragraph || "Introduction paragraph"}
-                </p>
-              ))}
+            {section.subsections &&
+              section.subsections.map((subsection, subsectionIndex) => (
+                <div
+                  key={subsectionIndex}
+                  className="ml-4 mb-6 p-3 border border-gray-200 rounded-md"
+                >
+                  <div className="flex justify-between items-center mb-2">
+                    <h4 className="font-medium">
+                      Subsection {subsectionIndex + 1}
+                    </h4>
 
-              {blog.sections.map((section, sectionIndex) => (
-                <div key={sectionIndex} className="mb-8">
-                  {section.type === "cta" ? (
-                    <div className="bg-gray-800 text-white rounded-lg p-6 shadow-md">
-                      <h2 className="text-xl font-semibold mb-2">
-                        {section.title || "CTA Title"}
-                      </h2>
-                      <p className="text-gray-300 text-sm mb-4">
-                        {section.content[0] || "CTA content"}
-                      </p>
-                      <button className="bg-red-600 hover:bg-red-700 text-white text-sm font-medium py-2 px-4 rounded transition-colors w-36 text-center">
-                        {blog.ctaText}
-                      </button>
-                    </div>
-                  ) : (
-                    <>
-                      <h2 className="text-xl font-bold text-gray-800 mb-4 mt-8">
-                        {section.title || "Section Title"}
-                      </h2>
+                    <button
+                      type="button"
+                      onClick={() =>
+                        removeSubsection(sectionIndex, subsectionIndex)
+                      }
+                      className="bg-red-500 text-white p-1 rounded hover:bg-red-600 text-sm"
+                    >
+                      ✕
+                    </button>
+                  </div>
 
-                      {section.content.map((paragraph, paragraphIndex) => (
-                        <p key={paragraphIndex} className="text-gray-700 mb-6">
-                          {paragraph || "Section content"}
-                        </p>
-                      ))}
-
-                      {section.subsections &&
-                        section.subsections.map(
-                          (subsection, subsectionIndex) => (
-                            <div key={subsectionIndex} className="ml-4 mb-6">
-                              <h3 className="text-lg font-bold text-gray-800 mb-3 mt-6">
-                                {subsection.title || "Subsection Title"}
-                              </h3>
-
-                              {subsection.content.map(
-                                (paragraph, paragraphIndex) => (
-                                  <p
-                                    key={paragraphIndex}
-                                    className="text-gray-700 mb-6"
-                                  >
-                                    {paragraph || "Subsection content"}
-                                  </p>
-                                )
-                              )}
-                            </div>
-                          )
-                        )}
-                    </>
-                  )}
-                </div>
-              ))}
-            </div>
-          </div>
-        </div>
-      ) : (
-        <form onSubmit={handleSubmit} className="space-y-6">
-          {/* Basic Information */}
-          <div className="p-4 bg-gray-50 rounded-md">
-            <h2 className="text-xl font-semibold mb-4">Basic Information</h2>
-
-            <div className="mb-4">
-              <label className="block text-sm font-medium mb-1">
-                Blog Title
-              </label>
-              <input
-                type="text"
-                name="title"
-                value={blog.title}
-                onChange={handleChange}
-                className="w-full p-2 border rounded"
-                placeholder="Enter blog title"
-              />
-            </div>
-
-            <div className="mb-4">
-              <label className="block text-sm font-medium mb-1">Date</label>
-              <input
-                type="text"
-                name="date"
-                value={blog.date}
-                onChange={handleChange}
-                className="w-full p-2 border rounded"
-                placeholder="DD.MM.YY"
-              />
-            </div>
-
-            <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
-              <div>
-                <label className="block text-sm font-medium mb-1">
-                  Featured Image
-                </label>
-                <input
-                  type="file"
-                  ref={fileInputRef}
-                  onChange={handleImageUpload}
-                  className="w-full p-2 border rounded"
-                  accept="image/*"
-                />
-                {blog.featuredImage && (
-                  <div className="mt-2">
-                    <img
-                      src={blog.featuredImage}
-                      alt="Preview"
-                      className="h-24 object-cover rounded"
+                  <div className="mb-3">
+                    <label className="block text-sm font-medium mb-1">
+                      Subsection Title
+                    </label>
+                    <input
+                      type="text"
+                      value={subsection.title}
+                      onChange={(e) =>
+                        handleSubsectionChange(
+                          sectionIndex,
+                          subsectionIndex,
+                          "title",
+                          e.target.value
+                        )
+                      }
+                      className="w-full p-2 border rounded"
+                      placeholder="Subsection title"
                     />
                   </div>
-                )}
-              </div>
 
-              <div>
-                <label className="block text-sm font-medium mb-1">
-                  Image Alt Text
-                </label>
-                <input
-                  type="text"
-                  name="imageAlt"
-                  value={blog.imageAlt}
-                  onChange={handleChange}
-                  className="w-full p-2 border rounded"
-                  placeholder="Image description for accessibility"
-                />
-              </div>
-            </div>
+                  <h5 className="text-sm font-medium mb-2">Content</h5>
 
-            <div className="mt-4">
-              <label className="block text-sm font-medium mb-1">
-                Contact Text
-              </label>
-              <input
-                type="text"
-                name="contactText"
-                value={blog.contactText}
-                onChange={handleChange}
-                className="w-full p-2 border rounded"
-                placeholder="Call to action text"
-              />
-            </div>
+                  {subsection.content.map((paragraph, contentIndex) => (
+                    <div
+                      key={contentIndex}
+                      className="mb-3 flex items-start"
+                    >
+                      <textarea
+                        value={paragraph}
+                        onChange={(e) =>
+                          handleSubsectionContentChange(
+                            sectionIndex,
+                            subsectionIndex,
+                            contentIndex,
+                            e.target.value
+                          )
+                        }
+                        className="w-full p-2 border rounded mr-2"
+                        rows={3}
+                        placeholder={`Subsection content paragraph ${
+                          contentIndex + 1
+                        }`}
+                      />
 
-            <div className="mt-4">
-              <label className="block text-sm font-medium mb-1">
-                CTA Button Text
-              </label>
-              <input
-                type="text"
-                name="ctaText"
-                value={blog.ctaText}
-                onChange={handleChange}
-                className="w-full p-2 border rounded"
-                placeholder="Call to action button text"
-              />
-            </div>
-
-            <div className="mt-4">
-              <label className="block text-sm font-medium mb-1">CTA URL</label>
-              <input
-                type="text"
-                name="ctaUrl"
-                value={blog.ctaUrl}
-                onChange={handleChange}
-                className="w-full p-2 border rounded"
-                placeholder="Call to action URL"
-              />
-            </div>
-          </div>
-
-          {/* Introduction Section */}
-          <div className="p-4 bg-gray-50 rounded-md">
-            <h2 className="text-xl font-semibold mb-4">Introduction</h2>
-
-            {blog.introduction.map((paragraph, index) => (
-              <div key={index} className="mb-4 flex items-start">
-                <textarea
-                  value={paragraph}
-                  onChange={(e) => handleIntroChange(index, e.target.value)}
-                  className="w-full p-2 border rounded mr-2"
-                  rows={3}
-                  placeholder={`Introduction paragraph ${index + 1}`}
-                />
-
-                <button
-                  type="button"
-                  onClick={() => removeIntroParagraph(index)}
-                  className="bg-red-500 text-white p-2 rounded hover:bg-red-600"
-                  disabled={blog.introduction.length <= 1}
-                >
-                  ✕
-                </button>
-              </div>
-            ))}
-
-            <button
-              type="button"
-              onClick={addIntroParagraph}
-              className="mt-2 bg-blue-500 text-white px-3 py-1 rounded hover:bg-blue-600"
-            >
-              Add Paragraph
-            </button>
-          </div>
-
-          {/* Table of Contents */}
-          <div className="p-4 bg-gray-50 rounded-md">
-            <h2 className="text-xl font-semibold mb-4">Table of Contents</h2>
-
-            {blog.tableOfContents.map((item, index) => (
-              <div key={index} className="mb-4 flex items-center">
-                <input
-                  type="text"
-                  value={item}
-                  onChange={(e) => handleTocChange(index, e.target.value)}
-                  className="w-full p-2 border rounded mr-2"
-                  placeholder={`Table of Contents item ${index + 1}`}
-                />
-
-                <button
-                  type="button"
-                  onClick={() => removeTocItem(index)}
-                  className="bg-red-500 text-white p-2 rounded hover:bg-red-600"
-                >
-                  ✕
-                </button>
-              </div>
-            ))}
-
-            <button
-              type="button"
-              onClick={addTocItem}
-              className="mt-2 bg-blue-500 text-white px-3 py-1 rounded hover:bg-blue-600"
-            >
-              Add ToC Item
-            </button>
-          </div>
-
-          {/* Sections */}
-          {blog.sections.map((section, sectionIndex) => (
-            <div key={sectionIndex} className="p-4 bg-gray-50 rounded-md">
-              <div className="flex justify-between items-center mb-4">
-                <h2 className="text-xl font-semibold">
-                  Section {sectionIndex + 1}
-                </h2>
-
-                <div className="flex space-x-2">
-                  <button
-                    type="button"
-                    onClick={() => toggleSectionType(sectionIndex)}
-                    className={`px-3 py-1 rounded ${
-                      section.type === "cta"
-                        ? "bg-purple-500 hover:bg-purple-600"
-                        : "bg-gray-500 hover:bg-gray-600"
-                    } text-white`}
-                  >
-                    {section.type === "cta" ? "CTA Section" : "Regular Section"}
-                  </button>
-
-                  <button
-                    type="button"
-                    onClick={() => removeSection(sectionIndex)}
-                    className="bg-red-500 text-white p-2 rounded hover:bg-red-600"
-                    disabled={blog.sections.length <= 1}
-                  >
-                    ✕
-                  </button>
-                </div>
-              </div>
-
-              <div className="mb-4">
-                <label className="block text-sm font-medium mb-1">
-                  Section Title
-                </label>
-                <input
-                  type="text"
-                  value={section.title}
-                  onChange={(e) =>
-                    handleSectionChange(sectionIndex, "title", e.target.value)
-                  }
-                  className="w-full p-2 border rounded"
-                  placeholder="Section title"
-                />
-              </div>
-
-              <h3 className="text-lg font-medium mb-2">Content</h3>
-
-              {section.content.map((paragraph, contentIndex) => (
-                <div key={contentIndex} className="mb-4 flex items-start">
-                  <textarea
-                    value={paragraph}
-                    onChange={(e) =>
-                      handleSectionContentChange(
-                        sectionIndex,
-                        contentIndex,
-                        e.target.value
-                      )
-                    }
-                    className="w-full p-2 border rounded mr-2"
-                    rows={3}
-                    placeholder={`Section content paragraph ${
-                      contentIndex + 1
-                    }`}
-                  />
+                      <button
+                        type="button"
+                        onClick={() =>
+                          removeSubsectionContent(
+                            sectionIndex,
+                            subsectionIndex,
+                            contentIndex
+                          )
+                        }
+                        className="bg-red-500 text-white p-2 rounded hover:bg-red-600"
+                        disabled={subsection.content.length <= 1}
+                      >
+                        ✕
+                      </button>
+                    </div>
+                  ))}
 
                   <button
                     type="button"
                     onClick={() =>
-                      removeSectionContent(sectionIndex, contentIndex)
+                      addSubsectionContent(sectionIndex, subsectionIndex)
                     }
-                    className="bg-red-500 text-white p-2 rounded hover:bg-red-600"
-                    disabled={section.content.length <= 1}
+                    className="mt-1 bg-blue-500 text-white px-2 py-1 rounded hover:bg-blue-600 text-sm"
                   >
-                    ✕
+                    Add Paragraph
                   </button>
                 </div>
               ))}
-
-              {section.type !== "cta" && (
-                <button
-                  type="button"
-                  onClick={() => addSectionContent(sectionIndex)}
-                  className="mt-2 bg-blue-500 text-white px-3 py-1 rounded hover:bg-blue-600"
-                >
-                  Add Paragraph
-                </button>
-              )}
-
-              {/* Subsections (only for regular sections) */}
-              {section.type !== "cta" && (
-                <div className="mt-6">
-                  <div className="flex justify-between items-center mb-4">
-                    <h3 className="text-lg font-medium">Subsections</h3>
-
-                    <button
-                      type="button"
-                      onClick={() => addSubsection(sectionIndex)}
-                      className="bg-blue-500 text-white px-3 py-1 rounded hover:bg-blue-600"
-                    >
-                      Add Subsection
-                    </button>
-                  </div>
-
-                  {section.subsections &&
-                    section.subsections.map((subsection, subsectionIndex) => (
-                      <div
-                        key={subsectionIndex}
-                        className="ml-4 mb-6 p-3 border border-gray-200 rounded-md"
-                      >
-                        <div className="flex justify-between items-center mb-2">
-                          <h4 className="font-medium">
-                            Subsection {subsectionIndex + 1}
-                          </h4>
-
-                          <button
-                            type="button"
-                            onClick={() =>
-                              removeSubsection(sectionIndex, subsectionIndex)
-                            }
-                            className="bg-red-500 text-white p-1 rounded hover:bg-red-600 text-sm"
-                          >
-                            ✕
-                          </button>
-                        </div>
-
-                        <div className="mb-3">
-                          <label className="block text-sm font-medium mb-1">
-                            Subsection Title
-                          </label>
-                          <input
-                            type="text"
-                            value={subsection.title}
-                            onChange={(e) =>
-                              handleSubsectionChange(
-                                sectionIndex,
-                                subsectionIndex,
-                                "title",
-                                e.target.value
-                              )
-                            }
-                            className="w-full p-2 border rounded"
-                            placeholder="Subsection title"
-                          />
-                        </div>
-
-                        <h5 className="text-sm font-medium mb-2">Content</h5>
-
-                        {subsection.content.map((paragraph, contentIndex) => (
-                          <div
-                            key={contentIndex}
-                            className="mb-3 flex items-start"
-                          >
-                            <textarea
-                              value={paragraph}
-                              onChange={(e) =>
-                                handleSubsectionContentChange(
-                                  sectionIndex,
-                                  subsectionIndex,
-                                  contentIndex,
-                                  e.target.value
-                                )
-                              }
-                              className="w-full p-2 border rounded mr-2"
-                              rows={3}
-                              placeholder={`Subsection content paragraph ${
-                                contentIndex + 1
-                              }`}
-                            />
-
-                            <button
-                              type="button"
-                              onClick={() =>
-                                removeSubsectionContent(
-                                  sectionIndex,
-                                  subsectionIndex,
-                                  contentIndex
-                                )
-                              }
-                              className="bg-red-500 text-white p-2 rounded hover:bg-red-600"
-                              disabled={subsection.content.length <= 1}
-                            >
-                              ✕
-                            </button>
-                          </div>
-                        ))}
-
-                        <button
-                          type="button"
-                          onClick={() =>
-                            addSubsectionContent(sectionIndex, subsectionIndex)
-                          }
-                          className="mt-1 bg-blue-500 text-white px-2 py-1 rounded hover:bg-blue-600 text-sm"
-                        >
-                          Add Paragraph
-                        </button>
-                      </div>
-                    ))}
-                </div>
-              )}
-            </div>
-          ))}
-
-          <button
-            type="button"
-            onClick={addSection}
-            className="bg-green-500 text-white px-4 py-2 rounded hover:bg-green-600"
-          >
-            Add New Section
-          </button>
-
-          <div className="flex justify-end mt-8">
-            <button
-              type="submit"
-              disabled={submitting}
-              className={`px-6 py-2 rounded ${
-                submitting ? "bg-gray-400" : "bg-green-500 hover:bg-green-600"
-              } text-white`}
-            >
-              {submitting ? "Submitting..." : "Save Blog Post"}
-            </button>
           </div>
-        </form>
-      )}
+        )}
+      </div>
+    ))}
+
+    <button
+      type="button"
+      onClick={addSection}
+      className="bg-green-500 text-white px-4 py-2 rounded hover:bg-green-600"
+    >
+      Add New Section
+    </button>
+
+    <div className="flex justify-end mt-8">
+      <button
+        type="submit"
+        disabled={submitting}
+        className={`px-6 py-2 rounded ${
+          submitting ? "bg-gray-400" : "bg-green-500 hover:bg-green-600"
+        } text-white`}
+      >
+        {submitting ? "Submitting..." : "Save Blog Post"}
+      </button>
+    </div>
+  </form>)
+}
+
+export default BlogAdmin;
+
+const ManagePosts = ({ onEdit }) => {
+  const [posts, setPosts] = useState([]);
+  const [loading, setLoading] = useState(true);
+
+  const fetchPosts = async () => {
+    setLoading(true);
+    const querySnapshot = await getDocs(collection(db, "blogs"));
+    const postsData = querySnapshot.docs.map((doc) => ({ id: doc.id, ...doc.data() }));
+    setPosts(postsData);
+    setLoading(false);
+  };
+
+  const deletePost = async (id) => {
+    await deleteDoc(doc(db, "blogs", id));
+    fetchPosts();
+  };
+
+  const toggleVisibility = async (id, visible) => {
+    await updateDoc(doc(db, "blogs", id), { visible: !visible });
+    fetchPosts();
+  };
+
+  useEffect(() => {
+    fetchPosts();
+  }, []);
+
+  if (loading) return <p>Loading posts...</p>;
+
+  return (
+    <div className="mt-10">
+      <h2 className="text-2xl font-semibold mb-4">Manage Blog Posts</h2>
+      <ul className="space-y-4">
+        {posts.map((post) => (
+          <li
+            key={post.id}
+            className="border p-4 rounded shadow flex justify-between items-center"
+          >
+            <div>
+              <p className="text-lg font-medium">{post.title}</p>
+              <p className="text-sm text-gray-500">{post.date}</p>
+              <p className="text-sm text-gray-700">
+                Visibility:{" "}
+                <span className={post.visible ? "text-green-600" : "text-red-600"}>
+                  {post.visible ? "Visible" : "Hidden"}
+                </span>
+              </p>
+            </div>
+            <div className="flex gap-2">
+              <button
+                onClick={() => onEdit(post)}
+                className="bg-blue-500 text-white px-3 py-1 rounded hover:bg-blue-600"
+              >
+                Edit
+              </button>
+              <button
+                onClick={() => toggleVisibility(post.id, post.visible)}
+                className="bg-yellow-500 text-white px-3 py-1 rounded hover:bg-yellow-600"
+              >
+                Toggle Visibility
+              </button>
+              <button
+                onClick={() => deletePost(post.id)}
+                className="bg-red-500 text-white px-3 py-1 rounded hover:bg-red-600"
+              >
+                Delete
+              </button>
+            </div>
+          </li>
+        ))}
+      </ul>
     </div>
   );
 };
-
-export default BlogAdmin;
