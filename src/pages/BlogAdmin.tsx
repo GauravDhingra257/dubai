@@ -775,7 +775,8 @@ const ManagePosts = ({ onEdit }) => {
   };
 
   const toggleVisibility = async (id, visible) => {
-    await updateDoc(doc(db, "blogs", id), { visible: !visible });
+    console.log(id, visible);
+    await updateDoc(doc(db, "blogs", String(id)), { visible: !visible });
     fetchPosts();
   };
 

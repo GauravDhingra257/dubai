@@ -41,7 +41,7 @@ function App() {
         const blogPost = querySnapshot.docs.map((doc) => ({
           id: doc.id,
           ...doc.data(),
-        }));
+        }))?.filter(blog=>(blog?.visible=="true" || blog?.visible==true));
         setBlogs(blogPost);
       })();
     }
