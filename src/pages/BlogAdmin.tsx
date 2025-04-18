@@ -764,14 +764,11 @@ const ManagePosts = ({ onEdit }) => {
       id: doc.id,
       ...doc.data(),
     }));
-    console.log("Fetched posts:", postsData);
     setPosts(postsData);
     setLoading(false);
   };
 
   const deletePost = async (id) => {
-    console.log("Deleting post with ID:", id);
-    console.log(db, "blogs", id);
     const dbref=doc(db, "blogs", String(id))
     await deleteDoc(dbref);
     fetchPosts();
