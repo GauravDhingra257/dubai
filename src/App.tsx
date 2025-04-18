@@ -17,17 +17,35 @@ import CompanyLiquidation from "./pages/MainServices/CompanyLiquidation";
 import ContactPage from "./pages/Contact";
 import CalculateSetup from "./pages/MainServices/CalculateSetup";
 import BlogPage from "./pages/Blog";
-import { ContactUs } from "./pages/Contact";
 import BusinessBanner from "./components/BookApointmentComp";
-import { useEffect } from "react";
+import { useEffect, useState } from "react";
 import PrivacyPolicy from "./pages/PrivacyPolicy";
 import TermsAnConditionss from "./pages/TermsAnConditionss";
 import Partners from "./pages/Partners";
 import BlogAdmin from "./pages/BlogAdmin";
+import { ADMIN_EMAIL, ADMIN_PASSWORD } from "./Constants/config";
+import { useBlogStore } from "./store/store";
+import { getApp } from "firebase/app";
+import { getFirestore, getDocs, collection } from "firebase/firestore";
 
 // Import other pages as needed
 
 function App() {
+  const blogs = useBlogStore((state) => state.blogs);
+  const setBlogs = useBlogStore((state) => state.setBlogs);
+  useEffect(() => {
+    if (blogs.length === 0) {
+      (async () => {
+        const db = getFirestore(getApp());
+        const querySnapshot = await getDocs(collection(db, "blogs"));
+        const blogPost = querySnapshot.docs.map((doc) => ({
+          id: doc.id,
+          ...doc.data(),
+        }));
+        setBlogs(blogPost);
+      })();
+    }
+  }, []);
   return (
     <Router>
       <div className="flex min-h-screen flex-col">
@@ -51,7 +69,9 @@ function App() {
               <Route path="/privacypolicy" element={<PrivacyPolicy />} />
               <Route path="/terms" element={<TermsAnConditionss />} />
               <Route path="/partners" element={<Partners />} />
-              <Route path="/blogadmin" element={<BlogAdmin />} />
+              <Route path="/blogadmin" element={    <ProtectedRoute>
+      <BlogAdmin />
+    </ProtectedRoute>} />
             </Routes>
           </Layout>
         </main>
@@ -73,4 +93,54 @@ const Layout = ({ children }) => {
   return <>{children}</>;
 };
 
+
+
+const ProtectedRoute = ({ children }) => {
+  const [authed, setAuthed] = useState(false);
+  const [email, setEmail] = useState("");
+  const [password, setPassword] = useState("");
+
+  const handleLogin = (e) => {
+    e.preventDefault();
+    if (email === ADMIN_EMAIL && password === ADMIN_PASSWORD) {
+      setAuthed(true);
+    } else {
+      alert("Invalid credentials");
+    }
+  };
+
+  if (!authed) {
+    return (
+      <div className="flex flex-col items-center justify-center min-h-screen">
+        <form onSubmit={handleLogin} className="bg-white p-8 rounded shadow w-80">
+          <h2 className="text-xl mb-4 font-bold">Admin Login</h2>
+          <input
+            type="email"
+            placeholder="Email"
+            className="w-full mb-2 p-2 border rounded"
+            value={email}
+            onChange={e => setEmail(e.target.value)}
+            required
+          />
+          <input
+            type="password"
+            placeholder="Password"
+            className="w-full mb-4 p-2 border rounded"
+            value={password}
+            onChange={e => setPassword(e.target.value)}
+            required
+          />
+          <button
+            type="submit"
+            className="w-full bg-blue-600 text-white py-2 rounded"
+          >
+            Login
+          </button>
+        </form>
+      </div>
+    );
+  }
+
+  return children;
+};
 export default App;

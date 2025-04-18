@@ -1,10 +1,8 @@
 import { BlogsSection } from "../components/BlogsSection";
 import FAQAccordion from "../components/Faq";
-import NewsEventsSection from "../components/NewsSection";
 import MainServices, {
   AboutCompanySection,
   CaseStudies,
-  ClientsSpeak,
   LeadershipTeamSection,
   PartnersSection,
   WhyUs,
@@ -12,9 +10,10 @@ import MainServices, {
   ValueAddedServices,
   VideoSection,
 } from "../components/LandingPageComponents";
-import { Fade, Slide, Zoom } from "react-awesome-reveal";
+import { Fade, Zoom } from "react-awesome-reveal";
 
 const HeroSection = () => {
+
   return (
     <>
       <Fade triggerOnce direction="up">
