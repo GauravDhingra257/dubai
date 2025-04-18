@@ -30,7 +30,7 @@ export const BlogsSection = () => {
               </div>
             </div>
             <div className="md:w-1/2 flex flex-col justify-center">
-              <div className="mb-2 text-gray-600">{mainPost?.author || "—"}</div>
+              <div className="mb-2 text-gray-600">{mainPost?.author || ""}</div>
               <div className="mb-2 text-gray-600">{mainPost?.date}</div>
               <h2 className="text-2xl font-bold mb-4">
                 {mainPost?.title}

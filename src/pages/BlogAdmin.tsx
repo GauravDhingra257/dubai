@@ -25,11 +25,11 @@ const BlogAdmin = () => {
   const [success, setSuccess] = useState(false);
 
   const initialBlogState = {
-    // id: Date.now(),
     title: "",
     date: formatDate(new Date()),
     featuredImage: "",
     imageAlt: "",
+    author: "",
     introduction: [""],
     tableOfContents: [],
     sections: [],
@@ -363,6 +363,17 @@ export const BlogForm = ({
             onChange={handleChange}
             className="w-full p-2 border rounded"
             placeholder="Enter blog title"
+          />
+        </div>
+        <div className="mb-4">
+          <label className="block text-sm font-medium mb-1">Author</label>
+          <input
+            type="text"
+            name="author"
+            value={blog.author}
+            onChange={handleChange}
+            className="w-full p-2 border rounded"
+            placeholder="Author name (default: HaGroup)"
           />
         </div>
         <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
