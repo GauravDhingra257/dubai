@@ -752,6 +752,7 @@ export default BlogAdmin;
 const ManagePosts = ({ onEdit }) => {
   const [posts, setPosts] = useState([]);
   const [loading, setLoading] = useState(true);
+  const [notification, setNotification] = useState("");
 
   const fetchPosts = async () => {
     setLoading(true);
@@ -765,33 +766,62 @@ const ManagePosts = ({ onEdit }) => {
   };
 
   const deletePost = async (id) => {
-    const dbref=doc(db, "blogs", String(id))
-    await deleteDoc(dbref);
-    fetchPosts();
+    setLoading(true);
+    try {
+      const dbref = doc(db, "blogs", String(id));
+      await deleteDoc(dbref);
+      setNotification("Post deleted successfully!");
+      fetchPosts();
+    } catch (err) {
+      setNotification("Failed to delete post.");
+      setLoading(false);
+    }
+    setTimeout(() => setNotification(""), 3000);
   };
 
   const toggleVisibility = async (id, visible) => {
-    console.log(id, visible);
-    await updateDoc(doc(db, "blogs", String(id)), { visible: !visible });
-    fetchPosts();
+    setLoading(true);
+    try {
+      await updateDoc(doc(db, "blogs", String(id)), { visible: !visible });
+      setNotification("Visibility updated!");
+      fetchPosts();
+    } catch (err) {
+      setNotification("Failed to update visibility.");
+      setLoading(false);
+    }
+    setTimeout(() => setNotification(""), 3000);
   };
 
   useEffect(() => {
     fetchPosts();
   }, []);
 
-  if (loading) return <p>Loading posts...</p>;
+  if (loading)
+    return (
+      <div className="flex justify-center items-center py-10">
+        <svg className="animate-spin h-8 w-8 text-blue-500 mr-2" viewBox="0 0 24 24">
+          <circle className="opacity-25" cx="12" cy="12" r="10" stroke="currentColor" strokeWidth="4" fill="none"/>
+          <path className="opacity-75" fill="currentColor" d="M4 12a8 8 0 018-8v8z"/>
+        </svg>
+        <span>Loading posts...</span>
+      </div>
+    );
 
   return (
     <div className="mt-10">
       <h2 className="text-2xl font-semibold mb-4">Manage Blog Posts</h2>
+      {notification && (
+        <div className="mb-4 px-4 py-2 rounded bg-green-100 border border-green-400 text-green-700">
+          {notification}
+        </div>
+      )}
       <ul className="space-y-4">
         {posts.map((post) => (
           <li
             key={post.id}
-            className="border p-4 rounded shadow flex justify-between items-center"
+            className="border p-4 rounded shadow flex flex-col sm:flex-row sm:justify-between sm:items-center gap-4"
           >
-            <div>
+            <div className="flex-1">
               <p className="text-lg font-medium">{post.title}</p>
               <p className="text-sm text-gray-500">{post.date}</p>
               <p className="text-sm text-gray-700">
@@ -803,22 +833,22 @@ const ManagePosts = ({ onEdit }) => {
                 </span>
               </p>
             </div>
-            <div className="flex gap-2">
+            <div className="flex flex-col sm:flex-row gap-2 w-full sm:w-auto">
               <button
                 onClick={() => onEdit(post)}
-                className="bg-blue-500 text-white px-3 py-1 rounded hover:bg-blue-600"
+                className="bg-blue-500 text-white px-3 py-2 rounded hover:bg-blue-600 w-full sm:w-auto"
               >
                 Edit
               </button>
               <button
                 onClick={() => toggleVisibility(post.id, post.visible)}
-                className="bg-yellow-500 text-white px-3 py-1 rounded hover:bg-yellow-600"
+                className="bg-yellow-500 text-white px-3 py-2 rounded hover:bg-yellow-600 w-full sm:w-auto"
               >
                 Toggle Visibility
               </button>
               <button
                 onClick={() => deletePost(post.id)}
-                className="bg-red-500 text-white px-3 py-1 rounded hover:bg-red-600"
+                className="bg-red-500 text-white px-3 py-2 rounded hover:bg-red-600 w-full sm:w-auto"
               >
                 Delete
               </button>
