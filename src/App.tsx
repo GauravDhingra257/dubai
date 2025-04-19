@@ -38,10 +38,12 @@ function App() {
       (async () => {
         const db = getFirestore(getApp());
         const querySnapshot = await getDocs(collection(db, "blogs"));
-        const blogPost = querySnapshot.docs.map((doc) => ({
-          id: doc.id,
-          ...doc.data(),
-        }))?.filter(blog=>(blog?.visible=="true" || blog?.visible==true));
+        const blogPost = querySnapshot.docs
+          .map((doc) => ({
+            id: doc.id,
+            ...doc.data(),
+          }))
+          ?.filter((blog) => blog?.visible == "true" || blog?.visible == true);
         setBlogs(blogPost);
       })();
     }
@@ -69,9 +71,14 @@ function App() {
               <Route path="/privacypolicy" element={<PrivacyPolicy />} />
               <Route path="/terms" element={<TermsAnConditionss />} />
               <Route path="/partners" element={<Partners />} />
-              <Route path="/blogadmin" element={    <ProtectedRoute>
-      <BlogAdmin />
-    </ProtectedRoute>} />
+              <Route
+                path="/blogadmin"
+                element={
+                  <ProtectedRoute>
+                    <BlogAdmin />
+                  </ProtectedRoute>
+                }
+              />
             </Routes>
           </Layout>
         </main>
@@ -93,8 +100,6 @@ const Layout = ({ children }) => {
   return <>{children}</>;
 };
 
-
-
 const ProtectedRoute = ({ children }) => {
   const [authed, setAuthed] = useState(false);
   const [email, setEmail] = useState("");
@@ -112,14 +117,17 @@ const ProtectedRoute = ({ children }) => {
   if (!authed) {
     return (
       <div className="flex flex-col items-center justify-center min-h-screen">
-        <form onSubmit={handleLogin} className="bg-white p-8 rounded shadow w-80">
+        <form
+          onSubmit={handleLogin}
+          className="bg-white p-8 rounded shadow w-80"
+        >
           <h2 className="text-xl mb-4 font-bold">Admin Login</h2>
           <input
             type="email"
             placeholder="Email"
             className="w-full mb-2 p-2 border rounded"
             value={email}
-            onChange={e => setEmail(e.target.value)}
+            onChange={(e) => setEmail(e.target.value)}
             required
           />
           <input
@@ -127,7 +135,7 @@ const ProtectedRoute = ({ children }) => {
             placeholder="Password"
             className="w-full mb-4 p-2 border rounded"
             value={password}
-            onChange={e => setPassword(e.target.value)}
+            onChange={(e) => setPassword(e.target.value)}
             required
           />
           <button
