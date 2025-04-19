@@ -2,6 +2,8 @@ import { InlineWidget } from "react-calendly";
 import BookAppointmentTri from "../assets/images/triangles/BookAppointmentTri.png";
 import { Fade, Zoom } from "react-awesome-reveal";
 import { calendlyUrl } from "../Constants/constant";
+import main from "../assets/images/appointment/main.png"
+import connect from "../assets/images/appointment/connect.png";
 const BusinessBanner = () => {
   return (
     <>
@@ -10,7 +12,7 @@ const BusinessBanner = () => {
         <div className="relative">
           <img
             loading="lazy"
-            src="https://s3-alpha-sig.figma.com/img/8397/6fcb/d8d5f0c8c9455d85957eca0526b16177?Expires=1743379200&Key-Pair-Id=APKAQ4GOSFWCW27IBOMQ&Signature=crBNf-U-d3zbdz48MNuz-UyaEl7GOQ5PlZkdmUbl6t8VLQdqews80v2nsHcB~sQe0~l1xgKIRscyDT5pY2~NNnNTZzI~oAdN9c7B8Lxn4ZB5ts~3VbCS9YxuxvkU5wBo3ktWAllW2mSXYT6uM~aRGnBf8vLaN9tFGpe3OM2Cfm2ZYAvgYjF9bOzV2PiwOI1A-13Owkf6LKPmmw7ezSn7i7KHnYtyiurtL-gxSz3DciPU5Q~PK5NeoO1a7opbJihMCdh8JUVKBIv85GnmqWuIvQ3UuAj6uRhHSA6tf6z-v5U8fD-uzlkRLBZT6Bo2jUTLuvxxX~cz42vce2vtFD5piA__"
+            src={main}
             alt="Empower Business"
             className="w-full min-h-108 object-cover rounded-4xl"
           />
@@ -77,9 +79,9 @@ export const LetsConnect = () => {
         <div className="flex justify-center">
           <img
             loading="lazy"
-            src="https://s3-alpha-sig.figma.com/img/65d1/de9e/b5ce074e5491dfebebbdc4246cd39961?Expires=1743379200&Key-Pair-Id=APKAQ4GOSFWCW27IBOMQ&Signature=IDKWQGvQvLPzOU5vhGwCfS8LFevwAJitB5gtAIudv62D5GraUoAKUj~du0Oi7aFNQ9uW5PYM3ixfhUidKFrCniVfTIyF88rjvDe2B0ep6onwwFim0rBHoznXnODDCWu6TZtari9kg0cNYeW2ZhlxcYQ-2KYY28SclcfGzmHiei8PgIWP1un2wIho3rPHx6j7eakyFJoMeTNySmkO-K2ZIJ-5sZC0bw6rcy~8l0n7xzixz8J~Q4L2-upbkrT1IXm2EUr6l63MKpvm~~szgMMQ0-StOcoscvuwgdA9cGUmbeCAK57-HK8TKrhdm5iBigW~LMQWjw4rKKPFcYgV3lGSrg__"
+            src={connect}
             alt="Let's Connect"
-            className=" h-108 max-w-sm rounded-lg object-cover shadow-lg"
+            className=" h-108 max-w-sm rounded-lg object-cover shadow-xl shadow-blue-500/50"
           />
         </div>
         </Fade>
@@ -127,7 +129,7 @@ export const MeetHAGroup = () => {
           ))}
         </div>
 
-        <button className="mt-6 bg-red-500 text-white px-6 py-2 rounded-lg font-semibold hover:bg-red-600">
+        <button className="mt-6 bg-red-500 text-white px-6 py-2 rounded-lg font-semibold hover:bg-red-600" onClick={() => window.open(calendlyUrl)}>
           Know more
         </button>
         </Fade>
