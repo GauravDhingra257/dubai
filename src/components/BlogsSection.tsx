@@ -62,7 +62,13 @@ export const BlogsList = () => {
   };
 
   const visiblePosts = blogPosts?.slice(0, visibleCount);
-
+  if (!blogPosts || blogPosts.length === 0) {
+    return (
+      <div className="text-center text-gray-500 py-12">
+        No blogs available.
+      </div>
+    );
+  }
   return (
     <div className="space-y-6">
       <Fade triggerOnce direction="up" cascade damping={0.1}>
@@ -71,7 +77,9 @@ export const BlogsList = () => {
             key={post?.id}
             className={`grid grid-cols-6 md:grid-cols-12 gap-4 ${
               index !== visiblePosts.length - 1 ? "border-b border-gray-200" : ""
-            } pb-6`}
+            } pb-6 hover:cursor-pointer`}                 onClick={() => {
+              navigate(`/Blog`, { state: { post } });
+            }}
           >
             <div className="col-span-6 md:col-span-2">
               <img
@@ -84,9 +92,7 @@ export const BlogsList = () => {
             <div className="col-span-4 md:col-span-3">
               <div
                 className="text-sm font-medium hover:text-blue-400 transition-colors cursor-pointer"
-                onClick={() => {
-                  navigate(`/Blog`, { state: { post } });
-                }}
+
               >
                 {post?.title}
               </div>
