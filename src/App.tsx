@@ -3,6 +3,7 @@ import {
   Routes,
   Route,
   useLocation,
+  Link,
 } from "react-router-dom";
 import "./App.css";
 import Header from "./components/header";
@@ -29,7 +30,20 @@ import { getApp } from "firebase/app";
 import { getFirestore, getDocs, collection } from "firebase/firestore";
 
 // Import other pages as needed
-
+function NotFoundPage() {
+  return (
+    <div className="flex flex-col items-center justify-center min-h-[60vh] text-center">
+      <h1 className="text-4xl font-bold mb-4 text-blue-700">404 - Page Not Found</h1>
+      <p className="mb-8 text-gray-600">Sorry, the page you are looking for does not exist.</p>
+      <Link
+        to="/"
+        className="inline-block px-6 py-3 rounded bg-gradient-to-r from-blue-500 to-blue-700 text-white font-semibold shadow hover:from-blue-600 hover:to-blue-800 transition"
+      >
+        Return to Homepage
+      </Link>
+    </div>
+  );
+}
 function App() {
   const blogs = useBlogStore((state) => state.blogs);
   const setBlogs = useBlogStore((state) => state.setBlogs);
@@ -79,6 +93,8 @@ function App() {
                   </ProtectedRoute>
                 }
               />
+               {/* Not Found Route */}
+               <Route path="*" element={<NotFoundPage />} />
             </Routes>
           </Layout>
         </main>
