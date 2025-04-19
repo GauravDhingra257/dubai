@@ -1,6 +1,7 @@
 {
   "name": "dubai",
   "private": true,
+  "homepage": "https://hagroup.ae",
   "version": "0.0.0",
   "type": "module",
   "scripts": {
